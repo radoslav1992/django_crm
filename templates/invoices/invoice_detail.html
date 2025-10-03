@@ -1,0 +1,184 @@
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block title %}{% trans "Invoice" %} {{ invoice.invoice_number }} - CRM{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-8">
+        <h1>{% trans "Invoice" %} {{ invoice.invoice_number }}</h1>
+        <p class="text-muted">
+            <span class="badge bg-{{ invoice.status }}">{{ invoice.get_status_display }}</span>
+        </p>
+    </div>
+    <div class="col-md-4 text-end no-print">
+        <a href="{% url 'invoices:invoice_update' invoice.pk %}" class="btn btn-primary">
+            <i class="bi bi-pencil"></i> {% trans "Edit" %}
+        </a>
+        <a href="{% url 'invoices:invoice_pdf' invoice.pk %}" class="btn btn-info" target="_blank">
+            <i class="bi bi-file-pdf"></i> {% trans "PDF" %}
+        </a>
+        <button onclick="window.print()" class="btn btn-secondary">
+            <i class="bi bi-printer"></i> {% trans "Print" %}
+        </button>
+    </div>
+</div>
+
+<div class="card border-0 shadow-sm">
+    <div class="card-body invoice-container">
+        <!-- Invoice Header -->
+        <div class="invoice-header">
+            <div class="row">
+                <div class="col-6">
+                    <h2>{% trans "INVOICE" %}</h2>
+                    {% if invoice.template and invoice.template.logo %}
+                    <img src="{{ invoice.template.logo.url }}" alt="Logo" style="max-height: 60px;">
+                    {% endif %}
+                </div>
+                <div class="col-6 text-end">
+                    <h3>{{ invoice.invoice_number }}</h3>
+                    <p class="mb-0"><strong>{% trans "Date:" %}</strong> {{ invoice.invoice_date|date:"d M Y" }}</p>
+                    <p class="mb-0"><strong>{% trans "Due:" %}</strong> {{ invoice.due_date|date:"d M Y" }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Client & Company Info -->
+        <div class="row mt-4">
+            <div class="col-6">
+                <h6>{% trans "From:" %}</h6>
+                <p class="mb-0"><strong>{{ user.company_name }}</strong></p>
+                {% if user.vat_number %}<p class="mb-0">{% trans "VAT:" %} {{ user.vat_number }}</p>{% endif %}
+                {% if user.address %}<p class="mb-0">{{ user.address }}</p>{% endif %}
+                {% if user.city %}<p class="mb-0">{{ user.city }}, {{ user.country }}</p>{% endif %}
+            </div>
+            <div class="col-6">
+                <h6>{% trans "Bill To:" %}</h6>
+                <p class="mb-0"><strong>{{ invoice.client_name }}</strong></p>
+                {% if invoice.client_vat_number %}<p class="mb-0">{% trans "VAT:" %} {{ invoice.client_vat_number }}</p>{% endif %}
+                {% if invoice.client_address %}<p class="mb-0">{{ invoice.client_address }}</p>{% endif %}
+                {% if invoice.client_email %}<p class="mb-0">{{ invoice.client_email }}</p>{% endif %}
+            </div>
+        </div>
+
+        <!-- Invoice Items -->
+        <div class="mt-4">
+            <table class="table invoice-table">
+                <thead>
+                    <tr>
+                        <th>{% trans "Description" %}</th>
+                        <th class="text-center">{% trans "Qty" %}</th>
+                        <th class="text-end">{% trans "Unit Price" %}</th>
+                        <th class="text-end">{% trans "Total" %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in invoice.items.all %}
+                    <tr>
+                        <td>{{ item.description }}</td>
+                        <td class="text-center">{{ item.quantity }}</td>
+                        <td class="text-end">{{ invoice.currency }} {{ item.unit_price|floatformat:2 }}</td>
+                        <td class="text-end">{{ invoice.currency }} {{ item.total|floatformat:2 }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3" class="text-end"><strong>{% trans "Subtotal:" %}</strong></td>
+                        <td class="text-end">{{ invoice.currency }} {{ invoice.subtotal|floatformat:2 }}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="text-end"><strong>{% trans "Tax" %} ({{ invoice.tax_rate }}%):</strong></td>
+                        <td class="text-end">{{ invoice.currency }} {{ invoice.tax_amount|floatformat:2 }}</td>
+                    </tr>
+                    <tr class="table-primary">
+                        <td colspan="3" class="text-end"><strong>{% trans "TOTAL:" %}</strong></td>
+                        <td class="text-end"><strong>{{ invoice.currency }} {{ invoice.total_amount|floatformat:2 }}</strong></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="text-end">{% trans "Paid:" %}</td>
+                        <td class="text-end">{{ invoice.currency }} {{ invoice.paid_amount|floatformat:2 }}</td>
+                    </tr>
+                    <tr class="table-warning">
+                        <td colspan="3" class="text-end"><strong>{% trans "Balance Due:" %}</strong></td>
+                        <td class="text-end"><strong>{{ invoice.currency }} {{ invoice.balance_due|floatformat:2 }}</strong></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+        <!-- QR Code -->
+        {% if invoice.qr_code %}
+        <div class="row mt-4 no-print">
+            <div class="col-12 text-center">
+                <h6>{% trans "Scan to Pay" %}</h6>
+                <img src="{{ invoice.qr_code.url }}" alt="QR Code" class="qr-code-display">
+                {% if invoice.payment_url %}
+                <p class="mt-2">
+                    <a href="{{ invoice.payment_url }}" target="_blank" class="btn btn-primary">
+                        <i class="bi bi-credit-card"></i> {% trans "Pay Online" %}
+                    </a>
+                </p>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Notes & Terms -->
+        {% if invoice.notes or invoice.terms %}
+        <div class="mt-4">
+            {% if invoice.notes %}
+            <h6>{% trans "Notes:" %}</h6>
+            <p>{{ invoice.notes|linebreaks }}</p>
+            {% endif %}
+            
+            {% if invoice.terms %}
+            <h6 class="mt-3">{% trans "Terms & Conditions:" %}</h6>
+            <p>{{ invoice.terms|linebreaks }}</p>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<!-- Payments -->
+<div class="row mt-4 no-print">
+    <div class="col-12">
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">{% trans "Payments" %}</h5>
+                <a href="{% url 'invoices:payment_create' %}" class="btn btn-sm btn-success">
+                    <i class="bi bi-plus-circle"></i> {% trans "Record Payment" %}
+                </a>
+            </div>
+            <div class="card-body">
+                {% if invoice.payments.all %}
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>{% trans "Date" %}</th>
+                            <th>{% trans "Amount" %}</th>
+                            <th>{% trans "Method" %}</th>
+                            <th>{% trans "Reference" %}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for payment in invoice.payments.all %}
+                        <tr>
+                            <td>{{ payment.payment_date|date:"d M Y" }}</td>
+                            <td>{{ payment.currency }} {{ payment.amount|floatformat:2 }}</td>
+                            <td>{{ payment.get_payment_method_display }}</td>
+                            <td>{{ payment.reference|default:"-" }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                <p class="text-muted">{% trans "No payments recorded yet" %}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

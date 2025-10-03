@@ -1,0 +1,316 @@
+/* Custom styles for Django CRM */
+
+:root {
+    --primary-color: #0d6efd;
+    --secondary-color: #6c757d;
+    --success-color: #198754;
+    --info-color: #0dcaf0;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.card {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+.list-group-item-action:hover {
+    background-color: #f8f9fa;
+}
+
+.badge {
+    padding: 0.35em 0.65em;
+}
+
+.bg-low {
+    background-color: var(--info-color) !important;
+}
+
+.bg-medium {
+    background-color: var(--warning-color) !important;
+}
+
+.bg-high {
+    background-color: var(--danger-color) !important;
+}
+
+.bg-open {
+    background-color: var(--info-color) !important;
+}
+
+.bg-won {
+    background-color: var(--success-color) !important;
+}
+
+.bg-lost {
+    background-color: var(--secondary-color) !important;
+}
+
+.bg-draft {
+    background-color: var(--secondary-color) !important;
+}
+
+.bg-sent {
+    background-color: var(--info-color) !important;
+}
+
+.bg-paid {
+    background-color: var(--success-color) !important;
+}
+
+.bg-overdue {
+    background-color: var(--danger-color) !important;
+}
+
+/* Responsive table */
+.table-responsive {
+    border-radius: 0.5rem;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Loading spinner */
+.spinner-border-sm {
+    width: 1rem;
+    height: 1rem;
+    border-width: 0.15rem;
+}
+
+/* AI Chat specific styles */
+.ai-chat-container {
+    height: 600px;
+    overflow-y: auto;
+}
+
+.ai-message {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+}
+
+.ai-message.user {
+    background-color: #e3f2fd;
+    margin-left: 3rem;
+}
+
+.ai-message.assistant {
+    background-color: #f5f5f5;
+    margin-right: 3rem;
+}
+
+/* Markdown content styling */
+.ai-message-content h1,
+.ai-message-content h2,
+.ai-message-content h3 {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.ai-message-content h1 {
+    font-size: 1.5rem;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 0.3rem;
+}
+
+.ai-message-content h2 {
+    font-size: 1.3rem;
+    color: #0056b3;
+}
+
+.ai-message-content h3 {
+    font-size: 1.1rem;
+    color: #0056b3;
+}
+
+.ai-message-content ul,
+.ai-message-content ol {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.ai-message-content li {
+    margin-bottom: 0.5rem;
+}
+
+.ai-message-content p {
+    margin-bottom: 0.75rem;
+}
+
+.ai-message-content code {
+    background-color: #f8f9fa;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.25rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+    color: #d63384;
+}
+
+.ai-message-content pre {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border-left: 4px solid #007bff;
+    overflow-x: auto;
+    margin: 1rem 0;
+}
+
+.ai-message-content pre code {
+    background-color: transparent;
+    padding: 0;
+    color: inherit;
+}
+
+.ai-message-content blockquote {
+    border-left: 4px solid #6c757d;
+    padding-left: 1rem;
+    margin-left: 0;
+    color: #6c757d;
+    font-style: italic;
+}
+
+.ai-message-content strong {
+    font-weight: 600;
+    color: #000;
+}
+
+.ai-message-content em {
+    font-style: italic;
+}
+
+.ai-message-content a {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+.ai-message-content a:hover {
+    color: #0056b3;
+}
+
+.ai-message-content table {
+    width: 100%;
+    margin: 1rem 0;
+    border-collapse: collapse;
+}
+
+.ai-message-content table th,
+.ai-message-content table td {
+    padding: 0.5rem;
+    border: 1px solid #dee2e6;
+}
+
+.ai-message-content table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+}
+
+.ai-message-content hr {
+    margin: 1.5rem 0;
+    border-color: #dee2e6;
+}
+
+/* Template Studio */
+.template-preview {
+    border: 1px solid #dee2e6;
+    padding: 2rem;
+    background: white;
+    min-height: 400px;
+}
+
+.template-editor {
+    font-family: 'Courier New', monospace;
+}
+
+/* Invoice styling */
+.invoice-container {
+    background: white;
+    padding: 3rem;
+    border: 1px solid #dee2e6;
+}
+
+.invoice-header {
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+}
+
+.invoice-table th {
+    background-color: #f8f9fa;
+}
+
+.qr-code-display {
+    max-width: 200px;
+}
+
+/* Print styles */
+@media print {
+    .navbar, footer, .btn, .no-print {
+        display: none !important;
+    }
+    
+    .invoice-container {
+        border: none;
+        padding: 0;
+    }
+}
+
+/* Utility classes */
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.text-purple {
+    color: #6f42c1 !important;
+}
+
+.bg-purple {
+    background-color: #6f42c1 !important;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease-in;
+}
+

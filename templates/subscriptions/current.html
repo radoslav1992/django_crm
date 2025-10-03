@@ -1,0 +1,208 @@
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block title %}{% trans "My Subscription" %} - CRM{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-8">
+        <h1>{% trans "My Subscription" %}</h1>
+    </div>
+    <div class="col-md-4 text-end">
+        <a href="{% url 'subscriptions:plans' %}" class="btn btn-primary">
+            <i class="bi bi-arrow-up-circle"></i> {% trans "Change Plan" %}
+        </a>
+    </div>
+</div>
+
+<div class="row g-4">
+    <!-- Current Plan -->
+    <div class="col-md-6">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">{% trans "Current Plan" %}</h4>
+            </div>
+            <div class="card-body">
+                <div class="text-center mb-4">
+                    <h1 class="display-3">{{ subscription.get_plan_display }}</h1>
+                    <p class="lead">
+                        {% if plan_config.price == 0 %}
+                            {% trans "Free" %}
+                        {% else %}
+                            €{{ plan_config.price }} <small>{% trans "per month" %}</small>
+                        {% endif %}
+                    </p>
+                    <span class="badge bg-{% if subscription.status == 'active' %}success{% else %}warning{% endif %} fs-6">
+                        {{ subscription.get_status_display }}
+                    </span>
+                </div>
+
+                <hr>
+
+                <h6>{% trans "Plan Limits" %}</h6>
+                <ul class="list-unstyled">
+                    <li class="mb-2">
+                        <i class="bi bi-check-circle-fill text-success"></i>
+                        {% if plan_config.contacts_limit == -1 %}
+                            {% trans "Unlimited contacts" %}
+                        {% else %}
+                            {{ plan_config.contacts_limit }} {% trans "contacts" %}
+                        {% endif %}
+                    </li>
+                    <li class="mb-2">
+                        <i class="bi bi-check-circle-fill text-success"></i>
+                        {% if plan_config.users_limit == -1 %}
+                            {% trans "Unlimited users" %}
+                        {% else %}
+                            {{ plan_config.users_limit }} {% trans "users" %}
+                        {% endif %}
+                    </li>
+                    <li class="mb-2">
+                        <i class="bi bi-check-circle-fill text-success"></i>
+                        {% if plan_config.ai_requests_per_month == -1 %}
+                            {% trans "Unlimited AI requests" %}
+                        {% else %}
+                            {{ plan_config.ai_requests_per_month }} {% trans "AI requests/month" %}
+                        {% endif %}
+                    </li>
+                </ul>
+
+                <h6 class="mt-3">{% trans "Features" %}</h6>
+                <ul class="list-unstyled">
+                    {% for feature in plan_config.features %}
+                    <li class="mb-2">
+                        <i class="bi bi-star-fill text-warning"></i>
+                        {% if feature == 'basic_crm' %}{% trans "Basic CRM" %}
+                        {% elif feature == 'advanced_crm' %}{% trans "Advanced CRM" %}
+                        {% elif feature == 'basic_templates' %}{% trans "Basic Templates" %}
+                        {% elif feature == 'advanced_templates' %}{% trans "Advanced Templates" %}
+                        {% elif feature == 'email_integration' %}{% trans "Email Integration" %}
+                        {% elif feature == 'basic_ai' %}{% trans "Basic AI" %}
+                        {% elif feature == 'advanced_ai' %}{% trans "Advanced AI" %}
+                        {% elif feature == 'custom_fields' %}{% trans "Custom Fields" %}
+                        {% elif feature == 'api_access' %}{% trans "API Access" %}
+                        {% elif feature == 'priority_support' %}{% trans "Priority Support" %}
+                        {% elif feature == 'white_label' %}{% trans "White Label" %}
+                        {% else %}{{ feature }}{% endif %}
+                    </li>
+                    {% endfor %}
+                </ul>
+
+                {% if subscription.current_period_end %}
+                <hr>
+                <p class="text-muted mb-0">
+                    <strong>{% trans "Next billing date:" %}</strong> {{ subscription.current_period_end|date:"d M Y" }}
+                </p>
+                {% endif %}
+
+                {% if subscription.cancel_at_period_end %}
+                <div class="alert alert-warning mt-3">
+                    <i class="bi bi-exclamation-triangle"></i>
+                    {% trans "Your subscription will be cancelled at the end of the current period." %}
+                </div>
+                {% endif %}
+            </div>
+            <div class="card-footer bg-white">
+                {% if subscription.plan != 'free' and not subscription.cancel_at_period_end %}
+                <a href="{% url 'subscriptions:cancel' %}" class="btn btn-outline-danger w-100">
+                    {% trans "Cancel Subscription" %}
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Usage Statistics -->
+    <div class="col-md-6">
+        <div class="card border-0 shadow-sm mb-3">
+            <div class="card-header bg-white">
+                <h5 class="mb-0"><i class="bi bi-graph-up"></i> {% trans "Usage This Month" %}</h5>
+            </div>
+            <div class="card-body">
+                <h6>{% trans "AI Requests" %}</h6>
+                <div class="progress mb-2" style="height: 25px;">
+                    {% if plan_config.ai_requests_per_month == -1 %}
+                        <div class="progress-bar bg-success" style="width: 5%">{{ subscription.ai_requests_used }}</div>
+                    {% else %}
+                        {% widthratio subscription.ai_requests_used plan_config.ai_requests_per_month 100 as ai_percentage %}
+                        <div class="progress-bar" style="width: {{ ai_percentage }}%">
+                            {{ subscription.ai_requests_used }} / {{ plan_config.ai_requests_per_month }}
+                        </div>
+                    {% endif %}
+                </div>
+                {% if subscription.ai_requests_reset_date %}
+                <small class="text-muted">{% trans "Resets on:" %} {{ subscription.ai_requests_reset_date|date:"d M Y" }}</small>
+                {% endif %}
+
+                <hr>
+
+                <h6>{% trans "Contacts" %}</h6>
+                <p class="lead mb-0">
+                    {% with contact_count=user.contacts.count %}
+                        {{ contact_count }}
+                        {% if plan_config.contacts_limit != -1 %}
+                            / {{ plan_config.contacts_limit }}
+                        {% endif %}
+                    {% endwith %}
+                </p>
+
+                <hr>
+
+                <h6>{% trans "Team Members" %}</h6>
+                <p class="lead mb-0">
+                    {% with team_count=user.team_members.count %}
+                        {{ team_count }}
+                        {% if plan_config.users_limit != -1 %}
+                            / {{ plan_config.users_limit }}
+                        {% endif %}
+                    {% endwith %}
+                </p>
+            </div>
+        </div>
+
+        <!-- Subscription History -->
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-white">
+                <h5 class="mb-0"><i class="bi bi-clock-history"></i> {% trans "Subscription History" %}</h5>
+            </div>
+            <div class="card-body">
+                {% if history %}
+                <div class="list-group list-group-flush">
+                    {% for entry in history %}
+                    <div class="list-group-item">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h6 class="mb-1">
+                                {{ entry.get_from_plan_display }} → {{ entry.get_to_plan_display }}
+                            </h6>
+                            <small class="text-muted">{{ entry.created_at|date:"d M Y" }}</small>
+                        </div>
+                        {% if entry.reason %}
+                        <p class="mb-0"><small class="text-muted">{{ entry.reason }}</small></p>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <p class="text-muted">{% trans "No history yet" %}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Upgrade CTA -->
+{% if subscription.plan == 'free' %}
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="alert alert-primary">
+            <h5><i class="bi bi-rocket"></i> {% trans "Upgrade for More Features" %}</h5>
+            <p>{% trans "Unlock advanced features, more contacts, and unlimited AI requests with our paid plans." %}</p>
+            <a href="{% url 'subscriptions:plans' %}" class="btn btn-primary">
+                {% trans "View Plans" %}
+            </a>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}
+

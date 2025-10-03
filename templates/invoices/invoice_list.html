@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block title %}{% trans "Invoices" %} - CRM{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-6">
+        <h1>{% trans "Invoices" %}</h1>
+    </div>
+    <div class="col-md-6 text-end">
+        <a href="{% url 'invoices:offer_list' %}" class="btn btn-outline-secondary">
+            <i class="bi bi-file-text"></i> {% trans "Offers" %}
+        </a>
+        <a href="{% url 'invoices:invoice_create' %}" class="btn btn-primary">
+            <i class="bi bi-plus-circle"></i> {% trans "New Invoice" %}
+        </a>
+    </div>
+</div>
+
+<!-- Filters -->
+<div class="row mb-4">
+    <div class="col-md-12">
+        <div class="btn-group" role="group">
+            <a href="?status=draft" class="btn btn-{% if status == 'draft' %}secondary{% else %}outline-secondary{% endif %}">
+                {% trans "Draft" %}
+            </a>
+            <a href="?status=sent" class="btn btn-{% if status == 'sent' %}info{% else %}outline-info{% endif %}">
+                {% trans "Sent" %}
+            </a>
+            <a href="?status=paid" class="btn btn-{% if status == 'paid' %}success{% else %}outline-success{% endif %}">
+                {% trans "Paid" %}
+            </a>
+            <a href="?status=overdue" class="btn btn-{% if status == 'overdue' %}danger{% else %}outline-danger{% endif %}">
+                {% trans "Overdue" %}
+            </a>
+            <a href="?" class="btn btn-{% if not status %}dark{% else %}outline-dark{% endif %}">
+                {% trans "All" %}
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Invoices Table -->
+<div class="card border-0 shadow-sm">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>{% trans "Invoice #" %}</th>
+                        <th>{% trans "Client" %}</th>
+                        <th>{% trans "Date" %}</th>
+                        <th>{% trans "Due Date" %}</th>
+                        <th>{% trans "Amount" %}</th>
+                        <th>{% trans "Paid" %}</th>
+                        <th>{% trans "Status" %}</th>
+                        <th>{% trans "Actions" %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for invoice in invoices %}
+                    <tr>
+                        <td>
+                            <a href="{% url 'invoices:invoice_detail' invoice.pk %}">
+                                <strong>{{ invoice.invoice_number }}</strong>
+                            </a>
+                        </td>
+                        <td>{{ invoice.client_name }}</td>
+                        <td>{{ invoice.invoice_date|date:"d M Y" }}</td>
+                        <td>{{ invoice.due_date|date:"d M Y" }}</td>
+                        <td>{{ invoice.currency }} {{ invoice.total_amount|floatformat:2 }}</td>
+                        <td>{{ invoice.currency }} {{ invoice.paid_amount|floatformat:2 }}</td>
+                        <td>
+                            <span class="badge bg-{{ invoice.status }}">{{ invoice.get_status_display }}</span>
+                        </td>
+                        <td>
+                            <a href="{% url 'invoices:invoice_update' invoice.pk %}" class="btn btn-sm btn-outline-primary">
+                                <i class="bi bi-pencil"></i>
+                            </a>
+                            <a href="{% url 'invoices:invoice_pdf' invoice.pk %}" class="btn btn-sm btn-outline-info">
+                                <i class="bi bi-file-pdf"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="8" class="text-center text-muted">
+                            {% trans "No invoices found." %}
+                            <a href="{% url 'invoices:invoice_create' %}">{% trans "Create your first invoice" %}</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Pagination -->
+        {% if invoices.has_other_pages %}
+        <nav>
+            <ul class="pagination justify-content-center">
+                {% if invoices.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ invoices.previous_page_number }}&status={{ status }}">{% trans "Previous" %}</a>
+                </li>
+                {% endif %}
+                
+                <li class="page-item active">
+                    <span class="page-link">{{ invoices.number }} of {{ invoices.paginator.num_pages }}</span>
+                </li>
+                
+                {% if invoices.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ invoices.next_page_number }}&status={{ status }}">{% trans "Next" %}</a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+

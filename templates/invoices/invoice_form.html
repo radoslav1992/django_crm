@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+{% load i18n static crispy_forms_tags %}
+
+{% block title %}
+    {% if action == 'create' %}
+        {% trans "New Invoice" %}
+    {% else %}
+        {% trans "Edit Invoice" %}
+    {% endif %} - CRM
+{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-10">
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-white">
+                <h3 class="mb-0">
+                    {% if action == 'create' %}
+                        <i class="bi bi-plus-circle"></i> {% trans "New Invoice" %}
+                    {% else %}
+                        <i class="bi bi-pencil"></i> {% trans "Edit Invoice" %}
+                    {% endif %}
+                </h3>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+                    
+                    <h5 class="mb-3">{% trans "Invoice Details" %}</h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            {{ form.invoice_number|as_crispy_field }}
+                        </div>
+                        <div class="col-md-3">
+                            {{ form.invoice_date|as_crispy_field }}
+                        </div>
+                        <div class="col-md-3">
+                            {{ form.due_date|as_crispy_field }}
+                        </div>
+                    </div>
+
+                    <hr class="my-4">
+                    
+                    <h5 class="mb-3">{% trans "Client Information" %}</h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            {{ form.contact|as_crispy_field }}
+                        </div>
+                        <div class="col-md-6">
+                            {{ form.company|as_crispy_field }}
+                        </div>
+                    </div>
+                    {{ form.client_name|as_crispy_field }}
+                    {{ form.client_email|as_crispy_field }}
+                    {{ form.client_address|as_crispy_field }}
+                    {{ form.client_vat_number|as_crispy_field }}
+
+                    <hr class="my-4">
+                    
+                    <h5 class="mb-3">{% trans "Items" %}</h5>
+                    {{ formset.management_form }}
+                    <div id="invoice-items">
+                        {% for item_form in formset %}
+                        <div class="row item-row border-bottom pb-3 mb-3">
+                            <div class="col-md-6">
+                                {{ item_form.description|as_crispy_field }}
+                            </div>
+                            <div class="col-md-2">
+                                {{ item_form.quantity|as_crispy_field }}
+                            </div>
+                            <div class="col-md-3">
+                                {{ item_form.unit_price|as_crispy_field }}
+                            </div>
+                            <div class="col-md-1">
+                                {{ item_form.DELETE }}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                    <hr class="my-4">
+                    
+                    <h5 class="mb-3">{% trans "Financial Settings" %}</h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            {{ form.currency|as_crispy_field }}
+                        </div>
+                        <div class="col-md-6">
+                            {{ form.tax_rate|as_crispy_field }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            {{ form.status|as_crispy_field }}
+                        </div>
+                        <div class="col-md-6">
+                            {{ form.template|as_crispy_field }}
+                        </div>
+                    </div>
+
+                    <hr class="my-4">
+                    
+                    <h5 class="mb-3">{% trans "Payment Settings" %}</h5>
+                    {{ form.payment_url|as_crispy_field }}
+                    <small class="text-muted">{% trans "Add a Stripe payment link to generate a QR code for easy customer payments." %}</small>
+
+                    <hr class="my-4">
+                    
+                    {{ form.notes|as_crispy_field }}
+                    {{ form.terms|as_crispy_field }}
+                    
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                        <a href="{% if invoice %}{% url 'invoices:invoice_detail' invoice.pk %}{% else %}{% url 'invoices:invoice_list' %}{% endif %}" 
+                           class="btn btn-outline-secondary">
+                            {% trans "Cancel" %}
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-save"></i> 
+                            {% if action == 'create' %}
+                                {% trans "Create Invoice" %}
+                            {% else %}
+                                {% trans "Save Changes" %}
+                            {% endif %}
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

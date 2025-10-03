@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block title %}{% trans "Offers" %} - CRM{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-6">
+        <h1>{% trans "Offers" %}</h1>
+    </div>
+    <div class="col-md-6 text-end">
+        <a href="{% url 'invoices:invoice_list' %}" class="btn btn-outline-secondary">
+            <i class="bi bi-file-earmark-text"></i> {% trans "Invoices" %}
+        </a>
+        <a href="{% url 'invoices:offer_create' %}" class="btn btn-primary">
+            <i class="bi bi-plus-circle"></i> {% trans "New Offer" %}
+        </a>
+    </div>
+</div>
+
+<!-- Offers Table -->
+<div class="card border-0 shadow-sm">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>{% trans "Offer #" %}</th>
+                        <th>{% trans "Client" %}</th>
+                        <th>{% trans "Date" %}</th>
+                        <th>{% trans "Valid Until" %}</th>
+                        <th>{% trans "Amount" %}</th>
+                        <th>{% trans "Status" %}</th>
+                        <th>{% trans "Actions" %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for offer in offers %}
+                    <tr>
+                        <td>
+                            <a href="{% url 'invoices:offer_detail' offer.pk %}">
+                                <strong>{{ offer.offer_number }}</strong>
+                            </a>
+                        </td>
+                        <td>{{ offer.client_name }}</td>
+                        <td>{{ offer.offer_date|date:"d M Y" }}</td>
+                        <td>{{ offer.valid_until|date:"d M Y" }}</td>
+                        <td>{{ offer.currency }} {{ offer.total_amount|floatformat:2 }}</td>
+                        <td>
+                            <span class="badge bg-{{ offer.status }}">{{ offer.get_status_display }}</span>
+                        </td>
+                        <td>
+                            <a href="{% url 'invoices:offer_update' offer.pk %}" class="btn btn-sm btn-outline-primary">
+                                <i class="bi bi-pencil"></i>
+                            </a>
+                            {% if offer.status == 'sent' %}
+                            <a href="{% url 'invoices:offer_convert' offer.pk %}" class="btn btn-sm btn-outline-success" 
+                               title="{% trans 'Convert to Invoice' %}">
+                                <i class="bi bi-arrow-right-circle"></i>
+                            </a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="7" class="text-center text-muted">
+                            {% trans "No offers found." %}
+                            <a href="{% url 'invoices:offer_create' %}">{% trans "Create your first offer" %}</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

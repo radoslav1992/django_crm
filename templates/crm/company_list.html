@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block title %}{% trans "Companies" %} - CRM{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-6">
+        <h1>{% trans "Companies" %}</h1>
+    </div>
+    <div class="col-md-6 text-end">
+        <a href="{% url 'crm:company_create' %}" class="btn btn-primary">
+            <i class="bi bi-plus-circle"></i> {% trans "New Company" %}
+        </a>
+    </div>
+</div>
+
+<!-- Search -->
+<div class="row mb-4">
+    <div class="col-md-6">
+        <form method="get" class="input-group">
+            <input type="text" name="search" class="form-control" placeholder="{% trans 'Search companies...' %}" value="{{ search_query }}">
+            <button class="btn btn-outline-secondary" type="submit">
+                <i class="bi bi-search"></i> {% trans "Search" %}
+            </button>
+        </form>
+    </div>
+</div>
+
+<!-- Companies Table -->
+<div class="card border-0 shadow-sm">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>{% trans "Company Name" %}</th>
+                        <th>{% trans "Industry" %}</th>
+                        <th>{% trans "Website" %}</th>
+                        <th>{% trans "Email" %}</th>
+                        <th>{% trans "Phone" %}</th>
+                        <th>{% trans "Actions" %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for company in companies %}
+                    <tr>
+                        <td>
+                            <a href="{% url 'crm:company_detail' company.pk %}">
+                                <strong>{{ company.name }}</strong>
+                            </a>
+                            {% if company.city %}<br><small class="text-muted">{{ company.city }}, {{ company.country }}</small>{% endif %}
+                        </td>
+                        <td>{{ company.industry|default:"-" }}</td>
+                        <td>
+                            {% if company.website %}
+                                <a href="{{ company.website }}" target="_blank">
+                                    <i class="bi bi-link-45deg"></i>
+                                </a>
+                            {% else %}
+                                -
+                            {% endif %}
+                        </td>
+                        <td>{{ company.email|default:"-" }}</td>
+                        <td>{{ company.phone|default:"-" }}</td>
+                        <td>
+                            <a href="{% url 'crm:company_update' company.pk %}" class="btn btn-sm btn-outline-primary">
+                                <i class="bi bi-pencil"></i>
+                            </a>
+                            <a href="{% url 'crm:company_delete' company.pk %}" class="btn btn-sm btn-outline-danger">
+                                <i class="bi bi-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="6" class="text-center text-muted">
+                            {% trans "No companies found." %}
+                            <a href="{% url 'crm:company_create' %}">{% trans "Create your first company" %}</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Pagination -->
+        {% if companies.has_other_pages %}
+        <nav>
+            <ul class="pagination justify-content-center">
+                {% if companies.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ companies.previous_page_number }}">{% trans "Previous" %}</a>
+                </li>
+                {% endif %}
+                
+                <li class="page-item active">
+                    <span class="page-link">{{ companies.number }} of {{ companies.paginator.num_pages }}</span>
+                </li>
+                
+                {% if companies.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ companies.next_page_number }}">{% trans "Next" %}</a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+

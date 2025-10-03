@@ -1,0 +1,188 @@
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block title %}{% trans "Dashboard" %} - CRM{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">{% trans "Dashboard" %}</h1>
+    </div>
+</div>
+
+<!-- Statistics Cards -->
+<div class="row g-4 mb-4">
+    <div class="col-md-3">
+        <div class="card border-0 shadow-sm">
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <div class="flex-shrink-0">
+                        <i class="bi bi-people-fill text-primary" style="font-size: 2rem;"></i>
+                    </div>
+                    <div class="flex-grow-1 ms-3">
+                        <h3 class="mb-0">{{ total_contacts }}</h3>
+                        <p class="text-muted mb-0">{% trans "Contacts" %}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card border-0 shadow-sm">
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <div class="flex-shrink-0">
+                        <i class="bi bi-building text-info" style="font-size: 2rem;"></i>
+                    </div>
+                    <div class="flex-grow-1 ms-3">
+                        <h3 class="mb-0">{{ total_companies }}</h3>
+                        <p class="text-muted mb-0">{% trans "Companies" %}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card border-0 shadow-sm">
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <div class="flex-shrink-0">
+                        <i class="bi bi-graph-up text-success" style="font-size: 2rem;"></i>
+                    </div>
+                    <div class="flex-grow-1 ms-3">
+                        <h3 class="mb-0">{{ total_deals }}</h3>
+                        <p class="text-muted mb-0">{% trans "Open Deals" %}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card border-0 shadow-sm">
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <div class="flex-shrink-0">
+                        <i class="bi bi-currency-euro text-warning" style="font-size: 2rem;"></i>
+                    </div>
+                    <div class="flex-grow-1 ms-3">
+                        <h3 class="mb-0">€{{ total_deal_value|floatformat:0 }}</h3>
+                        <p class="text-muted mb-0">{% trans "Pipeline Value" %}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4">
+    <!-- Recent Contacts -->
+    <div class="col-md-6">
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-white">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">{% trans "Recent Contacts" %}</h5>
+                    <a href="{% url 'crm:contact_list' %}" class="btn btn-sm btn-primary">{% trans "View All" %}</a>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="list-group list-group-flush">
+                    {% for contact in recent_contacts %}
+                    <a href="{% url 'crm:contact_detail' contact.pk %}" class="list-group-item list-group-item-action">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h6 class="mb-1">{{ contact.full_name }}</h6>
+                            <small class="text-muted">{{ contact.created_at|date:"d M Y" }}</small>
+                        </div>
+                        <p class="mb-1">{{ contact.email }}</p>
+                        {% if contact.company %}<small class="text-muted">{{ contact.company.name }}</small>{% endif %}
+                    </a>
+                    {% empty %}
+                    <p class="text-muted">{% trans "No contacts yet" %}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Upcoming Tasks -->
+    <div class="col-md-6">
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-white">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">{% trans "Upcoming Tasks" %}</h5>
+                    <a href="{% url 'crm:task_list' %}" class="btn btn-sm btn-primary">{% trans "View All" %}</a>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="list-group list-group-flush">
+                    {% for task in upcoming_tasks %}
+                    <div class="list-group-item">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h6 class="mb-1">{{ task.title }}</h6>
+                            <small class="badge bg-{{ task.priority }}">{{ task.get_priority_display }}</small>
+                        </div>
+                        <p class="mb-1">{{ task.description|truncatewords:15 }}</p>
+                        <small class="text-muted">{% trans "Due:" %} {{ task.due_date|date:"d M Y H:i" }}</small>
+                    </div>
+                    {% empty %}
+                    <p class="text-muted">{% trans "No upcoming tasks" %}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Deals -->
+    <div class="col-md-6">
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-white">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">{% trans "Recent Deals" %}</h5>
+                    <a href="{% url 'crm:deal_list' %}" class="btn btn-sm btn-primary">{% trans "View All" %}</a>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="list-group list-group-flush">
+                    {% for deal in recent_deals %}
+                    <a href="{% url 'crm:deal_detail' deal.pk %}" class="list-group-item list-group-item-action">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h6 class="mb-1">{{ deal.name }}</h6>
+                            <span class="badge bg-{{ deal.status }}">{{ deal.get_status_display }}</span>
+                        </div>
+                        <p class="mb-1">€{{ deal.value|floatformat:2 }}</p>
+                        <small class="text-muted">{% if deal.stage %}{{ deal.stage.name }}{% endif %} - {{ deal.probability }}%</small>
+                    </a>
+                    {% empty %}
+                    <p class="text-muted">{% trans "No deals yet" %}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Activities -->
+    <div class="col-md-6">
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-white">
+                <h5 class="mb-0">{% trans "Recent Activities" %}</h5>
+            </div>
+            <div class="card-body">
+                <div class="list-group list-group-flush">
+                    {% for activity in recent_activities %}
+                    <div class="list-group-item">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h6 class="mb-1">{{ activity.title }}</h6>
+                            <small class="text-muted">{{ activity.created_at|date:"d M Y H:i" }}</small>
+                        </div>
+                        <p class="mb-1">{{ activity.description|truncatewords:20 }}</p>
+                        <small class="badge bg-secondary">{{ activity.get_activity_type_display }}</small>
+                    </div>
+                    {% empty %}
+                    <p class="text-muted">{% trans "No activities yet" %}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% load i18n static crispy_forms_tags %}
+
+{% block title %}
+    {% if action == 'create' %}
+        {% trans "New Template" %}
+    {% else %}
+        {% trans "Edit Template" %}
+    {% endif %} - CRM
+{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-10">
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-white">
+                <h3 class="mb-0">
+                    {% if action == 'create' %}
+                        <i class="bi bi-plus-circle"></i> {% trans "Create Template" %}
+                    {% else %}
+                        <i class="bi bi-pencil"></i> {% trans "Edit Template" %}
+                    {% endif %}
+                </h3>
+            </div>
+            <div class="card-body">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    
+                    <h5 class="mb-3">{% trans "Basic Information" %}</h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            {{ form.name|as_crispy_field }}
+                        </div>
+                        <div class="col-md-6">
+                            {{ form.template_type|as_crispy_field }}
+                        </div>
+                    </div>
+                    {{ form.is_default|as_crispy_field }}
+                    
+                    <hr class="my-4">
+                    
+                    <h5 class="mb-3">{% trans "Branding" %}</h5>
+                    {{ form.logo|as_crispy_field }}
+                    <div class="row">
+                        <div class="col-md-6">
+                            {{ form.primary_color|as_crispy_field }}
+                        </div>
+                        <div class="col-md-6">
+                            {{ form.secondary_color|as_crispy_field }}
+                        </div>
+                    </div>
+                    {{ form.font_family|as_crispy_field }}
+                    
+                    <hr class="my-4">
+                    
+                    <h5 class="mb-3">{% trans "Content" %}</h5>
+                    {{ form.header_content|as_crispy_field }}
+                    {{ form.footer_content|as_crispy_field }}
+                    
+                    <hr class="my-4">
+                    
+                    <h5 class="mb-3">{% trans "Advanced (Optional)" %}</h5>
+                    <div class="alert alert-info">
+                        <small>
+                            <i class="bi bi-info-circle"></i>
+                            {% trans "Advanced users can add custom CSS and HTML for complete control over the template design." %}
+                        </small>
+                    </div>
+                    {{ form.custom_css|as_crispy_field }}
+                    {{ form.html_template|as_crispy_field }}
+                    
+                    <hr class="my-4">
+                    
+                    <!-- Available Variables Help -->
+                    <div class="alert alert-secondary">
+                        <h6><i class="bi bi-code-slash"></i> {% trans "Available Variables" %}</h6>
+                        <p class="mb-2"><small>{% trans "Use these variables in your templates:" %}</small></p>
+                        <div class="row">
+                            {% for variable in variables %}
+                            <div class="col-md-6">
+                                <small><code>{{ variable }}</code> - {{ variable.description }}</small>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                        <a href="{% if template %}{% url 'templates:template_detail' template.pk %}{% else %}{% url 'templates:template_list' %}{% endif %}" 
+                           class="btn btn-outline-secondary">
+                            {% trans "Cancel" %}
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-save"></i> 
+                            {% if action == 'create' %}
+                                {% trans "Create Template" %}
+                            {% else %}
+                                {% trans "Save Changes" %}
+                            {% endif %}
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

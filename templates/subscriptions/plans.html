@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block title %}{% trans "Subscription Plans" %} - CRM{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-12 text-center">
+        <h1 class="mb-3">{% trans "Choose Your Plan" %}</h1>
+        <p class="lead text-muted">{% trans "Select the perfect plan for your business needs" %}</p>
+    </div>
+</div>
+
+<div class="row g-4 justify-content-center">
+    {% for plan_key, plan in plans.items %}
+    <div class="col-lg-3 col-md-6">
+        <div class="card h-100 {% if plan_key == current_subscription.plan %}border-primary shadow-lg{% else %}border-0 shadow-sm{% endif %}">
+            <div class="card-header text-center py-4 bg-{% if plan_key == 'free' %}secondary{% elif plan_key == 'basic' %}info{% elif plan_key == 'pro' %}primary{% else %}success{% endif %} text-white">
+                <h3 class="mb-0">{{ plan.name }}</h3>
+                {% if plan_key == current_subscription.plan %}
+                    <span class="badge bg-light text-dark mt-2">{% trans "Current Plan" %}</span>
+                {% endif %}
+            </div>
+            <div class="card-body d-flex flex-column">
+                <div class="text-center mb-4">
+                    <h1 class="display-4 fw-bold">
+                        {% if plan.price == 0 %}
+                            {% trans "Free" %}
+                        {% else %}
+                            €{{ plan.price }}
+                        {% endif %}
+                    </h1>
+                    {% if plan.price > 0 %}<p class="text-muted">{% trans "per month" %}</p>{% endif %}
+                </div>
+                
+                <ul class="list-unstyled mb-4">
+                    <li class="mb-2">
+                        <i class="bi bi-check-circle-fill text-success me-2"></i>
+                        {% if plan.contacts_limit == -1 %}
+                            <strong>{% trans "Unlimited" %}</strong> {% trans "contacts" %}
+                        {% else %}
+                            <strong>{{ plan.contacts_limit }}</strong> {% trans "contacts" %}
+                        {% endif %}
+                    </li>
+                    <li class="mb-2">
+                        <i class="bi bi-check-circle-fill text-success me-2"></i>
+                        {% if plan.users_limit == -1 %}
+                            <strong>{% trans "Unlimited" %}</strong> {% trans "users" %}
+                        {% else %}
+                            <strong>{{ plan.users_limit }}</strong> {% trans "users" %}
+                        {% endif %}
+                    </li>
+                    <li class="mb-2">
+                        <i class="bi bi-check-circle-fill text-success me-2"></i>
+                        {% if plan.ai_requests_per_month == -1 %}
+                            <strong>{% trans "Unlimited" %}</strong> {% trans "AI requests" %}
+                        {% else %}
+                            <strong>{{ plan.ai_requests_per_month }}</strong> {% trans "AI requests/month" %}
+                        {% endif %}
+                    </li>
+                    
+                    {% for feature in plan.features %}
+                    <li class="mb-2">
+                        <i class="bi bi-check-circle-fill text-success me-2"></i>
+                        {% if feature == 'basic_crm' %}{% trans "Basic CRM" %}
+                        {% elif feature == 'advanced_crm' %}{% trans "Advanced CRM" %}
+                        {% elif feature == 'basic_templates' %}{% trans "Basic Templates" %}
+                        {% elif feature == 'advanced_templates' %}{% trans "Advanced Templates" %}
+                        {% elif feature == 'email_integration' %}{% trans "Email Integration" %}
+                        {% elif feature == 'basic_ai' %}{% trans "Basic AI" %}
+                        {% elif feature == 'advanced_ai' %}{% trans "Advanced AI" %}
+                        {% elif feature == 'custom_fields' %}{% trans "Custom Fields" %}
+                        {% elif feature == 'api_access' %}{% trans "API Access" %}
+                        {% elif feature == 'priority_support' %}{% trans "Priority Support" %}
+                        {% elif feature == 'white_label' %}{% trans "White Label" %}
+                        {% else %}{{ feature }}{% endif %}
+                    </li>
+                    {% endfor %}
+                </ul>
+                
+                <div class="mt-auto">
+                    {% if plan_key == current_subscription.plan %}
+                        <button class="btn btn-outline-secondary w-100" disabled>
+                            {% trans "Current Plan" %}
+                        </button>
+                    {% else %}
+                        <a href="{% url 'subscriptions:checkout' plan_key %}" class="btn btn-{% if plan_key == 'pro' %}primary{% else %}outline-primary{% endif %} w-100">
+                            {% if plan.price == 0 %}
+                                {% trans "Downgrade to Free" %}
+                            {% else %}
+                                {% trans "Upgrade Now" %}
+                            {% endif %}
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="row mt-5">
+    <div class="col-12 text-center">
+        <p class="text-muted">{% trans "All plans include 30-day money-back guarantee" %}</p>
+        <a href="{% url 'subscriptions:current' %}" class="btn btn-link">{% trans "View Current Subscription" %}</a>
+    </div>
+</div>
+{% endblock %}
+

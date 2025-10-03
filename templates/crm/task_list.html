@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block title %}{% trans "Tasks" %} - CRM{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-6">
+        <h1>{% trans "Tasks" %}</h1>
+    </div>
+    <div class="col-md-6 text-end">
+        <a href="{% url 'crm:task_create' %}" class="btn btn-primary">
+            <i class="bi bi-plus-circle"></i> {% trans "New Task" %}
+        </a>
+    </div>
+</div>
+
+<!-- Filters -->
+<div class="row mb-4">
+    <div class="col-md-12">
+        <div class="btn-group" role="group">
+            <a href="?completed=false" class="btn btn-{% if completed == 'false' %}primary{% else %}outline-primary{% endif %}">
+                {% trans "Pending" %}
+            </a>
+            <a href="?completed=true" class="btn btn-{% if completed == 'true' %}success{% else %}outline-success{% endif %}">
+                {% trans "Completed" %}
+            </a>
+            <a href="?" class="btn btn-{% if not completed %}dark{% else %}outline-dark{% endif %}">
+                {% trans "All" %}
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Tasks List -->
+<div class="card border-0 shadow-sm">
+    <div class="card-body">
+        <div class="list-group">
+            {% for task in tasks %}
+            <div class="list-group-item {% if task.completed %}bg-light{% endif %}">
+                <div class="d-flex w-100 justify-content-between align-items-start">
+                    <div class="flex-grow-1">
+                        <div class="d-flex align-items-center mb-2">
+                            <h5 class="mb-0">{{ task.title }}</h5>
+                            <span class="badge bg-{{ task.priority }} ms-2">{{ task.get_priority_display }}</span>
+                            <span class="badge bg-{{ task.task_type }} ms-2">{{ task.get_task_type_display }}</span>
+                        </div>
+                        {% if task.description %}
+                        <p class="mb-2">{{ task.description }}</p>
+                        {% endif %}
+                        <small class="text-muted">
+                            {% if task.due_date %}
+                                <i class="bi bi-calendar"></i> {{ task.due_date|date:"d M Y H:i" }}
+                            {% endif %}
+                            {% if task.contact %}
+                                • <a href="{% url 'crm:contact_detail' task.contact.pk %}">{{ task.contact.full_name }}</a>
+                            {% endif %}
+                            {% if task.company %}
+                                • <a href="{% url 'crm:company_detail' task.company.pk %}">{{ task.company.name }}</a>
+                            {% endif %}
+                        </small>
+                    </div>
+                    <div class="ms-3">
+                        <a href="{% url 'crm:task_update' task.pk %}" class="btn btn-sm btn-outline-primary">
+                            <i class="bi bi-pencil"></i>
+                        </a>
+                        <a href="{% url 'crm:task_delete' task.pk %}" class="btn btn-sm btn-outline-danger">
+                            <i class="bi bi-trash"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="text-center text-muted py-5">
+                {% trans "No tasks found." %}
+                <br>
+                <a href="{% url 'crm:task_create' %}" class="btn btn-primary mt-3">{% trans "Create your first task" %}</a>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Pagination -->
+        {% if tasks.has_other_pages %}
+        <nav class="mt-4">
+            <ul class="pagination justify-content-center">
+                {% if tasks.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ tasks.previous_page_number }}&completed={{ completed }}">{% trans "Previous" %}</a>
+                </li>
+                {% endif %}
+                
+                <li class="page-item active">
+                    <span class="page-link">{{ tasks.number }} of {{ tasks.paginator.num_pages }}</span>
+                </li>
+                
+                {% if tasks.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ tasks.next_page_number }}&completed={{ completed }}">{% trans "Next" %}</a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+

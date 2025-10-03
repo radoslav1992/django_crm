@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load i18n static crispy_forms_tags %}
+
+{% block title %}
+    {% if action == 'create' %}
+        {% trans "New Company" %}
+    {% else %}
+        {% trans "Edit Company" %}
+    {% endif %} - CRM
+{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-white">
+                <h3 class="mb-0">
+                    {% if action == 'create' %}
+                        <i class="bi bi-building-add"></i> {% trans "New Company" %}
+                    {% else %}
+                        <i class="bi bi-pencil"></i> {% trans "Edit Company" %}
+                    {% endif %}
+                </h3>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                        <a href="{% if company %}{% url 'crm:company_detail' company.pk %}{% else %}{% url 'crm:company_list' %}{% endif %}" 
+                           class="btn btn-outline-secondary">
+                            {% trans "Cancel" %}
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-save"></i> 
+                            {% if action == 'create' %}
+                                {% trans "Create Company" %}
+                            {% else %}
+                                {% trans "Save Changes" %}
+                            {% endif %}
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

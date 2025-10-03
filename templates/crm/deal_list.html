@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block title %}{% trans "Deals" %} - CRM{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-6">
+        <h1>{% trans "Deals" %}</h1>
+    </div>
+    <div class="col-md-6 text-end">
+        <a href="{% url 'crm:deal_create' %}" class="btn btn-primary">
+            <i class="bi bi-plus-circle"></i> {% trans "New Deal" %}
+        </a>
+    </div>
+</div>
+
+<!-- Filters -->
+<div class="row mb-4">
+    <div class="col-md-12">
+        <div class="btn-group" role="group">
+            <a href="?status=open" class="btn btn-{% if status == 'open' %}primary{% else %}outline-primary{% endif %}">
+                {% trans "Open" %}
+            </a>
+            <a href="?status=won" class="btn btn-{% if status == 'won' %}success{% else %}outline-success{% endif %}">
+                {% trans "Won" %}
+            </a>
+            <a href="?status=lost" class="btn btn-{% if status == 'lost' %}secondary{% else %}outline-secondary{% endif %}">
+                {% trans "Lost" %}
+            </a>
+            <a href="?" class="btn btn-{% if not status %}dark{% else %}outline-dark{% endif %}">
+                {% trans "All" %}
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Deals Table -->
+<div class="card border-0 shadow-sm">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>{% trans "Deal Name" %}</th>
+                        <th>{% trans "Contact" %}</th>
+                        <th>{% trans "Company" %}</th>
+                        <th>{% trans "Value" %}</th>
+                        <th>{% trans "Stage" %}</th>
+                        <th>{% trans "Status" %}</th>
+                        <th>{% trans "Actions" %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for deal in deals %}
+                    <tr>
+                        <td>
+                            <a href="{% url 'crm:deal_detail' deal.pk %}">
+                                <strong>{{ deal.name }}</strong>
+                            </a>
+                        </td>
+                        <td>
+                            {% if deal.contact %}
+                                <a href="{% url 'crm:contact_detail' deal.contact.pk %}">{{ deal.contact.full_name }}</a>
+                            {% else %}
+                                -
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if deal.company %}
+                                <a href="{% url 'crm:company_detail' deal.company.pk %}">{{ deal.company.name }}</a>
+                            {% else %}
+                                -
+                            {% endif %}
+                        </td>
+                        <td>{{ deal.currency }} {{ deal.value|floatformat:2 }}</td>
+                        <td>
+                            {% if deal.stage %}
+                                <span class="badge bg-info">{{ deal.stage.name }}</span>
+                            {% else %}
+                                -
+                            {% endif %}
+                        </td>
+                        <td>
+                            <span class="badge bg-{{ deal.status }}">{{ deal.get_status_display }}</span>
+                        </td>
+                        <td>
+                            <a href="{% url 'crm:deal_update' deal.pk %}" class="btn btn-sm btn-outline-primary">
+                                <i class="bi bi-pencil"></i>
+                            </a>
+                            <a href="{% url 'crm:deal_delete' deal.pk %}" class="btn btn-sm btn-outline-danger">
+                                <i class="bi bi-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="7" class="text-center text-muted">
+                            {% trans "No deals found." %}
+                            <a href="{% url 'crm:deal_create' %}">{% trans "Create your first deal" %}</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Pagination -->
+        {% if deals.has_other_pages %}
+        <nav>
+            <ul class="pagination justify-content-center">
+                {% if deals.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ deals.previous_page_number }}&status={{ status }}">{% trans "Previous" %}</a>
+                </li>
+                {% endif %}
+                
+                <li class="page-item active">
+                    <span class="page-link">{{ deals.number }} of {{ deals.paginator.num_pages }}</span>
+                </li>
+                
+                {% if deals.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ deals.next_page_number }}&status={{ status }}">{% trans "Next" %}</a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+

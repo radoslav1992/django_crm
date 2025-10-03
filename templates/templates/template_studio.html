@@ -1,0 +1,170 @@
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block title %}{% trans "Template Studio" %} - CRM{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-8">
+        <h1><i class="bi bi-palette"></i> {% trans "Template Studio" %}</h1>
+        <p class="text-muted">{% trans "Create and customize invoice and offer templates" %}</p>
+    </div>
+    <div class="col-md-4 text-end">
+        <a href="{% url 'templates:template_create' %}" class="btn btn-primary">
+            <i class="bi bi-plus-circle"></i> {% trans "New Template" %}
+        </a>
+    </div>
+</div>
+
+<div class="row">
+    <!-- Template List Sidebar -->
+    <div class="col-md-3">
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-white">
+                <h5 class="mb-0">{% trans "Your Templates" %}</h5>
+            </div>
+            <div class="list-group list-group-flush">
+                {% for template in templates %}
+                <a href="{% url 'templates:template_detail' template.pk %}" 
+                   class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h6 class="mb-1">{{ template.name }}</h6>
+                        {% if template.is_default %}
+                            <span class="badge bg-primary">{% trans "Default" %}</span>
+                        {% endif %}
+                    </div>
+                    <small class="text-muted">{{ template.get_template_type_display }}</small>
+                </a>
+                {% empty %}
+                <div class="list-group-item text-muted text-center">
+                    {% trans "No templates yet" %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Template Studio Workspace -->
+    <div class="col-md-9">
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">{% trans "Template Design Studio" %}</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12 mb-4">
+                        <div class="alert alert-info">
+                            <i class="bi bi-info-circle"></i>
+                            <strong>{% trans "Welcome to the Template Studio!" %}</strong>
+                            <p class="mb-0">{% trans "Create professional invoice and offer templates with custom branding, colors, and layouts." %}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Template Features -->
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="card h-100 border-0 bg-light">
+                            <div class="card-body text-center">
+                                <i class="bi bi-palette-fill text-primary" style="font-size: 3rem;"></i>
+                                <h5 class="card-title mt-3">{% trans "Custom Branding" %}</h5>
+                                <p class="card-text">{% trans "Upload your logo, choose colors, and customize fonts to match your brand." %}</p>
+                                <a href="{% url 'templates:template_create' %}" class="btn btn-outline-primary">
+                                    {% trans "Create Template" %}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card h-100 border-0 bg-light">
+                            <div class="card-body text-center">
+                                <i class="bi bi-file-earmark-text text-success" style="font-size: 3rem;"></i>
+                                <h5 class="card-title mt-3">{% trans "Template Types" %}</h5>
+                                <p class="card-text">{% trans "Create separate templates for invoices and offers with different designs." %}</p>
+                                <a href="{% url 'templates:template_list' %}" class="btn btn-outline-success">
+                                    {% trans "View Templates" %}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card h-100 border-0 bg-light">
+                            <div class="card-body text-center">
+                                <i class="bi bi-code-square text-warning" style="font-size: 3rem;"></i>
+                                <h5 class="card-title mt-3">{% trans "Custom HTML/CSS" %}</h5>
+                                <p class="card-text">{% trans "Advanced users can add custom HTML and CSS for complete control." %}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card h-100 border-0 bg-light">
+                            <div class="card-body text-center">
+                                <i class="bi bi-eye text-info" style="font-size: 3rem;"></i>
+                                <h5 class="card-title mt-3">{% trans "Live Preview" %}</h5>
+                                <p class="card-text">{% trans "Preview your templates with sample data before using them." %}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Available Variables -->
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <h5><i class="bi bi-code-slash"></i> {% trans "Available Template Variables" %}</h5>
+                        <p class="text-muted">{% trans "Use these variables in your templates to display dynamic content:" %}</p>
+                        
+                        <div class="table-responsive">
+                            <table class="table table-sm table-bordered">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>{% trans "Variable" %}</th>
+                                        <th>{% trans "Description" %}</th>
+                                        <th>{% trans "Example" %}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for variable in variables %}
+                                    <tr>
+                                        <td><code>{{ variable.name }}</code></td>
+                                        <td>{{ variable.description }}</td>
+                                        <td><small class="text-muted">{{ variable.example_value }}</small></td>
+                                    </tr>
+                                    {% empty %}
+                                    <tr>
+                                        <td colspan="3" class="text-center">
+                                            <code>{{invoice_number}}</code> - {% trans "Invoice Number" %}<br>
+                                            <code>{{invoice_date}}</code> - {% trans "Invoice Date" %}<br>
+                                            <code>{{client_name}}</code> - {% trans "Client Name" %}<br>
+                                            <code>{{total_amount}}</code> - {% trans "Total Amount" %}<br>
+                                            <code>{{company_name}}</code> - {% trans "Your Company Name" %}<br>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                            <a href="{% url 'templates:template_create' %}" class="btn btn-primary btn-lg">
+                                <i class="bi bi-plus-circle"></i> {% trans "Create New Template" %}
+                            </a>
+                            <a href="{% url 'templates:template_list' %}" class="btn btn-outline-secondary btn-lg">
+                                <i class="bi bi-list"></i> {% trans "View All Templates" %}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

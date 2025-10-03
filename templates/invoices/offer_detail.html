@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block title %}{% trans "Offer" %} {{ offer.offer_number }} - CRM{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-8">
+        <h1>{% trans "Offer" %} {{ offer.offer_number }}</h1>
+        <p class="text-muted">
+            <span class="badge bg-{{ offer.status }}">{{ offer.get_status_display }}</span>
+        </p>
+    </div>
+    <div class="col-md-4 text-end no-print">
+        {% if not offer.converted_to_invoice and offer.status == 'sent' %}
+        <a href="{% url 'invoices:offer_convert' offer.pk %}" class="btn btn-success">
+            <i class="bi bi-arrow-right-circle"></i> {% trans "Convert to Invoice" %}
+        </a>
+        {% endif %}
+        <a href="{% url 'invoices:offer_update' offer.pk %}" class="btn btn-primary">
+            <i class="bi bi-pencil"></i> {% trans "Edit" %}
+        </a>
+        <button onclick="window.print()" class="btn btn-secondary">
+            <i class="bi bi-printer"></i> {% trans "Print" %}
+        </button>
+    </div>
+</div>
+
+{% if offer.converted_to_invoice %}
+<div class="alert alert-info">
+    <i class="bi bi-info-circle"></i>
+    {% trans "This offer has been converted to" %}
+    <a href="{% url 'invoices:invoice_detail' offer.converted_to_invoice.pk %}">
+        {% trans "Invoice" %} {{ offer.converted_to_invoice.invoice_number }}
+    </a>
+</div>
+{% endif %}
+
+<div class="card border-0 shadow-sm">
+    <div class="card-body invoice-container">
+        <!-- Offer Header -->
+        <div class="invoice-header">
+            <div class="row">
+                <div class="col-6">
+                    <h2>{% trans "OFFER" %}</h2>
+                </div>
+                <div class="col-6 text-end">
+                    <h3>{{ offer.offer_number }}</h3>
+                    <p class="mb-0"><strong>{% trans "Date:" %}</strong> {{ offer.offer_date|date:"d M Y" }}</p>
+                    <p class="mb-0"><strong>{% trans "Valid Until:" %}</strong> {{ offer.valid_until|date:"d M Y" }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Client Info -->
+        <div class="row mt-4">
+            <div class="col-6">
+                <h6>{% trans "From:" %}</h6>
+                <p class="mb-0"><strong>{{ user.company_name }}</strong></p>
+                {% if user.address %}<p class="mb-0">{{ user.address }}</p>{% endif %}
+            </div>
+            <div class="col-6">
+                <h6>{% trans "To:" %}</h6>
+                <p class="mb-0"><strong>{{ offer.client_name }}</strong></p>
+                {% if offer.client_address %}<p class="mb-0">{{ offer.client_address }}</p>{% endif %}
+                {% if offer.client_email %}<p class="mb-0">{{ offer.client_email }}</p>{% endif %}
+            </div>
+        </div>
+
+        <!-- Offer Items -->
+        <div class="mt-4">
+            <table class="table invoice-table">
+                <thead>
+                    <tr>
+                        <th>{% trans "Description" %}</th>
+                        <th class="text-center">{% trans "Qty" %}</th>
+                        <th class="text-end">{% trans "Unit Price" %}</th>
+                        <th class="text-end">{% trans "Total" %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in offer.items.all %}
+                    <tr>
+                        <td>{{ item.description }}</td>
+                        <td class="text-center">{{ item.quantity }}</td>
+                        <td class="text-end">{{ offer.currency }} {{ item.unit_price|floatformat:2 }}</td>
+                        <td class="text-end">{{ offer.currency }} {{ item.total|floatformat:2 }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3" class="text-end"><strong>{% trans "Subtotal:" %}</strong></td>
+                        <td class="text-end">{{ offer.currency }} {{ offer.subtotal|floatformat:2 }}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="text-end"><strong>{% trans "Tax" %} ({{ offer.tax_rate }}%):</strong></td>
+                        <td class="text-end">{{ offer.currency }} {{ offer.tax_amount|floatformat:2 }}</td>
+                    </tr>
+                    <tr class="table-primary">
+                        <td colspan="3" class="text-end"><strong>{% trans "TOTAL:" %}</strong></td>
+                        <td class="text-end"><strong>{{ offer.currency }} {{ offer.total_amount|floatformat:2 }}</strong></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+        {% if offer.notes or offer.terms %}
+        <div class="mt-4">
+            {% if offer.notes %}
+            <h6>{% trans "Notes:" %}</h6>
+            <p>{{ offer.notes|linebreaks }}</p>
+            {% endif %}
+            
+            {% if offer.terms %}
+            <h6 class="mt-3">{% trans "Terms & Conditions:" %}</h6>
+            <p>{{ offer.terms|linebreaks }}</p>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+

@@ -1,0 +1,492 @@
+# Bulgarian translation for Django CRM
+# Copyright (C) 2025
+# This file is distributed under the same license as the Django CRM package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-10-03 12:00+0000\n"
+"PO-Revision-Date: 2025-10-03 12:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Bulgarian\n"
+"Language: bg\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+# Navigation
+msgid "Dashboard"
+msgstr "Табло"
+
+msgid "Contacts"
+msgstr "Контакти"
+
+msgid "Companies"
+msgstr "Компании"
+
+msgid "Deals"
+msgstr "Сделки"
+
+msgid "Tasks"
+msgstr "Задачи"
+
+msgid "Invoices"
+msgstr "Фактури"
+
+msgid "Template Studio"
+msgstr "Студио за шаблони"
+
+msgid "AI Assistant"
+msgstr "AI Асистент"
+
+msgid "Profile"
+msgstr "Профил"
+
+msgid "Subscription"
+msgstr "Абонамент"
+
+msgid "Stripe Settings"
+msgstr "Stripe настройки"
+
+msgid "Logout"
+msgstr "Изход"
+
+msgid "Login"
+msgstr "Вход"
+
+msgid "Register"
+msgstr "Регистрация"
+
+# Common
+msgid "Email"
+msgstr "Имейл"
+
+msgid "Phone"
+msgstr "Телефон"
+
+msgid "Mobile"
+msgstr "Мобилен"
+
+msgid "Address"
+msgstr "Адрес"
+
+msgid "City"
+msgstr "Град"
+
+msgid "Country"
+msgstr "Държава"
+
+msgid "Status"
+msgstr "Статус"
+
+msgid "Actions"
+msgstr "Действия"
+
+msgid "Edit"
+msgstr "Редактирай"
+
+msgid "Delete"
+msgstr "Изтрий"
+
+msgid "Cancel"
+msgstr "Отказ"
+
+msgid "Save"
+msgstr "Запази"
+
+msgid "Save Changes"
+msgstr "Запази промените"
+
+msgid "Create"
+msgstr "Създай"
+
+msgid "Search"
+msgstr "Търсене"
+
+msgid "Active"
+msgstr "Активен"
+
+msgid "Inactive"
+msgstr "Неактивен"
+
+msgid "Name"
+msgstr "Име"
+
+msgid "Description"
+msgstr "Описание"
+
+msgid "Notes"
+msgstr "Бележки"
+
+msgid "Created"
+msgstr "Създаден"
+
+msgid "Updated"
+msgstr "Обновен"
+
+# Contact specific
+msgid "Contact Management"
+msgstr "Управление на контакти"
+
+msgid "New Contact"
+msgstr "Нов контакт"
+
+msgid "Edit Contact"
+msgstr "Редактирай контакт"
+
+msgid "Contact Information"
+msgstr "Информация за контакт"
+
+msgid "First name"
+msgstr "Име"
+
+msgid "Last name"
+msgstr "Фамилия"
+
+msgid "Position"
+msgstr "Позиция"
+
+msgid "Company"
+msgstr "Компания"
+
+msgid "Social Media"
+msgstr "Социални мрежи"
+
+# Company specific
+msgid "Company name"
+msgstr "Име на компания"
+
+msgid "Website"
+msgstr "Уебсайт"
+
+msgid "Industry"
+msgstr "Индустрия"
+
+msgid "VAT number"
+msgstr "ДДС номер"
+
+# Deal specific
+msgid "Deal name"
+msgstr "Име на сделка"
+
+msgid "Value"
+msgstr "Стойност"
+
+msgid "Currency"
+msgstr "Валута"
+
+msgid "Stage"
+msgstr "Етап"
+
+msgid "Pipeline"
+msgstr "Процес"
+
+msgid "Probability"
+msgstr "Вероятност"
+
+msgid "Expected close date"
+msgstr "Очаквана дата на приключване"
+
+msgid "Open"
+msgstr "Отворена"
+
+msgid "Won"
+msgstr "Спечелена"
+
+msgid "Lost"
+msgstr "Загубена"
+
+# Task specific
+msgid "Task"
+msgstr "Задача"
+
+msgid "Title"
+msgstr "Заглавие"
+
+msgid "Due date"
+msgstr "Краен срок"
+
+msgid "Priority"
+msgstr "Приоритет"
+
+msgid "Completed"
+msgstr "Завършена"
+
+msgid "Low"
+msgstr "Нисък"
+
+msgid "Medium"
+msgstr "Среден"
+
+msgid "High"
+msgstr "Висок"
+
+# Invoice specific
+msgid "Invoice"
+msgstr "Фактура"
+
+msgid "Invoice number"
+msgstr "Номер на фактура"
+
+msgid "Invoice date"
+msgstr "Дата на фактура"
+
+msgid "Due"
+msgstr "Падеж"
+
+msgid "Subtotal"
+msgstr "Междинна сума"
+
+msgid "Tax"
+msgstr "Данък"
+
+msgid "Total"
+msgstr "Общо"
+
+msgid "Paid"
+msgstr "Платена"
+
+msgid "Overdue"
+msgstr "Просрочена"
+
+msgid "Draft"
+msgstr "Чернова"
+
+msgid "Sent"
+msgstr "Изпратена"
+
+# Offer specific
+msgid "Offer"
+msgstr "Оферта"
+
+msgid "Offer number"
+msgstr "Номер на оферта"
+
+msgid "Valid until"
+msgstr "Валидна до"
+
+msgid "Accepted"
+msgstr "Приета"
+
+msgid "Rejected"
+msgstr "Отхвърлена"
+
+# Subscription
+msgid "Free"
+msgstr "Безплатен"
+
+msgid "Basic"
+msgstr "Базов"
+
+msgid "Pro"
+msgstr "Професионален"
+
+msgid "Enterprise"
+msgstr "Корпоративен"
+
+msgid "Current Plan"
+msgstr "Текущ план"
+
+msgid "Upgrade Now"
+msgstr "Надстрой сега"
+
+msgid "per month"
+msgstr "на месец"
+
+msgid "Unlimited"
+msgstr "Неограничен"
+
+# AI
+msgid "AI Actions"
+msgstr "AI Действия"
+
+msgid "Generate Email"
+msgstr "Генерирай имейл"
+
+msgid "AI Usage"
+msgstr "AI използване"
+
+msgid "Requests this month"
+msgstr "Заявки този месец"
+
+msgid "Conversations"
+msgstr "Разговори"
+
+msgid "New conversation"
+msgstr "Нов разговор"
+
+msgid "Type your message..."
+msgstr "Напишете съобщението си..."
+
+msgid "Send"
+msgstr "Изпрати"
+
+# Messages
+msgid "Welcome! Your account has been created successfully."
+msgstr "Добре дошли! Вашият акаунт беше създаден успешно."
+
+msgid "Welcome back!"
+msgstr "Добре дошли обратно!"
+
+msgid "You have been logged out successfully."
+msgstr "Излязохте успешно от системата."
+
+msgid "Contact created successfully."
+msgstr "Контактът беше създаден успешно."
+
+msgid "Contact updated successfully."
+msgstr "Контактът беше актуализиран успешно."
+
+msgid "Contact deleted successfully."
+msgstr "Контактът беше изтрит успешно."
+
+msgid "Your profile has been updated successfully."
+msgstr "Вашият профил беше актуализиран успешно."
+
+msgid "Subscription activated successfully! Welcome to your new plan."
+msgstr "Абонаментът беше активиран успешно! Добре дошли във вашия нов план."
+
+# Errors
+msgid "Error creating checkout session"
+msgstr "Грешка при създаване на сесия за плащане"
+
+msgid "Error communicating with AI"
+msgstr "Грешка при комуникация с AI"
+
+msgid "You have reached your AI request limit for this month."
+msgstr "Достигнахте лимита си за AI заявки за този месец."
+
+# Dashboard
+msgid "Pipeline Value"
+msgstr "Стойност на процеса"
+
+msgid "Recent Contacts"
+msgstr "Последни контакти"
+
+msgid "Recent Deals"
+msgstr "Последни сделки"
+
+msgid "Upcoming Tasks"
+msgstr "Предстоящи задачи"
+
+msgid "Recent Activities"
+msgstr "Последни дейности"
+
+msgid "View All"
+msgstr "Виж всички"
+
+msgid "No contacts yet"
+msgstr "Все още няма контакти"
+
+msgid "No deals yet"
+msgstr "Все още няма сделки"
+
+msgid "No tasks yet"
+msgstr "Все още няма задачи"
+
+msgid "No activities yet"
+msgstr "Все още няма дейности"
+
+# Landing page
+msgid "Welcome to CRM System"
+msgstr "Добре дошли в CRM системата"
+
+msgid "Powerful CRM for Your Business"
+msgstr "Мощна CRM система за вашия бизнес"
+
+msgid "Manage contacts, deals, invoices, and more with AI-powered insights."
+msgstr "Управлявайте контакти, сделки, фактури и др. с AI-базирани анализи."
+
+msgid "Get Started Free"
+msgstr "Започнете безплатно"
+
+msgid "Features"
+msgstr "Функции"
+
+msgid "Keep all your contacts and companies organized in one place."
+msgstr "Поддържайте всички ваши контакти и компании организирани на едно място."
+
+msgid "Track deals through customizable sales pipelines."
+msgstr "Следете сделките чрез персонализируеми процеси на продажба."
+
+msgid "Create professional invoices and offers with custom templates."
+msgstr "Създавайте професионални фактури и оферти с персонализирани шаблони."
+
+msgid "Add QR codes to invoices for easy Stripe payments."
+msgstr "Добавяйте QR кодове към фактури за лесни Stripe плащания."
+
+msgid "Get intelligent insights and suggestions powered by Gemini AI."
+msgstr "Получавайте интелигентни анализи и предложения, задвижвани от Gemini AI."
+
+msgid "Design custom invoice and offer templates with visual editor."
+msgstr "Проектирайте персонализирани шаблони за фактури и оферти с визуален редактор."
+
+msgid "Choose Your Plan"
+msgstr "Изберете вашия план"
+
+msgid "Select the perfect plan for your business needs"
+msgstr "Изберете перфектния план за нуждите на вашия бизнес"
+
+msgid "All plans include 30-day money-back guarantee"
+msgstr "Всички планове включват 30-дневна гаранция за връщане на парите"
+
+msgid "View Current Subscription"
+msgstr "Виж текущия абонамент"
+
+# Additional common phrases
+msgid "All rights reserved."
+msgstr "Всички права запазени."
+
+msgid "Don't have an account?"
+msgstr "Нямате акаунт?"
+
+msgid "Already have an account?"
+msgstr "Вече имате акаунт?"
+
+msgid "Create Account"
+msgstr "Създай акаунт"
+
+msgid "Username or email"
+msgstr "Потребителско име или имейл"
+
+msgid "Password"
+msgstr "Парола"
+
+msgid "Confirm password"
+msgstr "Потвърди парола"
+
+msgid "Username"
+msgstr "Потребителско име"
+
+msgid "Are you sure you want to delete this contact?"
+msgstr "Сигурни ли сте, че искате да изтриете този контакт?"
+
+msgid "This action cannot be undone. All associated activities and history will be removed."
+msgstr "Това действие не може да бъде отменено. Всички свързани дейности и история ще бъдат премахнати."
+
+msgid "Confirm Deletion"
+msgstr "Потвърди изтриването"
+
+msgid "Delete Contact"
+msgstr "Изтрий контакт"
+
+msgid "at"
+msgstr "в"
+
+msgid "Previous"
+msgstr "Предишна"
+
+msgid "Next"
+msgstr "Следваща"
+
+msgid "No contacts found."
+msgstr "Не са намерени контакти."
+
+msgid "Create your first contact"
+msgstr "Създайте вашия първи контакт"
+
+msgid "Search contacts..."
+msgstr "Търсене на контакти..."
+
