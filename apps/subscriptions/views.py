@@ -93,10 +93,10 @@ def create_checkout_session(request, plan):
                 'quantity': 1,
             }],
             mode='subscription',
-            success_url=request.build_absolute_uri('/subscriptions/success/'),
+            success_url=request.build_absolute_uri('/subscriptions/success/') + '?session_id={CHECKOUT_SESSION_ID}',
             cancel_url=request.build_absolute_uri('/subscriptions/plans/'),
             metadata={
-                'user_id': request.user.id,
+                'user_id': str(request.user.id),
                 'plan': plan,
             }
         )
@@ -111,7 +111,46 @@ def create_checkout_session(request, plan):
 @login_required
 def subscription_success(request):
     """Subscription success page"""
-    messages.success(request, _('Subscription activated successfully! Welcome to your new plan.'))
+    # Get the Stripe session ID from the URL
+    session_id = request.GET.get('session_id')
+    
+    if session_id:
+        try:
+            # Retrieve the session from Stripe
+            session = stripe.checkout.Session.retrieve(session_id)
+            
+            # Update subscription based on session data
+            from .models import Subscription, SubscriptionHistory
+            
+            user_id = session['metadata'].get('user_id')
+            plan = session['metadata'].get('plan')
+            
+            if user_id and plan and str(request.user.id) == user_id:
+                subscription = request.user.subscription
+                
+                old_plan = subscription.plan
+                subscription.plan = plan
+                subscription.status = 'active'
+                subscription.stripe_subscription_id = session.get('subscription')
+                subscription.save()
+                
+                # Create history entry
+                SubscriptionHistory.objects.create(
+                    user=request.user,
+                    subscription=subscription,
+                    from_plan=old_plan,
+                    to_plan=plan
+                )
+                
+                messages.success(request, _(f'Subscription upgraded to {plan.title()} plan successfully! Enjoy your new features.'))
+            else:
+                messages.warning(request, _('Subscription activated! Please refresh to see your updated plan.'))
+        
+        except Exception as e:
+            messages.warning(request, _('Payment processed successfully! Your subscription will be updated shortly.'))
+    else:
+        messages.success(request, _('Subscription activated successfully! Welcome to your new plan.'))
+    
     return redirect('subscriptions:current')
 
 
