@@ -11,5 +11,9 @@ urlpatterns = [
     path('<int:pk>/delete/', views.template_delete, name='template_delete'),
     path('<int:pk>/preview/', views.template_preview, name='template_preview'),
     path('studio/', views.template_studio, name='template_studio'),
+    # AI-powered template generation
+    path('ai/generate/', views.generate_ai_template, name='generate_ai_template'),
+    path('ai/refine/', views.refine_ai_template, name='refine_ai_template'),
+    path('ai/save/', views.save_ai_template, name='save_ai_template'),
 ]
 

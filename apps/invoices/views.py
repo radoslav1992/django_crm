@@ -336,3 +336,40 @@ def payment_create(request):
     
     return render(request, 'invoices/payment_form.html', {'form': form, 'action': 'create'})
 
+
+# Email sending views
+@login_required
+def invoice_send_email(request, pk):
+    """Send invoice email to client"""
+    invoice = get_object_or_404(Invoice, pk=pk, owner=request.user)
+    
+    if not invoice.client_email:
+        messages.error(request, _('Cannot send email: Client email address is missing.'))
+        return redirect('invoices:invoice_detail', pk=invoice.pk)
+    
+    try:
+        invoice.send_email(request=request)
+        messages.success(request, _('Invoice email sent successfully to {email}').format(email=invoice.client_email))
+    except Exception as e:
+        messages.error(request, _('Failed to send email: {error}').format(error=str(e)))
+    
+    return redirect('invoices:invoice_detail', pk=invoice.pk)
+
+
+@login_required
+def offer_send_email(request, pk):
+    """Send offer email to client"""
+    offer = get_object_or_404(Offer, pk=pk, owner=request.user)
+    
+    if not offer.client_email:
+        messages.error(request, _('Cannot send email: Client email address is missing.'))
+        return redirect('invoices:offer_detail', pk=offer.pk)
+    
+    try:
+        offer.send_email(request=request)
+        messages.success(request, _('Offer email sent successfully to {email}').format(email=offer.client_email))
+    except Exception as e:
+        messages.error(request, _('Failed to send email: {error}').format(error=str(e)))
+    
+    return redirect('invoices:offer_detail', pk=offer.pk)
+

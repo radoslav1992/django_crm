@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.utils.translation import gettext as _
-from django.db.models import Q, Count, Sum
+from django.db.models import Q, Count, Sum, Avg
 from django.utils import timezone
 from django.core.paginator import Paginator
 from .models import Company, Contact, Deal, Task, Pipeline, Stage, Activity
@@ -29,6 +29,12 @@ def dashboard(request):
     # Deals by stage
     deals_by_stage = Deal.objects.filter(owner=user, status='open').values('stage__name').annotate(count=Count('id'), total=Sum('value'))
     
+    # Additional statistics
+    total_completed_tasks = Task.objects.filter(owner=user, completed=True).count()
+    total_revenue = Deal.objects.filter(owner=user, status='won').aggregate(Sum('value'))['value__sum'] or 0
+    average_deal_size = Deal.objects.filter(owner=user, status='won').aggregate(Avg('value'))['value__avg'] or 0
+    overdue_tasks = Task.objects.filter(owner=user, completed=False, due_date__lt=timezone.now()).count()
+
     context = {
         'total_contacts': total_contacts,
         'total_companies': total_companies,
@@ -40,6 +46,13 @@ def dashboard(request):
         'recent_activities': recent_activities,
         'deals_by_stage': deals_by_stage,
     }
+    
+    context.update({
+        'total_completed_tasks': total_completed_tasks,
+        'total_revenue': total_revenue,
+        'average_deal_size': average_deal_size,
+        'overdue_tasks': overdue_tasks,
+    })
     
     return render(request, 'crm/dashboard.html', context)
 

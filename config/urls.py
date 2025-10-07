@@ -6,8 +6,10 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls.i18n import i18n_patterns
+from apps.accounts.health import health_check
 
 urlpatterns = [
+    path('health/', health_check, name='health_check'),
     path('i18n/', include('django.conf.urls.i18n')),
 ]
 

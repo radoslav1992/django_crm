@@ -55,6 +55,10 @@ class Invoice(models.Model):
     notes = models.TextField(_('notes'), blank=True)
     terms = models.TextField(_('terms and conditions'), blank=True)
     
+    # Email tracking
+    email_sent = models.BooleanField(_('email sent'), default=False)
+    email_sent_at = models.DateTimeField(_('email sent at'), null=True, blank=True)
+    
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     
@@ -105,6 +109,80 @@ class Invoice(models.Model):
     @property
     def is_paid(self):
         return self.paid_amount >= self.total_amount
+    
+    def send_email(self, request=None):
+        """Send invoice email to client"""
+        from django.core.mail import EmailMessage
+        from django.template.loader import render_to_string
+        from django.utils import timezone
+        import os
+        
+        if not self.client_email:
+            raise ValueError(_("Client email is required to send invoice"))
+        
+        # Get the absolute URL for the PDF
+        if request:
+            pdf_url = request.build_absolute_uri(reverse('invoices:invoice_pdf', kwargs={'pk': self.pk}))
+        else:
+            pdf_url = f"http://localhost:8000{reverse('invoices:invoice_pdf', kwargs={'pk': self.pk})}"
+        
+        # Email subject
+        subject = f"{_('Invoice')} {self.invoice_number}"
+        
+        # Email body
+        context = {
+            'invoice': self,
+            'pdf_url': pdf_url,
+            'company_name': self.owner.get_full_name() or self.owner.username,
+        }
+        
+        html_message = render_to_string('invoices/email_invoice.html', context)
+        plain_message = f"""
+        {_('Dear')} {self.client_name},
+        
+        {_('Please find attached your invoice')} {self.invoice_number}.
+        
+        {_('Invoice Details')}:
+        - {_('Invoice Number')}: {self.invoice_number}
+        - {_('Date')}: {self.invoice_date}
+        - {_('Due Date')}: {self.due_date}
+        - {_('Total Amount')}: {self.total_amount} {self.currency}
+        
+        {_('You can view and download your invoice here')}: {pdf_url}
+        
+        {_('Thank you for your business!')}
+        
+        {_('Best regards')},
+        {self.owner.get_full_name() or self.owner.username}
+        """
+        
+        # Create email
+        email = EmailMessage(
+            subject=subject,
+            body=plain_message,
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            to=[self.client_email],
+            reply_to=[self.owner.email] if self.owner.email else None,
+        )
+        
+        # Add HTML version
+        email.content_subtype = "html"
+        email.body = html_message
+        
+        # Send email
+        email.send(fail_silently=False)
+        
+        # Update email tracking
+        self.email_sent = True
+        self.email_sent_at = timezone.now()
+        
+        # Update status to 'sent' if it's still draft
+        if self.status == 'draft':
+            self.status = 'sent'
+        
+        self.save()
+        
+        return True
 
 
 class InvoiceItem(models.Model):
@@ -173,6 +251,10 @@ class Offer(models.Model):
     notes = models.TextField(_('notes'), blank=True)
     terms = models.TextField(_('terms and conditions'), blank=True)
     
+    # Email tracking
+    email_sent = models.BooleanField(_('email sent'), default=False)
+    email_sent_at = models.DateTimeField(_('email sent at'), null=True, blank=True)
+    
     # Conversion to invoice
     converted_to_invoice = models.OneToOneField(
         Invoice,
@@ -202,6 +284,79 @@ class Offer(models.Model):
         self.tax_amount = self.subtotal * (self.tax_rate / 100)
         self.total_amount = self.subtotal + self.tax_amount
         self.save()
+    
+    def send_email(self, request=None):
+        """Send offer email to client"""
+        from django.core.mail import EmailMessage
+        from django.template.loader import render_to_string
+        from django.utils import timezone
+        
+        if not self.client_email:
+            raise ValueError(_("Client email is required to send offer"))
+        
+        # Get the absolute URL for the PDF
+        if request:
+            pdf_url = request.build_absolute_uri(reverse('invoices:offer_pdf', kwargs={'pk': self.pk}))
+        else:
+            pdf_url = f"http://localhost:8000{reverse('invoices:offer_pdf', kwargs={'pk': self.pk})}"
+        
+        # Email subject
+        subject = f"{_('Offer')} {self.offer_number}"
+        
+        # Email body
+        context = {
+            'offer': self,
+            'pdf_url': pdf_url,
+            'company_name': self.owner.get_full_name() or self.owner.username,
+        }
+        
+        html_message = render_to_string('invoices/email_offer.html', context)
+        plain_message = f"""
+        {_('Dear')} {self.client_name},
+        
+        {_('Please find attached your offer')} {self.offer_number}.
+        
+        {_('Offer Details')}:
+        - {_('Offer Number')}: {self.offer_number}
+        - {_('Date')}: {self.offer_date}
+        - {_('Valid Until')}: {self.valid_until}
+        - {_('Total Amount')}: {self.total_amount} {self.currency}
+        
+        {_('You can view and download your offer here')}: {pdf_url}
+        
+        {_('We look forward to working with you!')}
+        
+        {_('Best regards')},
+        {self.owner.get_full_name() or self.owner.username}
+        """
+        
+        # Create email
+        email = EmailMessage(
+            subject=subject,
+            body=plain_message,
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            to=[self.client_email],
+            reply_to=[self.owner.email] if self.owner.email else None,
+        )
+        
+        # Add HTML version
+        email.content_subtype = "html"
+        email.body = html_message
+        
+        # Send email
+        email.send(fail_silently=False)
+        
+        # Update email tracking
+        self.email_sent = True
+        self.email_sent_at = timezone.now()
+        
+        # Update status to 'sent' if it's still draft
+        if self.status == 'draft':
+            self.status = 'sent'
+        
+        self.save()
+        
+        return True
 
 
 class OfferItem(models.Model):

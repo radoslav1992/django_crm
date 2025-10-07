@@ -7,22 +7,40 @@
 <div class="row mb-4">
     <div class="col-md-8">
         <h1>{% trans "Offer" %} {{ offer.offer_number }}</h1>
-        <p class="text-muted">
+        <p class="text-muted mb-2">
             <span class="badge bg-{{ offer.status }}">{{ offer.get_status_display }}</span>
+            {% if offer.email_sent %}
+            <span class="badge bg-success ms-2">
+                <i class="bi bi-envelope-check"></i> {% trans "Email Sent" %} 
+                <small>({{ offer.email_sent_at|date:"M d, Y H:i" }})</small>
+            </span>
+            {% endif %}
         </p>
     </div>
     <div class="col-md-4 text-end no-print">
-        {% if not offer.converted_to_invoice and offer.status == 'sent' %}
-        <a href="{% url 'invoices:offer_convert' offer.pk %}" class="btn btn-success">
-            <i class="bi bi-arrow-right-circle"></i> {% trans "Convert to Invoice" %}
+        <div class="btn-group mb-2" role="group">
+            {% if not offer.converted_to_invoice and offer.status == 'sent' %}
+            <a href="{% url 'invoices:offer_convert' offer.pk %}" class="btn btn-success">
+                <i class="bi bi-arrow-right-circle"></i> {% trans "Convert to Invoice" %}
+            </a>
+            {% endif %}
+            <a href="{% url 'invoices:offer_update' offer.pk %}" class="btn btn-primary">
+                <i class="bi bi-pencil"></i> {% trans "Edit" %}
+            </a>
+            <button onclick="window.print()" class="btn btn-secondary">
+                <i class="bi bi-printer"></i> {% trans "Print" %}
+            </button>
+        </div>
+        <br>
+        {% if offer.client_email %}
+        <a href="{% url 'invoices:offer_send_email' offer.pk %}" class="btn btn-success w-100" onclick="return confirm('{% trans "Send offer email to" %} {{ offer.client_email }}?');">
+            <i class="bi bi-envelope"></i> {% trans "Send Email to Client" %}
         </a>
-        {% endif %}
-        <a href="{% url 'invoices:offer_update' offer.pk %}" class="btn btn-primary">
-            <i class="bi bi-pencil"></i> {% trans "Edit" %}
-        </a>
-        <button onclick="window.print()" class="btn btn-secondary">
-            <i class="bi bi-printer"></i> {% trans "Print" %}
+        {% else %}
+        <button class="btn btn-outline-secondary w-100" disabled title="{% trans 'Client email address is missing' %}">
+            <i class="bi bi-envelope-x"></i> {% trans "No Email Address" %}
         </button>
+        {% endif %}
     </div>
 </div>
 

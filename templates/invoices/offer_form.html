@@ -25,26 +25,107 @@
             <div class="card-body">
                 <form method="post">
                     {% csrf_token %}
+                    
+                    {% if form.errors or formset.errors %}
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <h5 class="alert-heading"><i class="bi bi-exclamation-triangle"></i> {% trans "Please correct the errors below:" %}</h5>
+                        <ul class="mb-0">
+                            {% for field in form %}
+                                {% if field.errors %}
+                                    <li><strong>{{ field.label }}:</strong> {{ field.errors|striptags }}</li>
+                                {% endif %}
+                            {% endfor %}
+                            {% if form.non_field_errors %}
+                                <li>{{ form.non_field_errors|striptags }}</li>
+                            {% endif %}
+                            {% for item_form in formset %}
+                                {% if item_form.errors %}
+                                    <li><strong>{% trans "Item" %} {{ forloop.counter }}:</strong>
+                                        {% for field in item_form %}
+                                            {% if field.errors %}
+                                                {{ field.label }}: {{ field.errors|striptags }}
+                                            {% endif %}
+                                        {% endfor %}
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                            {% if formset.non_form_errors %}
+                                <li>{{ formset.non_form_errors|striptags }}</li>
+                            {% endif %}
+                        </ul>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                    {% endif %}
                     {{ form|crispy }}
                     
-                    <h5 class="mb-3 mt-4">{% trans "Items" %}</h5>
+                    <div class="d-flex justify-content-between align-items-center mb-3 mt-4">
+                        <h5 class="mb-0">{% trans "Items" %}</h5>
+                        <button type="button" class="btn btn-sm btn-success" id="add-item-btn">
+                            <i class="bi bi-plus-circle"></i> {% trans "Add Row" %}
+                        </button>
+                    </div>
                     {{ formset.management_form }}
-                    {% for item_form in formset %}
-                    <div class="row item-row border-bottom pb-3 mb-3">
-                        <div class="col-md-6">
-                            {{ item_form.description|as_crispy_field }}
+                    <div id="offer-items">
+                        {% for item_form in formset %}
+                        <div class="item-row border rounded p-3 mb-3 bg-light" data-form-index="{{ forloop.counter0 }}">
+                            <div class="row align-items-end">
+                                <div class="col-md-5">
+                                    {{ item_form.description|as_crispy_field }}
+                                </div>
+                                <div class="col-md-2">
+                                    {{ item_form.quantity|as_crispy_field }}
+                                </div>
+                                <div class="col-md-3">
+                                    {{ item_form.unit_price|as_crispy_field }}
+                                </div>
+                                <div class="col-md-2 text-center">
+                                    <button type="button" class="btn btn-sm btn-danger remove-item-btn" title="{% trans 'Remove item' %}">
+                                        <i class="bi bi-trash"></i> {% trans "Remove" %}
+                                    </button>
+                                    <div class="d-none">
+                                        {{ item_form.DELETE }}
+                                        {{ item_form.id }}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-2">
-                            {{ item_form.quantity|as_crispy_field }}
-                        </div>
-                        <div class="col-md-3">
-                            {{ item_form.unit_price|as_crispy_field }}
-                        </div>
-                        <div class="col-md-1">
-                            {{ item_form.DELETE }}
+                        {% endfor %}
+                    </div>
+                    
+                    <!-- Empty form template for cloning (hidden) -->
+                    <div id="empty-item-form" class="d-none">
+                        <div class="item-row border rounded p-3 mb-3 bg-light" data-form-index="__prefix__">
+                            <div class="row align-items-end">
+                                <div class="col-md-5">
+                                    <div class="mb-3">
+                                        <label class="form-label">{% trans "Description" %}</label>
+                                        <input type="text" name="items-__prefix__-description" class="form-control" id="id_items-__prefix__-description">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-3">
+                                        <label class="form-label">{% trans "Quantity" %}</label>
+                                        <input type="number" name="items-__prefix__-quantity" class="form-control" id="id_items-__prefix__-quantity">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="mb-3">
+                                        <label class="form-label">{% trans "Unit price" %}</label>
+                                        <input type="number" step="0.01" name="items-__prefix__-unit_price" class="form-control" id="id_items-__prefix__-unit_price">
+                                    </div>
+                                </div>
+                                <div class="col-md-2 text-center">
+                                    <button type="button" class="btn btn-sm btn-danger remove-item-btn" title="{% trans 'Remove item' %}">
+                                        <i class="bi bi-trash"></i> {% trans "Remove" %}
+                                    </button>
+                                    <div class="d-none">
+                                        <input type="checkbox" name="items-__prefix__-DELETE" id="id_items-__prefix__-DELETE">
+                                        <input type="hidden" name="items-__prefix__-id" id="id_items-__prefix__-id">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    {% endfor %}
                     
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
                         <a href="{% if offer %}{% url 'invoices:offer_detail' offer.pk %}{% else %}{% url 'invoices:offer_list' %}{% endif %}" 
@@ -65,5 +146,108 @@
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const itemsContainer = document.getElementById('offer-items');
+    const addItemBtn = document.getElementById('add-item-btn');
+    const emptyFormTemplate = document.getElementById('empty-item-form');
+    const totalFormsInput = document.getElementById('id_items-TOTAL_FORMS');
+    
+    // Get current form count
+    let formCount = parseInt(totalFormsInput.value);
+    
+    // Add new item row
+    addItemBtn.addEventListener('click', function() {
+        // Clone the empty form template
+        const newForm = emptyFormTemplate.querySelector('.item-row').cloneNode(true);
+        
+        // Replace __prefix__ with the actual form number
+        const formHtml = newForm.innerHTML.replace(/__prefix__/g, formCount);
+        newForm.innerHTML = formHtml;
+        newForm.setAttribute('data-form-index', formCount);
+        
+        // Append to container
+        itemsContainer.appendChild(newForm);
+        
+        // Increment form count
+        formCount++;
+        totalFormsInput.value = formCount;
+        
+        // Attach remove handler to the new form
+        attachRemoveHandler(newForm);
+    });
+    
+    // Remove item row
+    function attachRemoveHandler(row) {
+        const removeBtn = row.querySelector('.remove-item-btn');
+        removeBtn.addEventListener('click', function() {
+            const deleteCheckbox = row.querySelector('input[name$="-DELETE"]');
+            
+            if (deleteCheckbox) {
+                // If this is an existing item (has DELETE checkbox), mark for deletion
+                deleteCheckbox.checked = true;
+                row.style.display = 'none';
+            } else {
+                // If this is a new item (not saved yet), remove it completely
+                row.remove();
+                
+                // Decrement form count
+                formCount--;
+                totalFormsInput.value = formCount;
+                
+                // Re-index remaining forms
+                reindexForms();
+            }
+        });
+    }
+    
+    // Re-index forms after removal
+    function reindexForms() {
+        const allForms = itemsContainer.querySelectorAll('.item-row');
+        let index = 0;
+        
+        allForms.forEach(function(form) {
+            if (form.style.display !== 'none') {
+                // Update data attribute
+                form.setAttribute('data-form-index', index);
+                
+                // Update all input names and IDs
+                const inputs = form.querySelectorAll('input, select, textarea');
+                inputs.forEach(function(input) {
+                    const name = input.getAttribute('name');
+                    const id = input.getAttribute('id');
+                    
+                    if (name) {
+                        input.setAttribute('name', name.replace(/items-\d+-/, 'items-' + index + '-'));
+                    }
+                    if (id) {
+                        input.setAttribute('id', id.replace(/id_items-\d+-/, 'id_items-' + index + '-'));
+                    }
+                });
+                
+                // Update labels
+                const labels = form.querySelectorAll('label');
+                labels.forEach(function(label) {
+                    const forAttr = label.getAttribute('for');
+                    if (forAttr) {
+                        label.setAttribute('for', forAttr.replace(/id_items-\d+-/, 'id_items-' + index + '-'));
+                    }
+                });
+                
+                index++;
+            }
+        });
+        
+        formCount = index;
+        totalFormsInput.value = formCount;
+    }
+    
+    // Attach remove handlers to existing forms
+    document.querySelectorAll('.item-row').forEach(attachRemoveHandler);
+});
+</script>
 {% endblock %}
 

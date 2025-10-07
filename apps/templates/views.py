@@ -2,8 +2,12 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.utils.translation import gettext as _
+from django.http import JsonResponse
+from django.views.decorators.http import require_POST
 from .models import DocumentTemplate, TemplateVariable
 from .forms import DocumentTemplateForm
+from apps.ai_assistant.services import GeminiAssistant
+import json
 
 
 @login_required
@@ -115,7 +119,7 @@ def template_preview(request, pk):
 
 @login_required
 def template_studio(request):
-    """Template studio/editor interface"""
+    """AI-powered template studio/editor interface"""
     templates = DocumentTemplate.objects.filter(owner=request.user)
     variables = TemplateVariable.objects.all()
     
@@ -123,4 +127,283 @@ def template_studio(request):
         'templates': templates,
         'variables': variables
     })
+
+
+@login_required
+@require_POST
+def generate_ai_template(request):
+    """Generate template using AI based on user prompt"""
+    import logging
+    from django.core.cache import cache
+    
+    logger = logging.getLogger(__name__)
+    
+    try:
+        # Check AI usage limit
+        subscription = request.user.subscription
+        if not subscription.can_use_ai():
+            return JsonResponse({
+                'success': False,
+                'error': _('You have reached your AI request limit for this month. Please upgrade your plan.'),
+                'upgrade_required': True
+            }, status=403)
+        
+        # Rate limiting - max 5 requests per minute
+        rate_limit_key = f"ai_template_gen:{request.user.id}"
+        requests_count = cache.get(rate_limit_key, 0)
+        if requests_count >= 5:
+            return JsonResponse({
+                'success': False,
+                'error': _('Too many requests. Please wait a moment and try again.')
+            }, status=429)
+        cache.set(rate_limit_key, requests_count + 1, 60)  # 60 seconds
+        
+        # Parse and validate request
+        data = json.loads(request.body)
+        user_prompt = data.get('prompt', '').strip()
+        template_type = data.get('template_type', 'invoice')
+        
+        # Input validation
+        MAX_PROMPT_LENGTH = 2000
+        if not user_prompt:
+            return JsonResponse({
+                'success': False,
+                'error': _('Please provide a description for your template')
+            }, status=400)
+        
+        if len(user_prompt) > MAX_PROMPT_LENGTH:
+            return JsonResponse({
+                'success': False,
+                'error': _('Description is too long. Please keep it under 2000 characters.')
+            }, status=400)
+        
+        # Initialize AI assistant
+        assistant = GeminiAssistant(request.user)
+        
+        # Generate template with timeout protection
+        html_content = assistant.generate_complete_template(user_prompt, template_type)
+        
+        # Validate output size
+        MAX_HTML_SIZE = 100000  # 100KB
+        if len(html_content) > MAX_HTML_SIZE:
+            logger.warning(f"Generated template too large for user {request.user.id}: {len(html_content)} bytes")
+            return JsonResponse({
+                'success': False,
+                'error': _('Generated template is too large. Please simplify your requirements.')
+            }, status=400)
+        
+        # Increment AI usage counter
+        subscription.increment_ai_usage()
+        
+        return JsonResponse({
+            'success': True,
+            'html_content': html_content,
+            'message': _('Template generated successfully!'),
+            'ai_requests_remaining': subscription.get_plan_config().get('ai_requests_per_month', 0) - subscription.ai_requests_used
+        })
+    
+    except json.JSONDecodeError:
+        return JsonResponse({
+            'success': False,
+            'error': _('Invalid request format')
+        }, status=400)
+    
+    except Exception as e:
+        logger.error(f"AI template generation failed for user {request.user.id}: {str(e)}", exc_info=True)
+        return JsonResponse({
+            'success': False,
+            'error': _('Failed to generate template. Please try again.')
+        }, status=500)
+
+
+@login_required
+@require_POST
+def refine_ai_template(request):
+    """Refine existing template based on user feedback"""
+    import logging
+    from django.core.cache import cache
+    
+    logger = logging.getLogger(__name__)
+    
+    try:
+        # Check AI usage limit
+        subscription = request.user.subscription
+        if not subscription.can_use_ai():
+            return JsonResponse({
+                'success': False,
+                'error': _('You have reached your AI request limit for this month. Please upgrade your plan.'),
+                'upgrade_required': True
+            }, status=403)
+        
+        # Rate limiting - max 5 requests per minute
+        rate_limit_key = f"ai_template_refine:{request.user.id}"
+        requests_count = cache.get(rate_limit_key, 0)
+        if requests_count >= 5:
+            return JsonResponse({
+                'success': False,
+                'error': _('Too many requests. Please wait a moment and try again.')
+            }, status=429)
+        cache.set(rate_limit_key, requests_count + 1, 60)
+        
+        # Parse and validate request
+        data = json.loads(request.body)
+        current_html = data.get('current_html', '')
+        user_feedback = data.get('feedback', '').strip()
+        
+        # Input validation
+        MAX_FEEDBACK_LENGTH = 1000
+        MAX_HTML_SIZE = 100000
+        
+        if not current_html or not user_feedback:
+            return JsonResponse({
+                'success': False,
+                'error': _('Please provide both current template and feedback')
+            }, status=400)
+        
+        if len(user_feedback) > MAX_FEEDBACK_LENGTH:
+            return JsonResponse({
+                'success': False,
+                'error': _('Feedback is too long. Please keep it under 1000 characters.')
+            }, status=400)
+        
+        if len(current_html) > MAX_HTML_SIZE:
+            return JsonResponse({
+                'success': False,
+                'error': _('Current template is too large.')
+            }, status=400)
+        
+        # Initialize AI assistant
+        assistant = GeminiAssistant(request.user)
+        
+        # Refine template
+        refined_html = assistant.refine_template(current_html, user_feedback)
+        
+        # Validate output size
+        if len(refined_html) > MAX_HTML_SIZE:
+            logger.warning(f"Refined template too large for user {request.user.id}: {len(refined_html)} bytes")
+            return JsonResponse({
+                'success': False,
+                'error': _('Refined template is too large. Please simplify your requirements.')
+            }, status=400)
+        
+        # Increment AI usage counter
+        subscription.increment_ai_usage()
+        
+        return JsonResponse({
+            'success': True,
+            'html_content': refined_html,
+            'message': _('Template refined successfully!'),
+            'ai_requests_remaining': subscription.get_plan_config().get('ai_requests_per_month', 0) - subscription.ai_requests_used
+        })
+    
+    except json.JSONDecodeError:
+        return JsonResponse({
+            'success': False,
+            'error': _('Invalid request format')
+        }, status=400)
+    
+    except Exception as e:
+        logger.error(f"AI template refinement failed for user {request.user.id}: {str(e)}", exc_info=True)
+        return JsonResponse({
+            'success': False,
+            'error': _('Failed to refine template. Please try again.')
+        }, status=500)
+
+
+@login_required
+@require_POST
+def save_ai_template(request):
+    """Save AI-generated template to database"""
+    import logging
+    
+    logger = logging.getLogger(__name__)
+    
+    try:
+        # Parse and validate request
+        data = json.loads(request.body)
+        template_name = data.get('name', '').strip()
+        template_type = data.get('template_type', 'invoice')
+        html_content = data.get('html_content', '')
+        is_default = data.get('is_default', False)
+        
+        # Input validation
+        MAX_NAME_LENGTH = 200
+        MAX_HTML_SIZE = 100000
+        
+        if not template_name or not html_content:
+            return JsonResponse({
+                'success': False,
+                'error': _('Please provide template name and content')
+            }, status=400)
+        
+        if len(template_name) > MAX_NAME_LENGTH:
+            return JsonResponse({
+                'success': False,
+                'error': _('Template name is too long. Please keep it under 200 characters.')
+            }, status=400)
+        
+        if len(html_content) > MAX_HTML_SIZE:
+            return JsonResponse({
+                'success': False,
+                'error': _('Template content is too large.')
+            }, status=400)
+        
+        # Validate template type
+        if template_type not in ['invoice', 'offer']:
+            return JsonResponse({
+                'success': False,
+                'error': _('Invalid template type')
+            }, status=400)
+        
+        # Sanitize HTML content - allow only safe tags for templates
+        allowed_tags = [
+            'html', 'head', 'body', 'title', 'meta', 'link', 'style',
+            'div', 'span', 'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+            'table', 'thead', 'tbody', 'tr', 'td', 'th',
+            'ul', 'ol', 'li', 'br', 'hr', 'img',
+            'strong', 'em', 'b', 'i', 'u', 'small',
+            'header', 'footer', 'section', 'article'
+        ]
+        
+        allowed_attributes = {
+            '*': ['class', 'id', 'style'],
+            'img': ['src', 'alt', 'width', 'height'],
+            'link': ['href', 'rel'],
+            'meta': ['charset', 'name', 'content']
+        }
+        
+        # Note: bleach.clean will strip Django template tags, so we need to preserve them
+        # For now, we'll just validate size and store as-is
+        # In production, consider using a Django template validator
+        
+        # Create template
+        template = DocumentTemplate.objects.create(
+            owner=request.user,
+            name=template_name,
+            template_type=template_type,
+            html_template=html_content,
+            is_default=is_default
+        )
+        
+        logger.info(f"User {request.user.id} saved AI-generated template: {template.pk}")
+        
+        return JsonResponse({
+            'success': True,
+            'template_id': template.pk,
+            'message': _('Template saved successfully!'),
+            'redirect_url': f'/templates/{template.pk}/'
+        })
+    
+    except json.JSONDecodeError:
+        return JsonResponse({
+            'success': False,
+            'error': _('Invalid request format')
+        }, status=400)
+    
+    except Exception as e:
+        logger.error(f"Failed to save template for user {request.user.id}: {str(e)}", exc_info=True)
+        return JsonResponse({
+            'success': False,
+            'error': _('Failed to save template. Please try again.')
+        }, status=500)
 

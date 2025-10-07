@@ -4,99 +4,211 @@
 {% block title %}{% trans "Dashboard" %} - CRM{% endblock %}
 
 {% block content %}
-<div class="row">
-    <div class="col-12">
-        <h1 class="mb-4">{% trans "Dashboard" %}</h1>
+<!-- Header Section -->
+<div class="row mb-4">
+    <div class="col-md-8">
+        <h1 class="mb-2">
+            <i class="bi bi-speedometer2 text-primary"></i>
+            {% trans "Dashboard" %}
+        </h1>
+        <p class="text-muted">{% trans "Welcome back! Here's what's happening with your business today." %}</p>
+    </div>
+    <div class="col-md-4 text-end">
+        <div class="btn-group" role="group">
+            <a href="{% url 'crm:contact_create' %}" class="btn btn-primary">
+                <i class="bi bi-person-plus"></i> {% trans "New Contact" %}
+            </a>
+            <a href="{% url 'crm:deal_create' %}" class="btn btn-success">
+                <i class="bi bi-plus-circle"></i> {% trans "New Deal" %}
+            </a>
+        </div>
     </div>
 </div>
 
-<!-- Statistics Cards -->
+<!-- Top Statistics Cards -->
 <div class="row g-4 mb-4">
-    <div class="col-md-3">
-        <div class="card border-0 shadow-sm">
-            <div class="card-body">
-                <div class="d-flex align-items-center">
-                    <div class="flex-shrink-0">
-                        <i class="bi bi-people-fill text-primary" style="font-size: 2rem;"></i>
-                    </div>
-                    <div class="flex-grow-1 ms-3">
-                        <h3 class="mb-0">{{ total_contacts }}</h3>
-                        <p class="text-muted mb-0">{% trans "Contacts" %}</p>
-                    </div>
-                </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="stat-card fade-in">
+            <div class="stat-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                <i class="bi bi-people-fill text-white"></i>
             </div>
+            <div class="stat-value">{{ total_contacts }}</div>
+            <div class="stat-label">{% trans "Total Contacts" %}</div>
+            <a href="{% url 'crm:contact_list' %}" class="text-decoration-none text-primary mt-2 d-block">
+                <small><i class="bi bi-arrow-right-circle"></i> {% trans "View all" %}</small>
+            </a>
         </div>
     </div>
-    <div class="col-md-3">
-        <div class="card border-0 shadow-sm">
-            <div class="card-body">
-                <div class="d-flex align-items-center">
-                    <div class="flex-shrink-0">
-                        <i class="bi bi-building text-info" style="font-size: 2rem;"></i>
-                    </div>
-                    <div class="flex-grow-1 ms-3">
-                        <h3 class="mb-0">{{ total_companies }}</h3>
-                        <p class="text-muted mb-0">{% trans "Companies" %}</p>
-                    </div>
-                </div>
+    
+    <div class="col-lg-3 col-md-6">
+        <div class="stat-card fade-in" style="animation-delay: 0.1s;">
+            <div class="stat-icon" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                <i class="bi bi-building text-white"></i>
             </div>
+            <div class="stat-value">{{ total_companies }}</div>
+            <div class="stat-label">{% trans "Companies" %}</div>
+            <a href="{% url 'crm:company_list' %}" class="text-decoration-none text-primary mt-2 d-block">
+                <small><i class="bi bi-arrow-right-circle"></i> {% trans "View all" %}</small>
+            </a>
         </div>
     </div>
-    <div class="col-md-3">
-        <div class="card border-0 shadow-sm">
-            <div class="card-body">
-                <div class="d-flex align-items-center">
-                    <div class="flex-shrink-0">
-                        <i class="bi bi-graph-up text-success" style="font-size: 2rem;"></i>
-                    </div>
-                    <div class="flex-grow-1 ms-3">
-                        <h3 class="mb-0">{{ total_deals }}</h3>
-                        <p class="text-muted mb-0">{% trans "Open Deals" %}</p>
-                    </div>
-                </div>
+    
+    <div class="col-lg-3 col-md-6">
+        <div class="stat-card fade-in" style="animation-delay: 0.2s;">
+            <div class="stat-icon" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                <i class="bi bi-graph-up text-white"></i>
             </div>
+            <div class="stat-value">{{ total_deals }}</div>
+            <div class="stat-label">{% trans "Open Deals" %}</div>
+            <a href="{% url 'crm:deal_list' %}" class="text-decoration-none text-primary mt-2 d-block">
+                <small><i class="bi bi-arrow-right-circle"></i> {% trans "View all" %}</small>
+            </a>
         </div>
     </div>
-    <div class="col-md-3">
-        <div class="card border-0 shadow-sm">
-            <div class="card-body">
-                <div class="d-flex align-items-center">
-                    <div class="flex-shrink-0">
-                        <i class="bi bi-currency-euro text-warning" style="font-size: 2rem;"></i>
-                    </div>
-                    <div class="flex-grow-1 ms-3">
-                        <h3 class="mb-0">€{{ total_deal_value|floatformat:0 }}</h3>
-                        <p class="text-muted mb-0">{% trans "Pipeline Value" %}</p>
-                    </div>
-                </div>
+    
+    <div class="col-lg-3 col-md-6">
+        <div class="stat-card fade-in" style="animation-delay: 0.3s;">
+            <div class="stat-icon" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                <i class="bi bi-currency-euro text-white"></i>
+            </div>
+            <div class="stat-value">€{{ total_deal_value|floatformat:0|default:"0" }}</div>
+            <div class="stat-label">{% trans "Pipeline Value" %}</div>
+            <div class="stat-trend up mt-2">
+                <i class="bi bi-arrow-up-circle-fill"></i> {% trans "Active pipeline" %}
             </div>
         </div>
     </div>
 </div>
 
+<!-- Secondary Statistics Cards -->
+<div class="row g-4 mb-4">
+    <div class="col-lg-3 col-md-6">
+        <div class="stat-card fade-in" style="animation-delay: 0.4s;">
+            <div class="stat-icon" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                <i class="bi bi-check-circle-fill text-white"></i>
+            </div>
+            <div class="stat-value">{{ total_completed_tasks }}</div>
+            <div class="stat-label">{% trans "Completed Tasks" %}</div>
+            <a href="{% url 'crm:task_list' %}" class="text-decoration-none text-primary mt-2 d-block">
+                <small><i class="bi bi-arrow-right-circle"></i> {% trans "View all" %}</small>
+            </a>
+        </div>
+    </div>
+    
+    <div class="col-lg-3 col-md-6">
+        <div class="stat-card fade-in" style="animation-delay: 0.5s;">
+            <div class="stat-icon" style="background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);">
+                <i class="bi bi-cash-stack text-white"></i>
+            </div>
+            <div class="stat-value">€{{ total_revenue|floatformat:0|default:"0" }}</div>
+            <div class="stat-label">{% trans "Total Revenue" %}</div>
+            <a href="{% url 'invoices:invoice_list' %}" class="text-decoration-none text-primary mt-2 d-block">
+                <small><i class="bi bi-arrow-right-circle"></i> {% trans "View invoices" %}</small>
+            </a>
+        </div>
+    </div>
+    
+    <div class="col-lg-3 col-md-6">
+        <div class="stat-card fade-in" style="animation-delay: 0.6s;">
+            <div class="stat-icon" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                <i class="bi bi-bar-chart-line-fill text-dark"></i>
+            </div>
+            <div class="stat-value">€{{ average_deal_size|floatformat:0|default:"0" }}</div>
+            <div class="stat-label">{% trans "Average Deal Size" %}</div>
+            <div class="stat-trend up mt-2">
+                <i class="bi bi-graph-up"></i> {% trans "Growing" %}
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-3 col-md-6">
+        <div class="stat-card fade-in" style="animation-delay: 0.7s;">
+            <div class="stat-icon" style="background: {% if overdue_tasks > 0 %}linear-gradient(135deg, #f857a6 0%, #ff5858 100%){% else %}linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%){% endif %};">
+                <i class="bi {% if overdue_tasks > 0 %}bi-exclamation-triangle-fill{% else %}bi-check-all{% endif %} text-white"></i>
+            </div>
+            <div class="stat-value">{{ overdue_tasks|default:"0" }}</div>
+            <div class="stat-label">{% trans "Overdue Tasks" %}</div>
+            {% if overdue_tasks > 0 %}
+            <div class="stat-trend down mt-2">
+                <i class="bi bi-exclamation-circle-fill"></i> {% trans "Needs attention" %}
+            </div>
+            {% else %}
+            <div class="stat-trend up mt-2">
+                <i class="bi bi-check-circle-fill"></i> {% trans "All caught up!" %}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<!-- Chart Section -->
+<div class="row g-4 mb-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h5 class="mb-0">
+                            <i class="bi bi-bar-chart-fill"></i> {% trans "Deals by Stage" %}
+                        </h5>
+                        <small class="text-muted">{% trans "Visual representation of your sales pipeline" %}</small>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <canvas id="dealsByStageChart" style="max-height: 300px;"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Lists Section -->
 <div class="row g-4">
     <!-- Recent Contacts -->
-    <div class="col-md-6">
-        <div class="card border-0 shadow-sm">
-            <div class="card-header bg-white">
+    <div class="col-lg-6">
+        <div class="card h-100">
+            <div class="card-header">
                 <div class="d-flex justify-content-between align-items-center">
-                    <h5 class="mb-0">{% trans "Recent Contacts" %}</h5>
-                    <a href="{% url 'crm:contact_list' %}" class="btn btn-sm btn-primary">{% trans "View All" %}</a>
+                    <h5 class="mb-0">
+                        <i class="bi bi-people"></i> {% trans "Recent Contacts" %}
+                    </h5>
+                    <a href="{% url 'crm:contact_list' %}" class="btn btn-sm btn-outline-primary">
+                        {% trans "View All" %} <i class="bi bi-arrow-right"></i>
+                    </a>
                 </div>
             </div>
-            <div class="card-body">
+            <div class="card-body p-0">
                 <div class="list-group list-group-flush">
                     {% for contact in recent_contacts %}
-                    <a href="{% url 'crm:contact_detail' contact.pk %}" class="list-group-item list-group-item-action">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h6 class="mb-1">{{ contact.full_name }}</h6>
-                            <small class="text-muted">{{ contact.created_at|date:"d M Y" }}</small>
+                    <a href="{% url 'crm:contact_detail' contact.pk %}" class="list-group-item list-group-item-action slide-in">
+                        <div class="d-flex align-items-center">
+                            <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px; font-weight: 600;">
+                                {{ contact.first_name|slice:":1" }}{{ contact.last_name|slice:":1" }}
+                            </div>
+                            <div class="flex-grow-1">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h6 class="mb-1">{{ contact.full_name }}</h6>
+                                    <small class="text-muted">{{ contact.created_at|date:"M d" }}</small>
+                                </div>
+                                <p class="mb-0 text-muted small">
+                                    <i class="bi bi-envelope"></i> {{ contact.email }}
+                                </p>
+                                {% if contact.company %}
+                                <small class="text-muted">
+                                    <i class="bi bi-building"></i> {{ contact.company.name }}
+                                </small>
+                                {% endif %}
+                            </div>
                         </div>
-                        <p class="mb-1">{{ contact.email }}</p>
-                        {% if contact.company %}<small class="text-muted">{{ contact.company.name }}</small>{% endif %}
                     </a>
                     {% empty %}
-                    <p class="text-muted">{% trans "No contacts yet" %}</p>
+                    <div class="text-center py-5">
+                        <i class="bi bi-person-plus" style="font-size: 3rem; color: var(--gray-300);"></i>
+                        <p class="text-muted mt-2">{% trans "No contacts yet" %}</p>
+                        <a href="{% url 'crm:contact_create' %}" class="btn btn-primary btn-sm">
+                            <i class="bi bi-plus-circle"></i> {% trans "Add your first contact" %}
+                        </a>
+                    </div>
                     {% endfor %}
                 </div>
             </div>
@@ -104,27 +216,45 @@
     </div>
 
     <!-- Upcoming Tasks -->
-    <div class="col-md-6">
-        <div class="card border-0 shadow-sm">
-            <div class="card-header bg-white">
+    <div class="col-lg-6">
+        <div class="card h-100">
+            <div class="card-header">
                 <div class="d-flex justify-content-between align-items-center">
-                    <h5 class="mb-0">{% trans "Upcoming Tasks" %}</h5>
-                    <a href="{% url 'crm:task_list' %}" class="btn btn-sm btn-primary">{% trans "View All" %}</a>
+                    <h5 class="mb-0">
+                        <i class="bi bi-check-square"></i> {% trans "Upcoming Tasks" %}
+                    </h5>
+                    <a href="{% url 'crm:task_list' %}" class="btn btn-sm btn-outline-primary">
+                        {% trans "View All" %} <i class="bi bi-arrow-right"></i>
+                    </a>
                 </div>
             </div>
-            <div class="card-body">
+            <div class="card-body p-0">
                 <div class="list-group list-group-flush">
                     {% for task in upcoming_tasks %}
-                    <div class="list-group-item">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h6 class="mb-1">{{ task.title }}</h6>
-                            <small class="badge bg-{{ task.priority }}">{{ task.get_priority_display }}</small>
+                    <div class="list-group-item slide-in">
+                        <div class="d-flex w-100 justify-content-between align-items-start">
+                            <div class="flex-grow-1">
+                                <div class="d-flex align-items-center mb-1">
+                                    <h6 class="mb-0 me-2">{{ task.title }}</h6>
+                                    <span class="badge bg-{{ task.priority }}">
+                                        {{ task.get_priority_display }}
+                                    </span>
+                                </div>
+                                <p class="mb-1 text-muted small">{{ task.description|truncatewords:15 }}</p>
+                                <small class="text-muted">
+                                    <i class="bi bi-calendar-event"></i> {% trans "Due:" %} {{ task.due_date|date:"M d, Y H:i" }}
+                                </small>
+                            </div>
                         </div>
-                        <p class="mb-1">{{ task.description|truncatewords:15 }}</p>
-                        <small class="text-muted">{% trans "Due:" %} {{ task.due_date|date:"d M Y H:i" }}</small>
                     </div>
                     {% empty %}
-                    <p class="text-muted">{% trans "No upcoming tasks" %}</p>
+                    <div class="text-center py-5">
+                        <i class="bi bi-check-all" style="font-size: 3rem; color: var(--gray-300);"></i>
+                        <p class="text-muted mt-2">{% trans "No upcoming tasks" %}</p>
+                        <a href="{% url 'crm:task_create' %}" class="btn btn-primary btn-sm">
+                            <i class="bi bi-plus-circle"></i> {% trans "Create a task" %}
+                        </a>
+                    </div>
                     {% endfor %}
                 </div>
             </div>
@@ -132,27 +262,48 @@
     </div>
 
     <!-- Recent Deals -->
-    <div class="col-md-6">
-        <div class="card border-0 shadow-sm">
-            <div class="card-header bg-white">
+    <div class="col-lg-6">
+        <div class="card h-100">
+            <div class="card-header">
                 <div class="d-flex justify-content-between align-items-center">
-                    <h5 class="mb-0">{% trans "Recent Deals" %}</h5>
-                    <a href="{% url 'crm:deal_list' %}" class="btn btn-sm btn-primary">{% trans "View All" %}</a>
+                    <h5 class="mb-0">
+                        <i class="bi bi-currency-euro"></i> {% trans "Recent Deals" %}
+                    </h5>
+                    <a href="{% url 'crm:deal_list' %}" class="btn btn-sm btn-outline-primary">
+                        {% trans "View All" %} <i class="bi bi-arrow-right"></i>
+                    </a>
                 </div>
             </div>
-            <div class="card-body">
+            <div class="card-body p-0">
                 <div class="list-group list-group-flush">
                     {% for deal in recent_deals %}
-                    <a href="{% url 'crm:deal_detail' deal.pk %}" class="list-group-item list-group-item-action">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h6 class="mb-1">{{ deal.name }}</h6>
-                            <span class="badge bg-{{ deal.status }}">{{ deal.get_status_display }}</span>
+                    <a href="{% url 'crm:deal_detail' deal.pk %}" class="list-group-item list-group-item-action slide-in">
+                        <div class="d-flex w-100 justify-content-between align-items-start">
+                            <div class="flex-grow-1">
+                                <div class="d-flex align-items-center mb-1">
+                                    <h6 class="mb-0 me-2">{{ deal.name }}</h6>
+                                    <span class="badge bg-{{ deal.status }}">
+                                        {{ deal.get_status_display }}
+                                    </span>
+                                </div>
+                                <p class="mb-1 fw-bold text-success">€{{ deal.value|floatformat:2 }}</p>
+                                <small class="text-muted">
+                                    {% if deal.stage %}
+                                    <i class="bi bi-funnel"></i> {{ deal.stage.name }} - 
+                                    {% endif %}
+                                    <i class="bi bi-percent"></i> {{ deal.probability }}% {% trans "probability" %}
+                                </small>
+                            </div>
                         </div>
-                        <p class="mb-1">€{{ deal.value|floatformat:2 }}</p>
-                        <small class="text-muted">{% if deal.stage %}{{ deal.stage.name }}{% endif %} - {{ deal.probability }}%</small>
                     </a>
                     {% empty %}
-                    <p class="text-muted">{% trans "No deals yet" %}</p>
+                    <div class="text-center py-5">
+                        <i class="bi bi-graph-up" style="font-size: 3rem; color: var(--gray-300);"></i>
+                        <p class="text-muted mt-2">{% trans "No deals yet" %}</p>
+                        <a href="{% url 'crm:deal_create' %}" class="btn btn-success btn-sm">
+                            <i class="bi bi-plus-circle"></i> {% trans "Create your first deal" %}
+                        </a>
+                    </div>
                     {% endfor %}
                 </div>
             </div>
@@ -160,24 +311,39 @@
     </div>
 
     <!-- Recent Activities -->
-    <div class="col-md-6">
-        <div class="card border-0 shadow-sm">
-            <div class="card-header bg-white">
-                <h5 class="mb-0">{% trans "Recent Activities" %}</h5>
+    <div class="col-lg-6">
+        <div class="card h-100">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="bi bi-activity"></i> {% trans "Recent Activities" %}
+                </h5>
             </div>
-            <div class="card-body">
+            <div class="card-body p-0">
                 <div class="list-group list-group-flush">
                     {% for activity in recent_activities %}
-                    <div class="list-group-item">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h6 class="mb-1">{{ activity.title }}</h6>
-                            <small class="text-muted">{{ activity.created_at|date:"d M Y H:i" }}</small>
+                    <div class="list-group-item slide-in">
+                        <div class="d-flex w-100 justify-content-between align-items-start">
+                            <div class="flex-grow-1">
+                                <div class="d-flex align-items-center mb-1">
+                                    <div class="rounded-circle bg-primary me-2" style="width: 8px; height: 8px;"></div>
+                                    <h6 class="mb-0">{{ activity.title }}</h6>
+                                </div>
+                                <p class="mb-1 text-muted small">{{ activity.description|truncatewords:20 }}</p>
+                                <div class="d-flex align-items-center">
+                                    <span class="badge bg-secondary me-2">{{ activity.get_activity_type_display }}</span>
+                                    <small class="text-muted">
+                                        <i class="bi bi-clock"></i> {{ activity.created_at|date:"M d, Y H:i" }}
+                                    </small>
+                                </div>
+                            </div>
                         </div>
-                        <p class="mb-1">{{ activity.description|truncatewords:20 }}</p>
-                        <small class="badge bg-secondary">{{ activity.get_activity_type_display }}</small>
                     </div>
                     {% empty %}
-                    <p class="text-muted">{% trans "No activities yet" %}</p>
+                    <div class="text-center py-5">
+                        <i class="bi bi-activity" style="font-size: 3rem; color: var(--gray-300);"></i>
+                        <p class="text-muted mt-2">{% trans "No activities yet" %}</p>
+                        <small class="text-muted">{% trans "Activities will appear here as you use the system" %}</small>
+                    </div>
                     {% endfor %}
                 </div>
             </div>
@@ -186,3 +352,85 @@
 </div>
 {% endblock %}
 
+{% block extra_js %}
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var ctx = document.getElementById('dealsByStageChart');
+    if (ctx) {
+        var dealsByStageChart = new Chart(ctx.getContext('2d'), {
+            type: 'bar',
+            data: {
+                labels: [{% for stage in deals_by_stage %}'{{ stage.stage__name|escapejs }}',{% endfor %}],
+                datasets: [{
+                    label: '{% trans "Number of Deals" %}',
+                    data: [{% for stage in deals_by_stage %}{{ stage.count }},{% endfor %}],
+                    backgroundColor: [
+                        'rgba(79, 70, 229, 0.8)',
+                        'rgba(16, 185, 129, 0.8)',
+                        'rgba(245, 158, 11, 0.8)',
+                        'rgba(239, 68, 68, 0.8)',
+                        'rgba(14, 165, 233, 0.8)',
+                    ],
+                    borderColor: [
+                        'rgba(79, 70, 229, 1)',
+                        'rgba(16, 185, 129, 1)',
+                        'rgba(245, 158, 11, 1)',
+                        'rgba(239, 68, 68, 1)',
+                        'rgba(14, 165, 233, 1)',
+                    ],
+                    borderWidth: 2,
+                    borderRadius: 8,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                        padding: 12,
+                        borderRadius: 8,
+                        titleFont: {
+                            size: 14,
+                            weight: 'bold'
+                        },
+                        bodyFont: {
+                            size: 13
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            precision: 0,
+                            font: {
+                                size: 12
+                            }
+                        },
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.05)'
+                        }
+                    },
+                    x: {
+                        ticks: {
+                            font: {
+                                size: 12
+                            }
+                        },
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+    }
+});
+</script>
+{% endblock %}

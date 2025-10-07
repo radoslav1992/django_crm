@@ -149,6 +149,119 @@ Make it appropriate for a Bulgarian business context, but write in English.
         except Exception as e:
             return f"{_('Error generating template content')}: {str(e)}"
     
+    def generate_complete_template(self, user_prompt, template_type='invoice'):
+        """Generate complete HTML/CSS template based on user description"""
+        try:
+            available_variables = """
+Available template variables to use:
+- {{invoice_number}} or {{offer_number}} - Document number
+- {{invoice_date}} or {{offer_date}} - Document date
+- {{due_date}} - Due date (for invoices)
+- {{valid_until}} - Valid until date (for offers)
+- {{client_name}} - Client/customer name
+- {{client_address}} - Client address
+- {{client_email}} - Client email
+- {{client_phone}} - Client phone
+- {{company_name}} - Your company name
+- {{company_address}} - Your company address
+- {{company_email}} - Your company email
+- {{company_phone}} - Your company phone
+- {{company_tax_id}} - Company tax ID/VAT number
+- {{logo_url}} - Company logo URL
+- {{items}} - Line items (iterate with {% for item in items %})
+  - item.description - Item description
+  - item.quantity - Quantity
+  - item.unit_price - Unit price
+  - item.total - Line total
+- {{subtotal}} - Subtotal amount
+- {{tax_rate}} - Tax rate percentage
+- {{tax_amount}} - Tax amount
+- {{discount}} - Discount amount
+- {{total}} - Grand total
+- {{notes}} - Additional notes
+- {{payment_terms}} - Payment terms
+- {{bank_details}} - Bank account details
+"""
+            
+            prompt = f"""
+You are an expert web designer specializing in creating professional invoice and offer templates.
+
+User wants a {template_type} template with this description:
+"{user_prompt}"
+
+{available_variables}
+
+Generate a complete, professional HTML template with embedded CSS that:
+1. Is modern, clean, and professional
+2. Uses the template variables listed above appropriately
+3. Includes proper styling with colors, fonts, and layout
+4. Is print-friendly and PDF-ready
+5. Has a responsive design
+6. Includes a header with logo placeholder, company info, and client info
+7. Has a clean table for line items
+8. Shows subtotal, tax, and total clearly
+9. Includes footer with payment terms and notes
+10. Uses Django template syntax for variables (double curly braces) and tags (curly brace percent)
+
+Return ONLY the complete HTML with embedded <style> tags. Do NOT include any explanations or markdown formatting.
+The template should be production-ready and beautiful.
+
+Make it match the user's description while maintaining professional quality.
+"""
+            
+            response = self.model.generate_content(prompt)
+            
+            # Clean up the response - remove markdown code blocks if present
+            html_content = response.text.strip()
+            if html_content.startswith('```html'):
+                html_content = html_content[7:]
+            elif html_content.startswith('```'):
+                html_content = html_content[3:]
+            if html_content.endswith('```'):
+                html_content = html_content[:-3]
+            
+            return html_content.strip()
+        
+        except Exception as e:
+            return f"{_('Error generating template')}: {str(e)}"
+    
+    def refine_template(self, current_html, user_feedback):
+        """Refine an existing template based on user feedback"""
+        try:
+            prompt = f"""
+You are an expert web designer. The user has a template and wants to improve it.
+
+Current HTML template:
+{current_html[:3000]}  # Limit to avoid token issues
+
+User feedback:
+"{user_feedback}"
+
+Modify the template according to the user's feedback while maintaining:
+1. All existing template variables
+2. Professional quality
+3. Clean, modern design
+4. Print-friendly layout
+
+Return ONLY the complete modified HTML. Do NOT include explanations or markdown formatting.
+"""
+            
+            response = self.model.generate_content(prompt)
+            
+            # Clean up the response
+            html_content = response.text.strip()
+            if html_content.startswith('```html'):
+                html_content = html_content[7:]
+            elif html_content.startswith('```'):
+                html_content = html_content[3:]
+            if html_content.endswith('```'):
+                html_content = html_content[:-3]
+            
+            return html_content.strip()
+        
+        except Exception as e:
+            return f"{_('Error refining template')}: {str(e)}"
+    
     def smart_search(self, query):
         """Perform smart search across CRM data"""
         try:
