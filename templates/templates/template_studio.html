@@ -7,14 +7,35 @@
 <div class="row mb-4">
     <div class="col-md-8">
         <h1><i class="bi bi-robot"></i> {% trans "AI Template Studio" %}</h1>
-        <p class="text-muted">{% trans "Create professional invoice and offer templates using AI - just describe what you want!" %}</p>
+        <p class="text-muted">{% trans "Create professional templates using AI - documents and emails!" %}</p>
     </div>
     <div class="col-md-4 text-end">
-        <a href="{% url 'templates:template_list' %}" class="btn btn-outline-secondary">
-            <i class="bi bi-list"></i> {% trans "View Templates" %}
+        <a href="{% url 'templates:template_list' %}" class="btn btn-outline-secondary me-2">
+            <i class="bi bi-file-text"></i> {% trans "Documents" %}
+        </a>
+        <a href="{% url 'templates:email_template_list' %}" class="btn btn-outline-primary">
+            <i class="bi bi-envelope"></i> {% trans "Emails" %}
         </a>
     </div>
 </div>
+
+<!-- Tab Navigation -->
+<ul class="nav nav-tabs mb-4" id="studioTabs" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="documents-tab" data-bs-toggle="tab" data-bs-target="#documents" type="button" role="tab">
+            <i class="bi bi-file-text"></i> {% trans "Document Templates" %}
+        </button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="emails-tab" data-bs-toggle="tab" data-bs-target="#emails" type="button" role="tab">
+            <i class="bi bi-envelope"></i> {% trans "Email Templates" %}
+        </button>
+    </li>
+</ul>
+
+<div class="tab-content" id="studioTabContent">
+<!-- DOCUMENT TEMPLATES TAB -->
+<div class="tab-pane fade show active" id="documents" role="tabpanel">
 
 <div class="row">
     <!-- AI Template Generator -->
@@ -404,6 +425,297 @@
     }
 </script>
 
+</div>
+<!-- END DOCUMENT TEMPLATES TAB -->
+
+<!-- EMAIL TEMPLATES TAB -->
+<div class="tab-pane fade" id="emails" role="tabpanel">
+<div class="row">
+    <!-- Email Template Generator -->
+    <div class="col-lg-6 mb-4">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-header bg-success text-white">
+                <h5 class="mb-0"><i class="bi bi-envelope-at"></i> {% trans "AI Email Template Generator" %}</h5>
+            </div>
+            <div class="card-body">
+                <!-- Template Type Selection -->
+                <div class="mb-3">
+                    <label for="email_template_type" class="form-label">{% trans "Email Type" %}</label>
+                    <select class="form-select" id="email_template_type">
+                        <option value="invoice">{% trans "Invoice Email" %}</option>
+                        <option value="offer">{% trans "Offer Email" %}</option>
+                        <option value="custom">{% trans "Custom Email" %}</option>
+                        <option value="reminder">{% trans "Payment Reminder" %}</option>
+                        <option value="welcome">{% trans "Welcome Email" %}</option>
+                        <option value="follow_up">{% trans "Follow-up Email" %}</option>
+                    </select>
+                </div>
+
+                <!-- AI Prompt -->
+                <div class="mb-3">
+                    <label for="email_ai_prompt" class="form-label">{% trans "Describe your email template" %}</label>
+                    <textarea 
+                        class="form-control" 
+                        id="email_ai_prompt" 
+                        rows="6" 
+                        maxlength="2000"
+                        placeholder="{% trans 'Example: Create a professional payment reminder email with a friendly tone. Include payment details, due date, and a prominent Pay Now button. Use modern styling with blue accents.' %}"></textarea>
+                    <small class="text-muted">
+                        {% trans "The AI will generate the subject line and HTML content for you." %}
+                    </small>
+                </div>
+
+                <!-- Generate Button -->
+                <div class="d-grid">
+                    <button class="btn btn-success btn-lg" id="generate_email_btn" onclick="generateEmailTemplate()">
+                        <i class="bi bi-magic"></i> {% trans "Generate Email Template" %}
+                    </button>
+                </div>
+
+                <!-- Loading Indicator -->
+                <div id="email_loading_indicator" class="text-center mt-3" style="display: none;">
+                    <div class="spinner-border text-success" role="status">
+                        <span class="visually-hidden">{% trans "Loading..." %}</span>
+                    </div>
+                    <p class="mt-2">{% trans "AI is creating your email template..." %}</p>
+                </div>
+
+                <!-- Quick Ideas -->
+                <div class="mt-4">
+                    <h6>{% trans "Quick Ideas:" %}</h6>
+                    <div class="d-flex flex-wrap gap-2">
+                        <button class="btn btn-sm btn-outline-success" onclick="setEmailPrompt('Professional invoice notification with payment details and Pay Now button')">
+                            {% trans "Invoice Email" %}
+                        </button>
+                        <button class="btn btn-sm btn-outline-info" onclick="setEmailPrompt('Friendly payment reminder with polite tone and payment link')">
+                            {% trans "Payment Reminder" %}
+                        </button>
+                        <button class="btn btn-sm btn-outline-primary" onclick="setEmailPrompt('Welcome email for new clients with company introduction and next steps')">
+                            {% trans "Welcome Email" %}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Email Preview -->
+    <div class="col-lg-6 mb-4">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-header bg-white">
+                <h5 class="mb-0"><i class="bi bi-eye"></i> {% trans "Email Preview" %}</h5>
+            </div>
+            <div class="card-body">
+                <div id="email_preview_area" class="border rounded p-3" style="min-height: 400px; background: #f8f9fa;">
+                    <div class="text-center text-muted py-5">
+                        <i class="bi bi-envelope" style="font-size: 3rem;"></i>
+                        <p class="mt-3">{% trans "Generate an email template to see preview here" %}</p>
+                    </div>
+                </div>
+
+                <!-- Save Section -->
+                <div id="email_save_section" class="mt-3" style="display: none;">
+                    <hr>
+                    <h6>{% trans "Save Email Template" %}</h6>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="email_template_name" placeholder="{% trans 'Template Name' %}">
+                    </div>
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" id="email_is_default">
+                        <label class="form-check-label" for="email_is_default">
+                            {% trans "Set as default template for this type" %}
+                        </label>
+                    </div>
+                    <button class="btn btn-primary w-100" onclick="saveEmailTemplate()">
+                        <i class="bi bi-save"></i> {% trans "Save Template" %}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Existing Email Templates -->
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-white">
+                <h5 class="mb-0"><i class="bi bi-folder"></i> {% trans "Your Email Templates" %}</h5>
+            </div>
+            <div class="card-body">
+                {% if email_templates %}
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>{% trans "Name" %}</th>
+                                    <th>{% trans "Type" %}</th>
+                                    <th>{% trans "Subject" %}</th>
+                                    <th>{% trans "Times Sent" %}</th>
+                                    <th>{% trans "Actions" %}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for template in email_templates %}
+                                <tr>
+                                    <td>
+                                        {{ template.name }}
+                                        {% if template.is_default %}
+                                            <span class="badge bg-primary">{% trans "Default" %}</span>
+                                        {% endif %}
+                                        {% if template.ai_generated %}
+                                            <span class="badge bg-info">{% trans "AI" %}</span>
+                                        {% endif %}
+                                    </td>
+                                    <td>{{ template.get_template_type_display }}</td>
+                                    <td>{{ template.subject|truncatewords:10 }}</td>
+                                    <td>{{ template.times_sent }}</td>
+                                    <td>
+                                        <a href="{% url 'templates:email_template_detail' template.pk %}" class="btn btn-sm btn-outline-primary">
+                                            <i class="bi bi-eye"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% else %}
+                    <div class="text-center text-muted py-4">
+                        <i class="bi bi-inbox" style="font-size: 3rem;"></i>
+                        <p class="mt-3">{% trans "No email templates yet. Create your first one above!" %}</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- END EMAIL TEMPLATES TAB -->
+
+</div>
+<!-- END TAB CONTENT -->
+
+<script>
+// Email Template Functions
+let currentEmailSubject = '';
+let currentEmailHtml = '';
+let currentEmailPrompt = '';
+
+function setEmailPrompt(text) {
+    document.getElementById('email_ai_prompt').value = text;
+}
+
+function generateEmailTemplate() {
+    const prompt = document.getElementById('email_ai_prompt').value.trim();
+    const templateType = document.getElementById('email_template_type').value;
+    
+    if (!prompt) {
+        showAlert('danger', '{% trans "Please describe the email template you want to create" %}');
+        return;
+    }
+    
+    const loadingDiv = document.getElementById('email_loading_indicator');
+    const generateBtn = document.getElementById('generate_email_btn');
+    
+    loadingDiv.style.display = 'block';
+    generateBtn.disabled = true;
+    currentEmailPrompt = prompt;
+    
+    fetch('{% url "templates:generate_ai_email_template" %}', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': '{{ csrf_token }}'
+        },
+        body: JSON.stringify({
+            prompt: prompt,
+            template_type: templateType
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        loadingDiv.style.display = 'none';
+        generateBtn.disabled = false;
+        
+        if (data.success) {
+            currentEmailSubject = data.subject;
+            currentEmailHtml = data.html_content;
+            
+            // Show preview
+            const previewArea = document.getElementById('email_preview_area');
+            previewArea.innerHTML = `
+                <div class="mb-3">
+                    <strong>{% trans "Subject:" %}</strong> ${data.subject}
+                </div>
+                <hr>
+                <iframe srcdoc="${data.html_content.replace(/"/g, '&quot;')}" style="width: 100%; min-height: 400px; border: 1px solid #ddd; border-radius: 4px;"></iframe>
+            `;
+            
+            // Show save section
+            document.getElementById('email_save_section').style.display = 'block';
+            
+            showAlert('success', data.message || '{% trans "Email template generated successfully!" %}');
+        } else {
+            showAlert('danger', data.error || '{% trans "Failed to generate email template" %}');
+        }
+    })
+    .catch(error => {
+        loadingDiv.style.display = 'none';
+        generateBtn.disabled = false;
+        console.error('Error:', error);
+        showAlert('danger', '{% trans "Error generating email template. Please try again." %}');
+    });
+}
+
+function saveEmailTemplate() {
+    const name = document.getElementById('email_template_name').value.trim();
+    const templateType = document.getElementById('email_template_type').value;
+    const isDefault = document.getElementById('email_is_default').checked;
+    
+    if (!name) {
+        showAlert('danger', '{% trans "Please enter a template name" %}');
+        return;
+    }
+    
+    if (!currentEmailHtml) {
+        showAlert('danger', '{% trans "Please generate a template first" %}');
+        return;
+    }
+    
+    fetch('{% url "templates:save_ai_email_template" %}', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': '{{ csrf_token }}'
+        },
+        body: JSON.stringify({
+            name: name,
+            template_type: templateType,
+            subject: currentEmailSubject,
+            html_content: currentEmailHtml,
+            is_default: isDefault,
+            ai_prompt: currentEmailPrompt
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            showAlert('success', data.message || '{% trans "Email template saved successfully!" %}');
+            setTimeout(() => {
+                window.location.reload();
+            }, 1500);
+        } else {
+            showAlert('danger', data.error || '{% trans "Failed to save email template" %}');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        showAlert('danger', '{% trans "Error saving email template. Please try again." %}');
+    });
+}
+</script>
+
 <style>
     #template_preview {
         background: white;
@@ -413,6 +725,15 @@
         border: none;
         width: 100%;
         min-height: 400px;
+    }
+    
+    .nav-tabs .nav-link {
+        color: #6c757d;
+    }
+    
+    .nav-tabs .nav-link.active {
+        color: #4f46e5;
+        border-bottom: 2px solid #4f46e5;
     }
 </style>
 {% endblock %}

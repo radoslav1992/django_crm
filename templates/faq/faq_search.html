@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Търсене в FAQ" %}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'faq:home' %}">FAQ</a></li>
+            <li class="breadcrumb-item active">{% trans "Търсене" %}</li>
+        </ol>
+    </nav>
+
+    <!-- Search Bar -->
+    <div class="row justify-content-center mb-5">
+        <div class="col-md-8">
+            <form action="{% url 'faq:search' %}" method="get">
+                <div class="input-group input-group-lg">
+                    <input type="text" name="q" class="form-control" 
+                           placeholder="{% trans 'Търсете въпроси...' %}" 
+                           value="{{ query }}" autofocus>
+                    <button class="btn btn-primary" type="submit">
+                        <i class="bi bi-search"></i> {% trans "Търси" %}
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Results -->
+    {% if query %}
+    <div class="row">
+        <div class="col-lg-10 offset-lg-1">
+            <h3 class="mb-4">
+                {% if results %}
+                    {% trans "Намерени" %} {{ results.count }} {% trans "резултата за" %} "{{ query }}"
+                {% else %}
+                    {% trans "Няма резултати за" %} "{{ query }}"
+                {% endif %}
+            </h3>
+
+            {% for item in results %}
+            <div class="card shadow-sm mb-3">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <h5 class="card-title mb-0">
+                            <a href="{% url 'faq:detail' item.pk %}" class="text-decoration-none">
+                                {{ item.question }}
+                            </a>
+                        </h5>
+                        <span class="badge bg-primary">{{ item.category.name }}</span>
+                    </div>
+                    <p class="card-text text-muted">
+                        {{ item.answer|truncatewords:40 }}
+                    </p>
+                    <a href="{% url 'faq:detail' item.pk %}" class="btn btn-sm btn-outline-primary">
+                        {% trans "Прочети повече" %} <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            {% empty %}
+            <div class="alert alert-warning">
+                <i class="bi bi-exclamation-triangle"></i>
+                {% trans "Не са намерени резултати. Опитайте с други ключови думи." %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Back Button -->
+    <div class="text-center mt-5">
+        <a href="{% url 'faq:home' %}" class="btn btn-secondary">
+            <i class="bi bi-arrow-left"></i> {% trans "Обратно към FAQ" %}
+        </a>
+    </div>
+</div>
+{% endblock %}
+

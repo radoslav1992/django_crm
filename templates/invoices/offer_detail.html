@@ -33,7 +33,7 @@
         </div>
         <br>
         {% if offer.client_email %}
-        <a href="{% url 'invoices:offer_send_email' offer.pk %}" class="btn btn-success w-100" onclick="return confirm('{% trans "Send offer email to" %} {{ offer.client_email }}?');">
+        <a href="{% url 'invoices:offer_send_email' offer.pk %}" class="btn btn-success w-100">
             <i class="bi bi-envelope"></i> {% trans "Send Email to Client" %}
         </a>
         {% else %}

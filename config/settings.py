@@ -84,6 +84,7 @@ INSTALLED_APPS = [
     'apps.templates',
     'apps.subscriptions',
     'apps.ai_assistant',
+    'apps.faq',
 ]
 
 MIDDLEWARE = [
@@ -237,7 +238,7 @@ REST_FRAMEWORK = {
     }
 }
 
-# Email Configuration
+# Email Configuration (Legacy - kept for backward compatibility)
 EMAIL_BACKEND = os.getenv('EMAIL_BACKEND', 'django.core.mail.backends.console.EmailBackend')
 EMAIL_HOST = os.getenv('EMAIL_HOST', 'smtp.gmail.com')
 EMAIL_PORT = int(os.getenv('EMAIL_PORT', '587'))
@@ -245,6 +246,12 @@ EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS', 'True') == 'True'
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER', '')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD', '')
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+# Resend Email Configuration (Recommended)
+RESEND_API_KEY = os.getenv('RESEND_API_KEY', '')
+RESEND_FROM_EMAIL = os.getenv('RESEND_FROM_EMAIL', 'onboarding@resend.dev')
+RESEND_FROM_NAME = os.getenv('RESEND_FROM_NAME', 'CRM System')
+SITE_URL = os.getenv('SITE_URL', 'http://localhost:8000')
 
 # Subscription Plans
 SUBSCRIPTION_PLANS = {

@@ -1,0 +1,167 @@
+{% extends "base.html" %}
+{% load i18n static crispy_forms_tags %}
+
+{% block title %}{% trans "Resend Email Settings" %} - CRM{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-8">
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                <h3 class="mb-0">
+                    <i class="bi bi-envelope-at"></i> {% trans "Resend Email Settings" %}
+                </h3>
+                {% if has_resend_configured %}
+                    <span class="badge bg-success">
+                        <i class="bi bi-check-circle"></i> {% trans "Configured" %}
+                    </span>
+                {% else %}
+                    <span class="badge bg-warning">
+                        <i class="bi bi-exclamation-triangle"></i> {% trans "Not Configured" %}
+                    </span>
+                {% endif %}
+            </div>
+            <div class="card-body">
+                <div class="alert alert-info mb-4">
+                    <h5 class="alert-heading">
+                        <i class="bi bi-info-circle"></i> {% trans "About Resend" %}
+                    </h5>
+                    <p class="mb-2">
+                        {% trans "Resend is a modern email API that makes it easy to send transactional emails. Configure your Resend account to send invoices, offers, and custom email templates." %}
+                    </p>
+                    <hr>
+                    <p class="mb-0">
+                        <strong>{% trans "Don't have an account yet?" %}</strong>
+                        <a href="https://resend.com/signup" target="_blank" class="alert-link">
+                            {% trans "Sign up for Resend" %} <i class="bi bi-box-arrow-up-right"></i>
+                        </a>
+                    </p>
+                </div>
+
+                <form method="post" class="needs-validation" novalidate>
+                    {% csrf_token %}
+                    
+                    <div class="mb-4">
+                        <h5 class="border-bottom pb-2 mb-3">{% trans "API Configuration" %}</h5>
+                        
+                        <div class="mb-3">
+                            {{ form.resend_api_key.label_tag }}
+                            {{ form.resend_api_key }}
+                            {% if form.resend_api_key.help_text %}
+                                <div class="form-text">{{ form.resend_api_key.help_text }}</div>
+                            {% endif %}
+                            {% if form.resend_api_key.errors %}
+                                <div class="invalid-feedback d-block">
+                                    {{ form.resend_api_key.errors }}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h5 class="border-bottom pb-2 mb-3">{% trans "Email Configuration" %}</h5>
+                        
+                        <div class="mb-3">
+                            {{ form.resend_from_email.label_tag }}
+                            {{ form.resend_from_email }}
+                            {% if form.resend_from_email.help_text %}
+                                <div class="form-text">{{ form.resend_from_email.help_text }}</div>
+                            {% endif %}
+                            {% if form.resend_from_email.errors %}
+                                <div class="invalid-feedback d-block">
+                                    {{ form.resend_from_email.errors }}
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="mb-3">
+                            {{ form.resend_from_name.label_tag }}
+                            {{ form.resend_from_name }}
+                            {% if form.resend_from_name.help_text %}
+                                <div class="form-text">{{ form.resend_from_name.help_text }}</div>
+                            {% endif %}
+                            {% if form.resend_from_name.errors %}
+                                <div class="invalid-feedback d-block">
+                                    {{ form.resend_from_name.errors }}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a href="{% url 'accounts:profile' %}" class="btn btn-outline-secondary">
+                            <i class="bi bi-arrow-left"></i> {% trans "Back to Profile" %}
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-save"></i> {% trans "Save Settings" %}
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="card border-0 shadow-sm mb-4">
+            <div class="card-header bg-white">
+                <h5 class="mb-0">
+                    <i class="bi bi-question-circle"></i> {% trans "Setup Guide" %}
+                </h5>
+            </div>
+            <div class="card-body">
+                <ol class="mb-0 ps-3">
+                    <li class="mb-2">
+                        {% trans "Sign up for a Resend account at" %} 
+                        <a href="https://resend.com" target="_blank">resend.com</a>
+                    </li>
+                    <li class="mb-2">
+                        {% trans "Verify your domain or use their test domain" %}
+                    </li>
+                    <li class="mb-2">
+                        {% trans "Generate an API key in your Resend dashboard" %}
+                    </li>
+                    <li class="mb-2">
+                        {% trans "Enter your API key and email settings above" %}
+                    </li>
+                    <li>
+                        {% trans "Start sending beautiful emails!" %}
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-white">
+                <h5 class="mb-0">
+                    <i class="bi bi-lightbulb"></i> {% trans "Features" %}
+                </h5>
+            </div>
+            <div class="card-body">
+                <ul class="list-unstyled mb-0">
+                    <li class="mb-2">
+                        <i class="bi bi-check-circle text-success me-2"></i>
+                        {% trans "Send invoices and offers via email" %}
+                    </li>
+                    <li class="mb-2">
+                        <i class="bi bi-check-circle text-success me-2"></i>
+                        {% trans "Create custom email templates with AI" %}
+                    </li>
+                    <li class="mb-2">
+                        <i class="bi bi-check-circle text-success me-2"></i>
+                        {% trans "Track email delivery status" %}
+                    </li>
+                    <li class="mb-2">
+                        <i class="bi bi-check-circle text-success me-2"></i>
+                        {% trans "Professional email design" %}
+                    </li>
+                    <li>
+                        <i class="bi bi-check-circle text-success me-2"></i>
+                        {% trans "High deliverability rates" %}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

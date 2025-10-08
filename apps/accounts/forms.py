@@ -79,3 +79,28 @@ class StripeSettingsForm(forms.ModelForm):
             'stripe_secret_key': _('Your Stripe secret key (kept secure and never displayed)'),
         }
 
+
+class ResendSettingsForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['resend_api_key', 'resend_from_email', 'resend_from_name']
+        widgets = {
+            'resend_api_key': forms.PasswordInput(attrs={
+                'class': 'form-control',
+                'placeholder': 're_...'
+            }),
+            'resend_from_email': forms.EmailInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'noreply@yourdomain.com'
+            }),
+            'resend_from_name': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Your Company Name'
+            }),
+        }
+        help_texts = {
+            'resend_api_key': _('Your Resend API key from resend.com (kept secure and never displayed)'),
+            'resend_from_email': _('Email address to send from (must be verified in your Resend account)'),
+            'resend_from_name': _('Name to display in the "from" field of emails'),
+        }
+

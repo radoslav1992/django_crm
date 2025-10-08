@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Често задавани въпроси (FAQ)" %}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <!-- Header -->
+    <div class="text-center mb-5">
+        <h1 class="display-4">
+            <i class="bi bi-question-circle text-primary"></i>
+            {% trans "Често задавани въпроси" %}
+        </h1>
+        <p class="lead text-muted">{% trans "Намерете отговори на най-често задаваните въпроси" %}</p>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="row justify-content-center mb-5">
+        <div class="col-md-8">
+            <form action="{% url 'faq:search' %}" method="get">
+                <div class="input-group input-group-lg">
+                    <input type="text" name="q" class="form-control" 
+                           placeholder="{% trans 'Търсете въпроси...' %}" 
+                           value="{{ request.GET.q }}">
+                    <button class="btn btn-primary" type="submit">
+                        <i class="bi bi-search"></i> {% trans "Търси" %}
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Featured Questions -->
+    {% if featured_items %}
+    <div class="mb-5">
+        <h3 class="mb-4">
+            <i class="bi bi-star-fill text-warning"></i>
+            {% trans "Препоръчани въпроси" %}
+        </h3>
+        <div class="row">
+            {% for item in featured_items %}
+            <div class="col-md-6 mb-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a href="{% url 'faq:detail' item.obj.pk %}" class="text-decoration-none">
+                                {{ item.question }}
+                            </a>
+                        </h5>
+                        <p class="card-text text-muted small">
+                            <i class="bi bi-folder"></i> {{ item.category_name }}
+                            <span class="ms-2"><i class="bi bi-eye"></i> {{ item.obj.views_count }}</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Categories -->
+    <div class="mb-5">
+        <h3 class="mb-4">{% trans "Категории" %}</h3>
+        <div class="row">
+            {% for category in categories %}
+            <div class="col-md-4 mb-4">
+                <a href="{% url 'faq:category' category.obj.slug %}" class="text-decoration-none">
+                    <div class="card h-100 shadow-sm hover-shadow">
+                        <div class="card-body text-center">
+                            <i class="bi {{ category.obj.icon }} display-4 text-primary mb-3"></i>
+                            <h4 class="card-title">{{ category.name }}</h4>
+                            <p class="card-text text-muted">{{ category.description }}</p>
+                            <p class="text-muted small">
+                                <i class="bi bi-question-circle"></i> 
+                                {{ category.obj.items.count }} {% trans "въпроса" %}
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- All Questions by Category -->
+    {% for category in categories %}
+    <div class="mb-5">
+        <h3 class="mb-3">
+            <i class="bi {{ category.obj.icon }} text-primary"></i>
+            {{ category.name }}
+        </h3>
+        <div class="accordion" id="accordion{{ category.obj.id }}">
+            {% for item in category.obj.items.all %}
+            {% if item.is_active %}
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading{{ item.id }}">
+                    <button class="accordion-button collapsed" type="button" 
+                            data-bs-toggle="collapse" data-bs-target="#collapse{{ item.id }}">
+                        {% if current_lang == 'en' and item.question_en %}{{ item.question_en }}{% else %}{{ item.question }}{% endif %}
+                    </button>
+                </h2>
+                <div id="collapse{{ item.id }}" class="accordion-collapse collapse" 
+                     data-bs-parent="#accordion{{ category.obj.id }}">
+                    <div class="accordion-body">
+                        <div class="mb-3">
+                            {% if current_lang == 'en' and item.answer_en %}{{ item.answer_en|linebreaks }}{% else %}{{ item.answer|linebreaks }}{% endif %}
+                        </div>
+                        <a href="{% url 'faq:detail' item.pk %}" class="btn btn-sm btn-outline-primary">
+                            <i class="bi bi-book"></i> {% trans "Виж пълното ръководство" %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+
+    <!-- Contact Section -->
+    <div class="card bg-light mt-5">
+        <div class="card-body text-center py-5">
+            <h4>{% trans "Не намирате отговор на въпроса си?" %}</h4>
+            <p class="text-muted">{% trans "Свържете се с нас за допълнителна помощ" %}</p>
+            <a href="mailto:support@example.com" class="btn btn-primary">
+                <i class="bi bi-envelope"></i> {% trans "Свържете се с нас" %}
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+.hover-shadow {
+    transition: box-shadow 0.3s ease;
+}
+.hover-shadow:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+</style>
+{% endblock %}
+

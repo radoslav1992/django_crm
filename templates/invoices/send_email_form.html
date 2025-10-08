@@ -1,0 +1,164 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}
+{% trans "Send Email" %} - 
+{% if document_type == 'invoice' %}{{ invoice.invoice_number }}{% else %}{{ offer.offer_number }}{% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">
+                        <i class="bi bi-envelope"></i>
+                        {% if document_type == 'invoice' %}
+                            {% trans "Send Invoice Email" %}
+                        {% else %}
+                            {% trans "Send Offer Email" %}
+                        {% endif %}
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <!-- Document Info -->
+                    <div class="alert alert-info">
+                        <h5>
+                            {% if document_type == 'invoice' %}
+                                {% trans "Invoice" %}: {{ invoice.invoice_number }}
+                            {% else %}
+                                {% trans "Offer" %}: {{ offer.offer_number }}
+                            {% endif %}
+                        </h5>
+                        <p class="mb-1">
+                            <strong>{% trans "Client" %}:</strong> 
+                            {% if document_type == 'invoice' %}
+                                {{ invoice.client_name }}
+                            {% else %}
+                                {{ offer.client_name }}
+                            {% endif %}
+                        </p>
+                        <p class="mb-0">
+                            <strong>{% trans "Email" %}:</strong>
+                            {% if document_type == 'invoice' %}
+                                {{ invoice.client_email }}
+                            {% else %}
+                                {{ offer.client_email }}
+                            {% endif %}
+                        </p>
+                    </div>
+
+                    <!-- Email Template Selection Form -->
+                    <form method="post">
+                        {% csrf_token %}
+                        
+                        <div class="mb-4">
+                            <label for="email_template" class="form-label">
+                                <i class="bi bi-file-text"></i> {% trans "Email Template" %}
+                            </label>
+                            
+                            {% if email_templates %}
+                                <select name="email_template" id="email_template" class="form-select">
+                                    <option value="">{% trans "Use Default Template" %}</option>
+                                    {% for template in email_templates %}
+                                        <option value="{{ template.id }}" 
+                                                {% if template.is_default %}selected{% endif %}
+                                                data-subject="{{ template.subject }}"
+                                                data-ai="{% if template.ai_generated %}true{% endif %}">
+                                            {{ template.name }}
+                                            {% if template.is_default %}
+                                                <span class="badge bg-primary">{% trans "Default" %}</span>
+                                            {% endif %}
+                                            {% if template.ai_generated %}
+                                                <span class="badge bg-success">{% trans "AI" %}</span>
+                                            {% endif %}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                                <div class="form-text">
+                                    {% trans "Select a custom email template or use the default one" %}
+                                </div>
+                                
+                                <!-- Template Preview (shown on selection) -->
+                                <div id="template-preview" class="mt-3" style="display: none;">
+                                    <div class="card bg-light">
+                                        <div class="card-body">
+                                            <h6 class="card-title">{% trans "Template Preview" %}</h6>
+                                            <p class="card-text">
+                                                <strong>{% trans "Subject" %}:</strong> <span id="preview-subject"></span>
+                                            </p>
+                                            <p class="card-text text-muted small">
+                                                <i class="bi bi-info-circle"></i>
+                                                {% trans "Template variables will be replaced with actual values when sent" %}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% else %}
+                                <div class="alert alert-warning">
+                                    <i class="bi bi-exclamation-triangle"></i>
+                                    {% trans "You don't have any custom email templates yet." %}
+                                    {% trans "The default template will be used." %}
+                                    <a href="{% url 'templates:template_studio' %}" class="alert-link">
+                                        {% trans "Create one in the Template Studio" %}
+                                    </a>
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="d-flex justify-content-between">
+                            <a href="{% if document_type == 'invoice' %}{% url 'invoices:invoice_detail' invoice.pk %}{% else %}{% url 'invoices:offer_detail' offer.pk %}{% endif %}" 
+                               class="btn btn-secondary">
+                                <i class="bi bi-arrow-left"></i> {% trans "Cancel" %}
+                            </a>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-send"></i> {% trans "Send Email" %}
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Help Section -->
+            <div class="card mt-3">
+                <div class="card-body">
+                    <h6><i class="bi bi-lightbulb"></i> {% trans "Tip" %}</h6>
+                    <p class="mb-0 text-muted">
+                        {% trans "You can create custom email templates with AI in the" %}
+                        <a href="{% url 'templates:template_studio' %}">{% trans "Template Studio" %}</a>.
+                        {% trans "Custom templates let you personalize your email design and content." %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Show template preview when template is selected
+document.getElementById('email_template')?.addEventListener('change', function() {
+    const preview = document.getElementById('template-preview');
+    const subjectSpan = document.getElementById('preview-subject');
+    const selectedOption = this.options[this.selectedIndex];
+    
+    if (this.value) {
+        const subject = selectedOption.getAttribute('data-subject');
+        subjectSpan.textContent = subject;
+        preview.style.display = 'block';
+    } else {
+        preview.style.display = 'none';
+    }
+});
+
+// Trigger change event on page load if default is selected
+window.addEventListener('DOMContentLoaded', function() {
+    const select = document.getElementById('email_template');
+    if (select && select.value) {
+        select.dispatchEvent(new Event('change'));
+    }
+});
+</script>
+{% endblock %}
+

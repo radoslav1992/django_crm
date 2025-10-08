@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.utils.translation import gettext as _
 from django.http import JsonResponse
 from django.views.decorators.http import require_POST
-from .models import DocumentTemplate, TemplateVariable
+from .models import DocumentTemplate, TemplateVariable, EmailTemplate
 from .forms import DocumentTemplateForm
 from apps.ai_assistant.services import GeminiAssistant
 import json
@@ -121,10 +121,12 @@ def template_preview(request, pk):
 def template_studio(request):
     """AI-powered template studio/editor interface"""
     templates = DocumentTemplate.objects.filter(owner=request.user)
+    email_templates = EmailTemplate.objects.filter(owner=request.user)
     variables = TemplateVariable.objects.all()
     
     return render(request, 'templates/template_studio.html', {
         'templates': templates,
+        'email_templates': email_templates,
         'variables': variables
     })
 
@@ -406,4 +408,194 @@ def save_ai_template(request):
             'success': False,
             'error': _('Failed to save template. Please try again.')
         }, status=500)
+
+
+@login_required
+@require_POST
+def generate_ai_email_template(request):
+    """Generate email template using AI based on user prompt"""
+    import logging
+    from django.core.cache import cache
+    
+    logger = logging.getLogger(__name__)
+    
+    try:
+        # Check AI usage limit
+        subscription = request.user.subscription
+        if not subscription.can_use_ai():
+            return JsonResponse({
+                'success': False,
+                'error': _('You have reached your AI request limit for this month. Please upgrade your plan.'),
+                'upgrade_required': True
+            }, status=403)
+        
+        # Rate limiting
+        rate_limit_key = f"ai_email_template_gen:{request.user.id}"
+        requests_count = cache.get(rate_limit_key, 0)
+        if requests_count >= 5:
+            return JsonResponse({
+                'success': False,
+                'error': _('Too many requests. Please wait a moment and try again.')
+            }, status=429)
+        cache.set(rate_limit_key, requests_count + 1, 60)
+        
+        # Parse request
+        data = json.loads(request.body)
+        user_prompt = data.get('prompt', '').strip()
+        template_type = data.get('template_type', 'custom')
+        
+        if not user_prompt:
+            return JsonResponse({
+                'success': False,
+                'error': _('Please provide a description for your email template')
+            }, status=400)
+        
+        if len(user_prompt) > 2000:
+            return JsonResponse({
+                'success': False,
+                'error': _('Description is too long. Please keep it under 2000 characters.')
+            }, status=400)
+        
+        # Initialize AI assistant
+        assistant = GeminiAssistant(request.user)
+        
+        # Generate email template
+        result = assistant.generate_email_template(user_prompt, template_type)
+        
+        # Increment AI usage
+        subscription.increment_ai_usage()
+        
+        return JsonResponse({
+            'success': True,
+            'subject': result['subject'],
+            'html_content': result['html_content'],
+            'plain_text': result.get('plain_text', ''),
+            'message': _('Email template generated successfully!'),
+            'ai_requests_remaining': subscription.get_plan_config().get('ai_requests_per_month', 0) - subscription.ai_requests_used
+        })
+    
+    except json.JSONDecodeError:
+        return JsonResponse({
+            'success': False,
+            'error': _('Invalid request format')
+        }, status=400)
+    
+    except Exception as e:
+        logger.error(f"AI email template generation failed for user {request.user.id}: {str(e)}", exc_info=True)
+        return JsonResponse({
+            'success': False,
+            'error': _('Failed to generate email template. Please try again.')
+        }, status=500)
+
+
+@login_required
+@require_POST
+def save_ai_email_template(request):
+    """Save AI-generated email template to database"""
+    import logging
+    
+    logger = logging.getLogger(__name__)
+    
+    try:
+        # Parse request
+        data = json.loads(request.body)
+        template_name = data.get('name', '').strip()
+        template_type = data.get('template_type', 'custom')
+        subject = data.get('subject', '').strip()
+        html_content = data.get('html_content', '')
+        plain_text = data.get('plain_text', '')
+        is_default = data.get('is_default', False)
+        ai_prompt = data.get('ai_prompt', '')
+        
+        # Validation
+        if not template_name or not subject or not html_content:
+            return JsonResponse({
+                'success': False,
+                'error': _('Please provide template name, subject, and content')
+            }, status=400)
+        
+        if len(template_name) > 200:
+            return JsonResponse({
+                'success': False,
+                'error': _('Template name is too long')
+            }, status=400)
+        
+        if len(subject) > 500:
+            return JsonResponse({
+                'success': False,
+                'error': _('Subject is too long')
+            }, status=400)
+        
+        if len(html_content) > 100000:
+            return JsonResponse({
+                'success': False,
+                'error': _('Template content is too large')
+            }, status=400)
+        
+        # Check if name already exists
+        if EmailTemplate.objects.filter(owner=request.user, name=template_name).exists():
+            return JsonResponse({
+                'success': False,
+                'error': _('A template with this name already exists')
+            }, status=400)
+        
+        # Create email template
+        template = EmailTemplate.objects.create(
+            owner=request.user,
+            name=template_name,
+            template_type=template_type,
+            subject=subject,
+            html_content=html_content,
+            plain_text=plain_text,
+            is_default=is_default,
+            ai_generated=True,
+            ai_prompt=ai_prompt
+        )
+        
+        logger.info(f"User {request.user.id} saved AI-generated email template: {template.pk}")
+        
+        return JsonResponse({
+            'success': True,
+            'template_id': template.pk,
+            'message': _('Email template saved successfully!')
+        })
+    
+    except json.JSONDecodeError:
+        return JsonResponse({
+            'success': False,
+            'error': _('Invalid request format')
+        }, status=400)
+    
+    except Exception as e:
+        logger.error(f"Failed to save email template for user {request.user.id}: {str(e)}", exc_info=True)
+        return JsonResponse({
+            'success': False,
+            'error': _('Failed to save email template. Please try again.')
+        }, status=500)
+
+
+@login_required
+def email_template_list(request):
+    """List all email templates"""
+    templates = EmailTemplate.objects.filter(owner=request.user)
+    return render(request, 'templates/email_template_list.html', {'email_templates': templates})
+
+
+@login_required
+def email_template_detail(request, pk):
+    """Email template detail view"""
+    template = get_object_or_404(EmailTemplate, pk=pk, owner=request.user)
+    return render(request, 'templates/email_template_detail.html', {'template': template})
+
+
+@login_required
+def email_template_delete(request, pk):
+    """Delete email template"""
+    template = get_object_or_404(EmailTemplate, pk=pk, owner=request.user)
+    if request.method == 'POST':
+        template.delete()
+        messages.success(request, _('Email template deleted successfully.'))
+        return redirect('templates:email_template_list')
+    
+    return render(request, 'templates/email_template_confirm_delete.html', {'template': template})
 

@@ -21,6 +21,7 @@ urlpatterns += i18n_patterns(
     path('templates/', include('apps.templates.urls')),
     path('subscriptions/', include('apps.subscriptions.urls')),
     path('ai/', include('apps.ai_assistant.urls')),
+    path('faq/', include('apps.faq.urls')),
 )
 
 if settings.DEBUG:

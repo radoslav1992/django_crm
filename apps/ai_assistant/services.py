@@ -286,4 +286,112 @@ Provide relevant results and insights based on the query.
         
         except Exception as e:
             return f"{_('Error performing search')}: {str(e)}"
+    
+    def generate_email_template(self, user_prompt, template_type='custom'):
+        """Generate email template based on user description"""
+        try:
+            available_variables = """
+Available template variables to use in email templates:
+- {{contact_name}} / {{client_name}} - Recipient's name
+- {{contact_email}} / {{client_email}} - Recipient's email
+- {{company_name}} - Recipient's company
+- {{invoice_number}} - Invoice number (for invoice emails)
+- {{offer_number}} - Offer number (for offer emails)
+- {{invoice_date}} / {{offer_date}} - Document date
+- {{due_date}} - Payment due date
+- {{total_amount}} - Total amount
+- {{currency}} - Currency code
+- {{payment_url}} - Payment link URL
+- {{pdf_url}} - PDF document link
+- {{sender_name}} - Your name
+- {{sender_company}} - Your company name
+- {{sender_email}} - Your email
+- {{sender_phone}} - Your phone number
+"""
+            
+            type_guidance = {
+                'invoice': 'This is for sending invoices to clients. Include a professional tone, payment details, and a clear call-to-action.',
+                'offer': 'This is for sending quotes/offers to clients. Make it persuasive, highlight value, and encourage acceptance.',
+                'reminder': 'This is for payment reminders. Be polite but firm, include payment details and deadline.',
+                'welcome': 'This is a welcome email for new clients. Be warm, introduce your services, and set expectations.',
+                'follow_up': 'This is a follow-up email. Be professional, reference previous interaction, and move the conversation forward.',
+                'custom': 'This is a custom email template. Follow the user\'s description precisely.'
+            }
+            
+            guidance = type_guidance.get(template_type, type_guidance['custom'])
+            
+            prompt = f"""
+You are an expert email marketing and copywriting specialist.
+
+Create a professional email template for: {template_type}
+{guidance}
+
+User's description:
+"{user_prompt}"
+
+{available_variables}
+
+Generate a complete email with:
+1. A compelling subject line (50-70 characters)
+2. HTML email body that is:
+   - Professional and modern design
+   - Mobile-responsive
+   - Includes appropriate template variables from the list above
+   - Uses inline CSS for email client compatibility
+   - Has clear call-to-action buttons
+   - Well-structured with headers, paragraphs, and spacing
+   - Includes your company branding placeholder
+   - Has a professional email footer
+
+IMPORTANT - For Payment/Action Buttons:
+- If you create a "Pay Now" or "View Invoice" button, use the template variables for URLs
+- Example: <a href="{{{{payment_url}}}}" style="...">Pay Now</a>
+- Example: <a href="{{{{pdf_url}}}}" style="...">View Invoice</a>
+- NEVER use "#" or placeholder URLs - always use the actual template variables
+- The href MUST be a Django template variable that will be replaced with the real URL
+- For invoices: Use {{{{payment_url}}}} for payment buttons, {{{{pdf_url}}}} for view/download buttons
+- For offers: Use {{{{pdf_url}}}} for view/download buttons
+
+Return your response as valid JSON with this exact structure:
+{{
+  "subject": "The email subject line here",
+  "html_content": "The complete HTML email body here",
+  "plain_text": "A plain text version of the email here"
+}}
+
+Use Django template syntax for variables (e.g., {{{{contact_name}}}}, {{{{total_amount}}}}).
+Make the design beautiful, professional, and aligned with the user's description.
+Ensure all JSON is properly escaped.
+"""
+            
+            response = self.model.generate_content(prompt)
+            
+            # Parse the JSON response
+            response_text = response.text.strip()
+            
+            # Remove markdown code blocks if present
+            if response_text.startswith('```json'):
+                response_text = response_text[7:]
+            elif response_text.startswith('```'):
+                response_text = response_text[3:]
+            if response_text.endswith('```'):
+                response_text = response_text[:-3]
+            
+            response_text = response_text.strip()
+            
+            # Try to parse JSON
+            try:
+                result = json.loads(response_text)
+            except json.JSONDecodeError:
+                # If JSON parsing fails, extract parts manually
+                result = {
+                    'subject': 'Professional Email',
+                    'html_content': response_text,
+                    'plain_text': ''
+                }
+            
+            return result
+        
+        except Exception as e:
+            raise Exception(f"{_('Error generating email template')}: {str(e)}")
 

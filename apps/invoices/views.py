@@ -340,16 +340,51 @@ def payment_create(request):
 # Email sending views
 @login_required
 def invoice_send_email(request, pk):
-    """Send invoice email to client"""
+    """Send invoice email to client - with template selection"""
     invoice = get_object_or_404(Invoice, pk=pk, owner=request.user)
     
     if not invoice.client_email:
         messages.error(request, _('Cannot send email: Client email address is missing.'))
         return redirect('invoices:invoice_detail', pk=invoice.pk)
     
+    # GET: Show template selection
+    if request.method == 'GET':
+        from apps.templates.models import EmailTemplate
+        
+        # Get available invoice email templates
+        email_templates = EmailTemplate.objects.filter(
+            owner=request.user,
+            template_type='invoice',
+            is_active=True
+        )
+        
+        return render(request, 'invoices/send_email_form.html', {
+            'invoice': invoice,
+            'email_templates': email_templates,
+            'document_type': 'invoice'
+        })
+    
+    # POST: Send email with selected template
+    template_id = request.POST.get('email_template')
+    # Convert empty string to None
+    template_id = int(template_id) if template_id and template_id.strip() else None
+    
+    # Get template name for success message
+    template_name = _('default template')
+    if template_id:
+        try:
+            from apps.templates.models import EmailTemplate
+            email_template = EmailTemplate.objects.get(id=template_id, owner=request.user)
+            template_name = f'"{email_template.name}"'
+        except EmailTemplate.DoesNotExist:
+            pass
+    
     try:
-        invoice.send_email(request=request)
-        messages.success(request, _('Invoice email sent successfully to {email}').format(email=invoice.client_email))
+        invoice.send_email(request=request, email_template_id=template_id)
+        messages.success(request, _('Invoice email sent successfully to {email} using {template}').format(
+            email=invoice.client_email,
+            template=template_name
+        ))
     except Exception as e:
         messages.error(request, _('Failed to send email: {error}').format(error=str(e)))
     
@@ -358,16 +393,51 @@ def invoice_send_email(request, pk):
 
 @login_required
 def offer_send_email(request, pk):
-    """Send offer email to client"""
+    """Send offer email to client - with template selection"""
     offer = get_object_or_404(Offer, pk=pk, owner=request.user)
     
     if not offer.client_email:
         messages.error(request, _('Cannot send email: Client email address is missing.'))
         return redirect('invoices:offer_detail', pk=offer.pk)
     
+    # GET: Show template selection
+    if request.method == 'GET':
+        from apps.templates.models import EmailTemplate
+        
+        # Get available offer email templates
+        email_templates = EmailTemplate.objects.filter(
+            owner=request.user,
+            template_type='offer',
+            is_active=True
+        )
+        
+        return render(request, 'invoices/send_email_form.html', {
+            'offer': offer,
+            'email_templates': email_templates,
+            'document_type': 'offer'
+        })
+    
+    # POST: Send email with selected template
+    template_id = request.POST.get('email_template')
+    # Convert empty string to None
+    template_id = int(template_id) if template_id and template_id.strip() else None
+    
+    # Get template name for success message
+    template_name = _('default template')
+    if template_id:
+        try:
+            from apps.templates.models import EmailTemplate
+            email_template = EmailTemplate.objects.get(id=template_id, owner=request.user)
+            template_name = f'"{email_template.name}"'
+        except EmailTemplate.DoesNotExist:
+            pass
+    
     try:
-        offer.send_email(request=request)
-        messages.success(request, _('Offer email sent successfully to {email}').format(email=offer.client_email))
+        offer.send_email(request=request, email_template_id=template_id)
+        messages.success(request, _('Offer email sent successfully to {email} using {template}').format(
+            email=offer.client_email,
+            template=template_name
+        ))
     except Exception as e:
         messages.error(request, _('Failed to send email: {error}').format(error=str(e)))
     

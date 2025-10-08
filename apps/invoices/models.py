@@ -110,67 +110,22 @@ class Invoice(models.Model):
     def is_paid(self):
         return self.paid_amount >= self.total_amount
     
-    def send_email(self, request=None):
-        """Send invoice email to client"""
-        from django.core.mail import EmailMessage
-        from django.template.loader import render_to_string
+    def send_email(self, request=None, email_template_id=None):
+        """Send invoice email to client using Resend"""
         from django.utils import timezone
-        import os
+        from apps.invoices.email_service import ResendEmailService
         
         if not self.client_email:
             raise ValueError(_("Client email is required to send invoice"))
         
-        # Get the absolute URL for the PDF
-        if request:
-            pdf_url = request.build_absolute_uri(reverse('invoices:invoice_pdf', kwargs={'pk': self.pk}))
-        else:
-            pdf_url = f"http://localhost:8000{reverse('invoices:invoice_pdf', kwargs={'pk': self.pk})}"
+        # Initialize Resend service
+        email_service = ResendEmailService(self.owner)
         
-        # Email subject
-        subject = f"{_('Invoice')} {self.invoice_number}"
+        # Send email via Resend with optional custom template
+        result = email_service.send_invoice_email(self, request, email_template_id=email_template_id)
         
-        # Email body
-        context = {
-            'invoice': self,
-            'pdf_url': pdf_url,
-            'company_name': self.owner.get_full_name() or self.owner.username,
-        }
-        
-        html_message = render_to_string('invoices/email_invoice.html', context)
-        plain_message = f"""
-        {_('Dear')} {self.client_name},
-        
-        {_('Please find attached your invoice')} {self.invoice_number}.
-        
-        {_('Invoice Details')}:
-        - {_('Invoice Number')}: {self.invoice_number}
-        - {_('Date')}: {self.invoice_date}
-        - {_('Due Date')}: {self.due_date}
-        - {_('Total Amount')}: {self.total_amount} {self.currency}
-        
-        {_('You can view and download your invoice here')}: {pdf_url}
-        
-        {_('Thank you for your business!')}
-        
-        {_('Best regards')},
-        {self.owner.get_full_name() or self.owner.username}
-        """
-        
-        # Create email
-        email = EmailMessage(
-            subject=subject,
-            body=plain_message,
-            from_email=settings.DEFAULT_FROM_EMAIL,
-            to=[self.client_email],
-            reply_to=[self.owner.email] if self.owner.email else None,
-        )
-        
-        # Add HTML version
-        email.content_subtype = "html"
-        email.body = html_message
-        
-        # Send email
-        email.send(fail_silently=False)
+        if not result.get('success'):
+            raise Exception(result.get('error', _('Failed to send email')))
         
         # Update email tracking
         self.email_sent = True
@@ -285,66 +240,22 @@ class Offer(models.Model):
         self.total_amount = self.subtotal + self.tax_amount
         self.save()
     
-    def send_email(self, request=None):
-        """Send offer email to client"""
-        from django.core.mail import EmailMessage
-        from django.template.loader import render_to_string
+    def send_email(self, request=None, email_template_id=None):
+        """Send offer email to client using Resend"""
         from django.utils import timezone
+        from apps.invoices.email_service import ResendEmailService
         
         if not self.client_email:
             raise ValueError(_("Client email is required to send offer"))
         
-        # Get the absolute URL for the PDF
-        if request:
-            pdf_url = request.build_absolute_uri(reverse('invoices:offer_pdf', kwargs={'pk': self.pk}))
-        else:
-            pdf_url = f"http://localhost:8000{reverse('invoices:offer_pdf', kwargs={'pk': self.pk})}"
+        # Initialize Resend service
+        email_service = ResendEmailService(self.owner)
         
-        # Email subject
-        subject = f"{_('Offer')} {self.offer_number}"
+        # Send email via Resend with optional custom template
+        result = email_service.send_offer_email(self, request, email_template_id=email_template_id)
         
-        # Email body
-        context = {
-            'offer': self,
-            'pdf_url': pdf_url,
-            'company_name': self.owner.get_full_name() or self.owner.username,
-        }
-        
-        html_message = render_to_string('invoices/email_offer.html', context)
-        plain_message = f"""
-        {_('Dear')} {self.client_name},
-        
-        {_('Please find attached your offer')} {self.offer_number}.
-        
-        {_('Offer Details')}:
-        - {_('Offer Number')}: {self.offer_number}
-        - {_('Date')}: {self.offer_date}
-        - {_('Valid Until')}: {self.valid_until}
-        - {_('Total Amount')}: {self.total_amount} {self.currency}
-        
-        {_('You can view and download your offer here')}: {pdf_url}
-        
-        {_('We look forward to working with you!')}
-        
-        {_('Best regards')},
-        {self.owner.get_full_name() or self.owner.username}
-        """
-        
-        # Create email
-        email = EmailMessage(
-            subject=subject,
-            body=plain_message,
-            from_email=settings.DEFAULT_FROM_EMAIL,
-            to=[self.client_email],
-            reply_to=[self.owner.email] if self.owner.email else None,
-        )
-        
-        # Add HTML version
-        email.content_subtype = "html"
-        email.body = html_message
-        
-        # Send email
-        email.send(fail_silently=False)
+        if not result.get('success'):
+            raise Exception(result.get('error', _('Failed to send email')))
         
         # Update email tracking
         self.email_sent = True

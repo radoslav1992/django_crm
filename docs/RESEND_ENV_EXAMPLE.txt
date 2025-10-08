@@ -1,0 +1,49 @@
+# =====================================================
+# RESEND EMAIL CONFIGURATION
+# Add these to your .env file
+# =====================================================
+
+# Resend API Configuration
+# Get your API key from: https://resend.com/api-keys
+RESEND_API_KEY=re_123abc456def789ghi012jkl345mno678
+RESEND_FROM_EMAIL=noreply@yourdomain.com
+RESEND_FROM_NAME=Your Company Name
+
+# Site URL (used for PDF links in emails)
+# Development:
+SITE_URL=http://localhost:8000
+# Production:
+# SITE_URL=https://yourcrm.com
+
+# =====================================================
+# LEGACY EMAIL (kept for backward compatibility)
+# =====================================================
+EMAIL_BACKEND=django.core.mail.backends.console.EmailBackend
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=587
+EMAIL_USE_TLS=True
+EMAIL_HOST_USER=
+EMAIL_HOST_PASSWORD=
+DEFAULT_FROM_EMAIL=
+
+# =====================================================
+# NOTES:
+# =====================================================
+# 1. Users can set their own Resend keys in the UI at:
+#    /accounts/resend-settings/
+#
+# 2. These are FALLBACK values if users haven't 
+#    configured their own keys
+#
+# 3. For testing, you can use Resend's test domain:
+#    RESEND_FROM_EMAIL=onboarding@resend.dev
+#
+# 4. In production, verify your domain in Resend:
+#    https://resend.com/domains
+#
+# 5. Get started:
+#    - Sign up: https://resend.com/signup
+#    - Docs: https://resend.com/docs
+#    - Dashboard: https://resend.com/emails
+# =====================================================
+

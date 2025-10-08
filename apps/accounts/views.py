@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.utils.translation import gettext as _
 from django.views.decorators.http import require_http_methods
-from .forms import UserRegistrationForm, UserLoginForm, UserProfileForm, StripeSettingsForm
+from .forms import UserRegistrationForm, UserLoginForm, UserProfileForm, StripeSettingsForm, ResendSettingsForm
 from apps.subscriptions.models import Subscription
 
 
@@ -89,6 +89,24 @@ def stripe_settings(request):
         form = StripeSettingsForm(instance=request.user)
     
     return render(request, 'accounts/stripe_settings.html', {'form': form})
+
+
+@login_required
+def resend_settings(request):
+    """Resend email settings view"""
+    if request.method == 'POST':
+        form = ResendSettingsForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            messages.success(request, _('Your Resend email settings have been updated successfully.'))
+            return redirect('accounts:resend_settings')
+    else:
+        form = ResendSettingsForm(instance=request.user)
+    
+    return render(request, 'accounts/resend_settings.html', {
+        'form': form,
+        'has_resend_configured': request.user.has_resend_configured()
+    })
 
 
 def landing_page(request):

@@ -25,6 +25,25 @@ class User(AbstractUser):
         help_text=_('User\'s Stripe secret key for accepting payments from their customers')
     )
     
+    # Resend email configuration
+    resend_api_key = models.CharField(
+        _('Resend API key'),
+        max_length=255,
+        blank=True,
+        help_text=_('Your Resend API key for sending emails')
+    )
+    resend_from_email = models.EmailField(
+        _('From email address'),
+        blank=True,
+        help_text=_('Email address to send emails from (must be verified in Resend)')
+    )
+    resend_from_name = models.CharField(
+        _('From name'),
+        max_length=200,
+        blank=True,
+        help_text=_('Name to display in "from" field of emails')
+    )
+    
     # Organization info
     vat_number = models.CharField(_('VAT number'), max_length=50, blank=True)
     address = models.TextField(_('address'), blank=True)
@@ -54,6 +73,10 @@ class User(AbstractUser):
     def has_stripe_configured(self):
         """Check if user has configured their Stripe keys"""
         return bool(self.stripe_publishable_key and self.stripe_secret_key)
+    
+    def has_resend_configured(self):
+        """Check if user has configured Resend"""
+        return bool(self.resend_api_key and self.resend_from_email)
 
 
 class TeamMember(models.Model):

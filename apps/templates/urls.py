@@ -15,5 +15,12 @@ urlpatterns = [
     path('ai/generate/', views.generate_ai_template, name='generate_ai_template'),
     path('ai/refine/', views.refine_ai_template, name='refine_ai_template'),
     path('ai/save/', views.save_ai_template, name='save_ai_template'),
+    # Email templates
+    path('email/', views.email_template_list, name='email_template_list'),
+    path('email/<int:pk>/', views.email_template_detail, name='email_template_detail'),
+    path('email/<int:pk>/delete/', views.email_template_delete, name='email_template_delete'),
+    # AI-powered email template generation
+    path('ai/generate-email/', views.generate_ai_email_template, name='generate_ai_email_template'),
+    path('ai/save-email/', views.save_ai_email_template, name='save_ai_email_template'),
 ]
 

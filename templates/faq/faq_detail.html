@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{{ question }} - FAQ{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'faq:home' %}">FAQ</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'faq:category' item.category.slug %}">{{ item.category.name }}</a></li>
+            <li class="breadcrumb-item active">{{ question|truncatewords:10 }}</li>
+        </ol>
+    </nav>
+
+    <div class="row">
+        <div class="col-lg-9">
+            <!-- Question -->
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="h4 mb-0">
+                        <i class="bi bi-question-circle"></i>
+                        {{ question }}
+                    </h2>
+                </div>
+                <div class="card-body">
+                    <!-- Meta Info -->
+                    <div class="d-flex justify-content-between align-items-center mb-3 text-muted small">
+                        <span>
+                            <i class="bi bi-folder"></i> {{ item.category.name }}
+                        </span>
+                        <span>
+                            <i class="bi bi-eye"></i> {{ item.views_count }} {% trans "прегледи" %}
+                        </span>
+                    </div>
+
+                    <!-- Answer -->
+                    <div class="faq-content">
+                        {{ answer_html|safe }}
+                    </div>
+
+                    <!-- Guide Content -->
+                    {% if guide_html %}
+                    <hr class="my-4">
+                    <div class="alert alert-info">
+                        <h5><i class="bi bi-book"></i> {% trans "Подробно ръководство" %}</h5>
+                    </div>
+                    <div class="guide-content">
+                        {{ guide_html|safe }}
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="card-footer bg-light">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p class="text-muted small mb-0">
+                                {% trans "Беше ли полезно?" %}
+                                <button class="btn btn-sm btn-outline-success ms-2" onclick="alert('Благодарим!')">
+                                    <i class="bi bi-hand-thumbs-up"></i> {% trans "Да" %}
+                                </button>
+                                <button class="btn btn-sm btn-outline-danger" onclick="alert('Съжаляваме! Свържете се с поддръжката.')">
+                                    <i class="bi bi-hand-thumbs-down"></i> {% trans "Не" %}
+                                </button>
+                            </p>
+                        </div>
+                        <div class="col-md-6 text-end">
+                            <small class="text-muted">
+                                {% trans "Последна актуализация" %}: {{ item.updated_at|date:"d.m.Y" }}
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="col-lg-3">
+            <!-- Related Questions -->
+            {% if related_items %}
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0">{% trans "Свързани въпроси" %}</h5>
+                </div>
+                <div class="list-group list-group-flush">
+                    {% for related in related_items %}
+                    <a href="{% url 'faq:detail' related.pk %}" class="list-group-item list-group-item-action">
+                        <small>{{ related.question }}</small>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Back to Category -->
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <a href="{% url 'faq:category' item.category.slug %}" class="btn btn-outline-primary w-100">
+                        <i class="bi bi-arrow-left"></i> {% trans "Обратно към" %} {{ item.category.name }}
+                    </a>
+                    <a href="{% url 'faq:home' %}" class="btn btn-outline-secondary w-100 mt-2">
+                        <i class="bi bi-house"></i> {% trans "Всички категории" %}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.faq-content, .guide-content {
+    line-height: 1.8;
+}
+.faq-content h1, .faq-content h2, .faq-content h3,
+.guide-content h1, .guide-content h2, .guide-content h3 {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+.faq-content code, .guide-content code {
+    background-color: #f8f9fa;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    color: #e83e8c;
+}
+.faq-content pre, .guide-content pre {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+.faq-content img, .guide-content img {
+    max-width: 100%;
+    height: auto;
+    margin: 1rem 0;
+}
+.faq-content ul, .faq-content ol,
+.guide-content ul, .guide-content ol {
+    margin-bottom: 1rem;
+}
+</style>
+{% endblock %}
+
