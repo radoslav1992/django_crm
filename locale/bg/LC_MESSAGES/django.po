@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-03 12:00+0000\n"
+"POT-Creation-Date: 2025-10-09 15:39+0300\n"
 "PO-Revision-Date: 2025-10-03 12:00+0000\n"
 "Last-Translator: \n"
 "Language-Team: Bulgarian\n"
@@ -16,1356 +16,5005 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-# Navigation
-msgid "Dashboard"
-msgstr "Табло"
-
-msgid "Contacts"
-msgstr "Контакти"
-
-msgid "Companies"
-msgstr "Компании"
-
-msgid "Deals"
-msgstr "Сделки"
-
-msgid "Tasks"
-msgstr "Задачи"
-
-msgid "Invoices"
-msgstr "Фактури"
-
-msgid "Template Studio"
-msgstr "Студио за шаблони"
-
-msgid "AI Assistant"
-msgstr "AI Асистент"
-
-msgid "Profile"
-msgstr "Профил"
-
-msgid "Subscription"
-msgstr "Абонамент"
-
-msgid "Stripe Settings"
-msgstr "Stripe настройки"
-
-msgid "Logout"
-msgstr "Изход"
-
-msgid "Login"
-msgstr "Вход"
-
-msgid "Register"
-msgstr "Регистрация"
-
-# Common
-msgid "Email"
-msgstr "Имейл"
-
-msgid "Phone"
-msgstr "Телефон"
-
-msgid "Mobile"
-msgstr "Мобилен"
-
-msgid "Address"
-msgstr "Адрес"
-
-msgid "City"
-msgstr "Град"
-
-msgid "Country"
-msgstr "Държава"
-
-msgid "Status"
-msgstr "Статус"
-
-msgid "Actions"
-msgstr "Действия"
-
-msgid "Edit"
-msgstr "Редактирай"
-
-msgid "Delete"
-msgstr "Изтрий"
-
-msgid "Cancel"
-msgstr "Отказ"
-
-msgid "Save"
-msgstr "Запази"
-
-msgid "Save Changes"
-msgstr "Запази промените"
-
-msgid "Create"
-msgstr "Създай"
-
-msgid "Search"
-msgstr "Търсене"
-
-msgid "Active"
-msgstr "Активен"
-
-msgid "Inactive"
-msgstr "Неактивен"
-
-msgid "Name"
-msgstr "Име"
-
-msgid "Description"
-msgstr "Описание"
-
-msgid "Notes"
-msgstr "Бележки"
-
-msgid "Created"
-msgstr "Създаден"
-
-msgid "Updated"
-msgstr "Обновен"
-
-# Contact specific
-msgid "Contact Management"
-msgstr "Управление на контакти"
-
-msgid "New Contact"
-msgstr "Нов контакт"
-
-msgid "Edit Contact"
-msgstr "Редактирай контакт"
-
-msgid "Contact Information"
-msgstr "Информация за контакт"
-
-msgid "First name"
-msgstr "Име"
-
-msgid "Last name"
-msgstr "Фамилия"
-
-msgid "Position"
-msgstr "Позиция"
-
-msgid "Company"
-msgstr "Компания"
-
-msgid "Social Media"
-msgstr "Социални мрежи"
-
-# Company specific
-msgid "Company name"
-msgstr "Име на компания"
-
-msgid "Website"
-msgstr "Уебсайт"
-
-msgid "Industry"
-msgstr "Индустрия"
-
-msgid "VAT number"
-msgstr "ДДС номер"
-
-msgid "VAT:"
-msgstr "ДДС:"
-
-# Deal specific
-msgid "Deal name"
-msgstr "Име на сделка"
-
-msgid "Value"
-msgstr "Стойност"
-
-msgid "Currency"
-msgstr "Валута"
-
-msgid "Stage"
-msgstr "Етап"
-
-msgid "Pipeline"
-msgstr "Процес"
-
-msgid "Probability"
-msgstr "Вероятност"
-
-msgid "Expected close date"
-msgstr "Очаквана дата на приключване"
-
-msgid "Open"
-msgstr "Отворена"
-
-msgid "Won"
-msgstr "Спечелена"
-
-msgid "Lost"
-msgstr "Загубена"
-
-# Task specific
-msgid "Task"
-msgstr "Задача"
-
-msgid "Title"
-msgstr "Заглавие"
-
-msgid "Due date"
-msgstr "Краен срок"
-
-msgid "Due:"
-msgstr "Падеж:"
-
-msgid "Priority"
-msgstr "Приоритет"
-
-msgid "Completed"
-msgstr "Завършена"
-
-msgid "Low"
-msgstr "Нисък"
-
-msgid "Medium"
-msgstr "Среден"
-
-msgid "High"
-msgstr "Висок"
-
-# Invoice specific
-msgid "Invoice"
-msgstr "Фактура"
-
-msgid "Invoice number"
-msgstr "Номер на фактура"
-
-msgid "Invoice date"
-msgstr "Дата на фактура"
-
-msgid "Due"
-msgstr "Падеж"
-
-msgid "Subtotal"
-msgstr "Междинна сума"
-
-msgid "Tax"
-msgstr "Данък"
-
-msgid "Total"
-msgstr "Общо"
-
-msgid "Paid"
-msgstr "Платена"
-
-msgid "Overdue"
-msgstr "Просрочена"
-
-msgid "Draft"
-msgstr "Чернова"
-
-msgid "Sent"
-msgstr "Изпратена"
-
-# Offer specific
-msgid "Offer"
-msgstr "Оферта"
-
-msgid "Offer number"
-msgstr "Номер на оферта"
-
-msgid "Valid until"
-msgstr "Валидна до"
-
-msgid "Valid Until"
-msgstr "Валидна до"
-
-msgid "Accepted"
-msgstr "Приета"
-
-msgid "Rejected"
-msgstr "Отхвърлена"
-
-# Subscription
-msgid "Free"
-msgstr "Безплатен"
-
-msgid "Basic"
-msgstr "Базов"
-
-msgid "Pro"
-msgstr "Професионален"
-
-msgid "Enterprise"
-msgstr "Корпоративен"
-
-msgid "Current Plan"
-msgstr "Текущ план"
-
-msgid "Upgrade Now"
-msgstr "Надстрой сега"
-
-msgid "per month"
-msgstr "на месец"
-
-msgid "Unlimited"
-msgstr "Неограничен"
-
-# AI
-msgid "AI Actions"
-msgstr "AI Действия"
-
-msgid "Generate Email"
-msgstr "Генерирай имейл"
-
-msgid "AI Usage"
-msgstr "AI използване"
-
-msgid "Requests this month"
-msgstr "Заявки този месец"
-
-msgid "Conversations"
-msgstr "Разговори"
-
-msgid "New conversation"
-msgstr "Нов разговор"
-
-msgid "Type your message..."
-msgstr "Напишете съобщението си..."
-
-msgid "Send"
-msgstr "Изпрати"
-
-# Messages
-msgid "Welcome! Your account has been created successfully."
-msgstr "Добре дошли! Вашият акаунт беше създаден успешно."
-
-msgid "Welcome back!"
-msgstr "Добре дошли обратно!"
-
-msgid "You have been logged out successfully."
-msgstr "Излязохте успешно от системата."
-
-msgid "Contact created successfully."
-msgstr "Контактът беше създаден успешно."
-
-msgid "Contact updated successfully."
-msgstr "Контактът беше актуализиран успешно."
-
-msgid "Contact deleted successfully."
-msgstr "Контактът беше изтрит успешно."
-
-msgid "Your profile has been updated successfully."
-msgstr "Вашият профил беше актуализиран успешно."
-
-msgid "Subscription activated successfully! Welcome to your new plan."
-msgstr "Абонаментът беше активиран успешно! Добре дошли във вашия нов план."
-
-# Errors
-msgid "Error creating checkout session"
-msgstr "Грешка при създаване на сесия за плащане"
-
-msgid "Error communicating with AI"
-msgstr "Грешка при комуникация с AI"
-
-msgid "You have reached your AI request limit for this month."
-msgstr "Достигнахте лимита си за AI заявки за този месец."
-
-# Dashboard
-msgid "Pipeline Value"
-msgstr "Стойност на процеса"
-
-msgid "Recent Contacts"
-msgstr "Последни контакти"
-
-msgid "Recent Deals"
-msgstr "Последни сделки"
-
-msgid "Upcoming Tasks"
-msgstr "Предстоящи задачи"
-
-msgid "Recent Activities"
-msgstr "Последни дейности"
-
-msgid "View All"
-msgstr "Виж всички"
-
-msgid "No contacts yet"
-msgstr "Все още няма контакти"
-
-msgid "No deals yet"
-msgstr "Все още няма сделки"
-
-msgid "No tasks yet"
-msgstr "Все още няма задачи"
-
-msgid "No activities yet"
-msgstr "Все още няма дейности"
-
-# Landing page
-msgid "Welcome to CRM System"
-msgstr "Добре дошли в CRM системата"
-
-msgid "Powerful CRM for Your Business"
-msgstr "Мощна CRM система за вашия бизнес"
-
-msgid "Manage contacts, deals, invoices, and more with AI-powered insights."
-msgstr "Управлявайте контакти, сделки, фактури и др. с AI-базирани анализи."
-
-msgid "Get Started Free"
-msgstr "Започнете безплатно"
-
-msgid "Features"
-msgstr "Функции"
-
-msgid "Keep all your contacts and companies organized in one place."
-msgstr "Поддържайте всички ваши контакти и компании организирани на едно място."
-
-msgid "Track deals through customizable sales pipelines."
-msgstr "Следете сделките чрез персонализируеми процеси на продажба."
-
-msgid "Create professional invoices and offers with custom templates."
-msgstr "Създавайте професионални фактури и оферти с персонализирани шаблони."
-
-msgid "Add QR codes to invoices for easy Stripe payments."
-msgstr "Добавяйте QR кодове към фактури за лесни Stripe плащания."
-
-msgid "Get intelligent insights and suggestions powered by Gemini AI."
-msgstr "Получавайте интелигентни анализи и предложения, задвижвани от Gemini AI."
-
-msgid "Design custom invoice and offer templates with visual editor."
-msgstr "Проектирайте персонализирани шаблони за фактури и оферти с визуален редактор."
-
-msgid "Choose Your Plan"
-msgstr "Изберете вашия план"
-
-msgid "Select the perfect plan for your business needs"
-msgstr "Изберете перфектния план за нуждите на вашия бизнес"
-
-msgid "All plans include 30-day money-back guarantee"
-msgstr "Всички планове включват 30-дневна гаранция за връщане на парите"
-
-msgid "View Current Subscription"
-msgstr "Виж текущия абонамент"
-
-# Additional common phrases
-msgid "All rights reserved."
-msgstr "Всички права запазени."
-
-msgid "Don't have an account?"
-msgstr "Нямате акаунт?"
-
-msgid "Already have an account?"
-msgstr "Вече имате акаунт?"
-
-msgid "Create Account"
-msgstr "Създай акаунт"
-
-msgid "Username or email"
-msgstr "Потребителско име или имейл"
-
-msgid "Password"
-msgstr "Парола"
-
-msgid "Confirm password"
-msgstr "Потвърди парола"
-
-msgid "Username"
-msgstr "Потребителско име"
-
-msgid "Are you sure you want to delete this contact?"
-msgstr "Сигурни ли сте, че искате да изтриете този контакт?"
-
-msgid "This action cannot be undone. All associated activities and history will be removed."
-msgstr "Това действие не може да бъде отменено. Всички свързани дейности и история ще бъдат премахнати."
-
-msgid "Confirm Deletion"
-msgstr "Потвърди изтриването"
-
-msgid "Delete Contact"
-msgstr "Изтрий контакт"
-
-msgid "at"
-msgstr "в"
-
-msgid "Previous"
-msgstr "Предишна"
-
-msgid "Next"
-msgstr "Следваща"
-
-msgid "No contacts found."
-msgstr "Не са намерени контакти."
-
-msgid "Create your first contact"
-msgstr "Създайте вашия първи контакт"
-
-msgid "Create Contact"
-msgstr "Създай контакт"
-
-msgid "Search contacts..."
-msgstr "Търсене на контакти..."
-
-msgid "Search companies..."
-msgstr "Търсене на компании..."
-
-msgid "No companies found."
-msgstr "Не са намерени компании."
-
-msgid "Create your first company"
-msgstr "Създайте вашата първа компания"
-
-msgid "New Company"
-msgstr "Нова компания"
-
-msgid "Edit Company"
-msgstr "Редактирай компания"
-
-msgid "Delete Company"
-msgstr "Изтрий компания"
-
-msgid "Create Company"
-msgstr "Създай компания"
-
-msgid "Company Name"
-msgstr "Име на компанията"
-
-# Deals
-msgid "No deals found."
-msgstr "Не са намерени сделки."
-
-msgid "Create your first deal"
-msgstr "Създайте вашата първа сделка"
-
-msgid "New Deal"
-msgstr "Нова сделка"
-
-msgid "Edit Deal"
-msgstr "Редактирай сделка"
-
-msgid "Delete Deal"
-msgstr "Изтрий сделка"
-
-msgid "Create Deal"
-msgstr "Създай сделка"
-
-msgid "Deal Name"
-msgstr "Име на сделка"
-
-msgid "Deal Information"
-msgstr "Информация за сделка"
-
-msgid "All"
-msgstr "Всички"
-
-msgid "Open Deals"
-msgstr "Отворени сделки"
-
-msgid "Expected Close"
-msgstr "Очаквано затваряне"
-
-msgid "Closed"
-msgstr "Затворена"
-
-msgid "AI Deal Analysis"
-msgstr "AI анализ на сделка"
-
-msgid "Back to Deal"
-msgstr "Обратно към сделката"
-
-msgid "AI Analysis & Recommendations"
-msgstr "AI анализ и препоръки"
-
-msgid "This analysis was generated by AI and should be used as guidance. Always apply your own business judgment."
-msgstr "Този анализ е генериран от AI и трябва да се използва като насока. Винаги прилагайте собственото си бизнес решение."
-
-# Tasks
-msgid "No tasks found."
-msgstr "Не са намерени задачи."
-
-msgid "Create your first task"
-msgstr "Създайте вашата първа задача"
-
-msgid "New Task"
-msgstr "Нова задача"
-
-msgid "Edit Task"
-msgstr "Редактирай задача"
-
-msgid "Delete Task"
-msgstr "Изтрий задача"
-
-msgid "Create Task"
-msgstr "Създай задача"
-
-msgid "Pending"
-msgstr "Чакаща"
-
-msgid "No upcoming tasks"
-msgstr "Няма предстоящи задачи"
-
-# Invoices
-msgid "No invoices found."
-msgstr "Не са намерени фактури."
-
-msgid "Create your first invoice"
-msgstr "Създайте вашата първа фактура"
-
-msgid "New Invoice"
-msgstr "Нова фактура"
-
-msgid "Edit Invoice"
-msgstr "Редактирай фактура"
-
-msgid "Delete Invoice"
-msgstr "Изтрий фактура"
-
-msgid "Create Invoice"
-msgstr "Създай фактура"
-
-msgid "Invoice #"
-msgstr "Фактура №"
-
-msgid "Client"
-msgstr "Клиент"
-
-msgid "Date"
-msgstr "Дата"
-
-msgid "Due Date"
-msgstr "Падеж"
-
-msgid "Amount"
-msgstr "Сума"
-
-msgid "Invoice Details"
-msgstr "Детайли на фактура"
-
-msgid "Client Information"
-msgstr "Информация за клиент"
-
-msgid "Client Name"
-msgstr "Име на клиент"
-
-msgid "Items"
-msgstr "Артикули"
-
-msgid "Financial Settings"
-msgstr "Финансови настройки"
-
-msgid "Payment Settings"
-msgstr "Настройки на плащане"
-
-msgid "Add a Stripe payment link to generate a QR code for easy customer payments."
-msgstr "Добавете Stripe линк за плащане, за да генерирате QR код за лесни плащания от клиенти."
-
-msgid "Invoice Date"
-msgstr "Дата на фактура"
-
-msgid "Invoice Number"
-msgstr "Номер на фактура"
-
-msgid "Invoices & Offers"
-msgstr "Фактури и оферти"
-
-msgid "Invoice details"
-msgstr "Детайли на фактура"
-
-msgid "Due Date:"
-msgstr "Падеж:"
-
-msgid "Invoice Number:"
-msgstr "Номер на фактура:"
-
-msgid "Invoice Date:"
-msgstr "Дата на фактура:"
-
-msgid "INVOICE"
-msgstr "ФАКТУРА"
-
-msgid "Date:"
-msgstr "Дата:"
-
-msgid "Number:"
-msgstr "Номер:"
-
-msgid "From:"
-msgstr "От:"
-
-msgid "Bill To:"
-msgstr "Фактуриране на:"
-
-msgid "To:"
-msgstr "До:"
-
-msgid "Unit Price"
-msgstr "Единична цена"
-
-msgid "Qty"
-msgstr "Кол."
-
-msgid "Subtotal:"
-msgstr "Междинна сума:"
-
-msgid "Tax:"
-msgstr "Данък:"
-
-msgid "TOTAL:"
-msgstr "ОБЩО:"
-
-msgid "Balance Due:"
-msgstr "Дължима сума:"
-
-msgid "Paid:"
-msgstr "Платено:"
-
-msgid "Notes:"
-msgstr "Бележки:"
-
-msgid "Terms & Conditions:"
-msgstr "Общи условия:"
-
-msgid "Pay Online"
-msgstr "Платете онлайн"
-
-msgid "Scan to Pay"
-msgstr "Сканирайте за плащане"
-
-msgid "PDF"
-msgstr "PDF"
-
-msgid "Print"
-msgstr "Печат"
-
-msgid "Are you sure you want to delete this invoice?"
-msgstr "Сигурни ли сте, че искате да изтриете тази фактура?"
-
-msgid "This action cannot be undone. All associated payments will remain but will be unlinked."
-msgstr "Това действие не може да бъде отменено. Всички свързани плащания ще останат, но ще бъдат откачени."
-
-# Offers
-msgid "Offers"
-msgstr "Оферти"
-
-msgid "No offers found."
-msgstr "Не са намерени оферти."
-
-msgid "Create your first offer"
-msgstr "Създайте вашата първа оферта"
-
-msgid "New Offer"
-msgstr "Нова оферта"
-
-msgid "Edit Offer"
-msgstr "Редактирай оферта"
-
-msgid "Delete Offer"
-msgstr "Изтрий оферта"
-
-msgid "Create Offer"
-msgstr "Създай оферта"
-
-msgid "Offer #"
-msgstr "Оферта №"
-
-msgid "Valid Until:"
-msgstr "Валидна до:"
-
-msgid "Convert to Invoice"
-msgstr "Преобразувай във фактура"
-
-msgid "OFFER"
-msgstr "ОФЕРТА"
-
-msgid "Are you sure you want to delete this offer?"
-msgstr "Сигурни ли сте, че искате да изтриете тази оферта?"
-
-msgid "This offer has been converted to"
-msgstr "Тази оферта беше преобразувана в"
-
-# Payments
-msgid "Payments"
-msgstr "Плащания"
-
-msgid "Record Payment"
-msgstr "Запиши плащане"
-
-msgid "Method"
-msgstr "Метод"
-
-msgid "Reference"
-msgstr "Референция"
-
-msgid "Matched"
-msgstr "Съпоставено"
-
-msgid "Unmatched"
-msgstr "Несъпоставено"
-
-msgid "No payments recorded."
-msgstr "Няма записани плащания."
-
-msgid "Record your first payment"
-msgstr "Запишете вашето първо плащане"
-
-msgid "No payments recorded yet"
-msgstr "Все още няма записани плащания"
-
-msgid "Record payments received from customers. The system will automatically try to match payments to invoices."
-msgstr "Записвайте получени плащания от клиенти. Системата автоматично ще опита да съпостави плащанията с фактури."
-
-msgid "Accept Payments from Your Customers"
-msgstr "Приемайте плащания от вашите клиенти"
-
-# Templates
-msgid "Templates"
-msgstr "Шаблони"
-
-msgid "Document Templates"
-msgstr "Шаблони за документи"
-
-msgid "No templates yet"
-msgstr "Все още няма шаблони"
-
-msgid "Create your first template to get started with custom invoices and offers."
-msgstr "Създайте вашия първи шаблон, за да започнете с персонализирани фактури и оферти."
-
-msgid "Create Template"
-msgstr "Създай шаблон"
-
-msgid "New Template"
-msgstr "Нов шаблон"
-
-msgid "Edit Template"
-msgstr "Редактирай шаблон"
-
-msgid "Delete Template"
-msgstr "Изтрий шаблон"
-
-msgid "Default"
-msgstr "По подразбиране"
-
-msgid "Colors:"
-msgstr "Цветове:"
-
-msgid "View"
-msgstr "Виж"
-
-msgid "Preview"
-msgstr "Преглед"
-
-msgid "Created:"
-msgstr "Създаден:"
-
-msgid "Template Information"
-msgstr "Информация за шаблон"
-
-msgid "Template Content"
-msgstr "Съдържание на шаблон"
-
-msgid "Are you sure you want to delete this template?"
-msgstr "Сигурни ли сте, че искате да изтриете този шаблон?"
-
-msgid "Any invoices or offers using this template will no longer have template formatting."
-msgstr "Всички фактури или оферти, използващи този шаблон, няма да имат форматиране на шаблон."
-
-msgid "This action cannot be undone. Any invoices or offers using this template will no longer have template formatting."
-msgstr "Това действие не може да бъде отменено. Всички фактури или оферти, използващи този шаблон, няма да имат форматиране на шаблон."
-
-msgid "Template Design Studio"
-msgstr "Студио за дизайн на шаблони"
-
-msgid "Welcome to the Template Studio!"
-msgstr "Добре дошли в Студиото за шаблони!"
-
-msgid "Create professional invoice and offer templates with custom branding, colors, and layouts."
-msgstr "Създавайте професионални шаблони за фактури и оферти с персонализиран брандинг, цветове и оформление."
-
-msgid "Create and customize invoice and offer templates"
-msgstr "Създавайте и персонализирайте шаблони за фактури и оферти"
-
-msgid "Create separate templates for invoices and offers with different designs."
-msgstr "Създавайте отделни шаблони за фактури и оферти с различни дизайни."
-
-msgid "Your Templates"
-msgstr "Вашите шаблони"
-
-msgid "View All Templates"
-msgstr "Виж всички шаблони"
-
-msgid "View Templates"
-msgstr "Виж шаблони"
-
-msgid "Create New Template"
-msgstr "Създай нов шаблон"
-
-msgid "Template Types"
-msgstr "Типове шаблони"
-
-msgid "Template Preview"
-msgstr "Преглед на шаблон"
-
-msgid "Preview with Sample Data"
-msgstr "Преглед с примерни данни"
-
-msgid "Preview your templates with sample data before using them."
-msgstr "Прегледайте вашите шаблони с примерни данни преди да ги използвате."
-
-msgid "This is a preview with sample data. Actual invoices and offers will use real data from your CRM."
-msgstr "Това е преглед с примерни данни. Реалните фактури и оферти ще използват истински данни от вашата CRM."
-
-msgid "Live Preview"
-msgstr "Преглед на живо"
-
-msgid "Basic Information"
-msgstr "Основна информация"
-
-msgid "Branding"
-msgstr "Брандинг"
-
-msgid "Custom Branding"
-msgstr "Персонализиран брандинг"
-
-msgid "Upload your logo, choose colors, and customize fonts to match your brand."
-msgstr "Качете вашето лого, изберете цветове и персонализирайте шрифтове, за да отговарят на вашия бранд."
-
-msgid "Logo"
-msgstr "Лого"
-
-msgid "Primary Color"
-msgstr "Основен цвят"
-
-msgid "Secondary Color"
-msgstr "Вторичен цвят"
-
-msgid "Font"
-msgstr "Шрифт"
-
-msgid "Styling"
-msgstr "Стилизиране"
-
-msgid "Content"
-msgstr "Съдържание"
-
-msgid "Header"
-msgstr "Заглавие"
-
-msgid "Footer"
-msgstr "Долен колонтитул"
-
-msgid "Advanced (Optional)"
-msgstr "Разширени (по избор)"
-
-msgid "Custom HTML/CSS"
-msgstr "Персонализиран HTML/CSS"
-
-msgid "Advanced users can add custom HTML and CSS for complete control."
-msgstr "Напреднали потребители могат да добавят персонализиран HTML и CSS за пълен контрол."
-
-msgid "Advanced users can add custom CSS and HTML for complete control over the template design."
-msgstr "Напреднали потребители могат да добавят персонализиран CSS и HTML за пълен контрол над дизайна на шаблона."
-
-msgid "Custom HTML Template"
-msgstr "Персонализиран HTML шаблон"
-
-msgid "Custom CSS"
-msgstr "Персонализиран CSS"
-
-msgid "Available Template Variables"
-msgstr "Налични променливи на шаблон"
-
-msgid "Available Variables"
-msgstr "Налични променливи"
-
-msgid "Use these in your template:"
-msgstr "Използвайте ги във вашия шаблон:"
-
-msgid "Use these variables in your templates:"
-msgstr "Използвайте тези променливи във вашите шаблони:"
-
-msgid "Use these variables in your templates to display dynamic content:"
-msgstr "Използвайте тези променливи във вашите шаблони за показване на динамично съдържание:"
-
-msgid "Variable"
-msgstr "Променлива"
-
-msgid "Example"
-msgstr "Пример"
-
-msgid "Default Template"
-msgstr "Шаблон по подразбиране"
-
-# AI Assistant
-msgid "AI Suggestions"
-msgstr "AI предложения"
-
-msgid "Smart recommendations from your AI assistant"
-msgstr "Интелигентни препоръки от вашия AI асистент"
-
-msgid "AI Chat"
-msgstr "AI чат"
-
-msgid "Apply"
-msgstr "Приложи"
-
-msgid "Dismiss"
-msgstr "Отхвърли"
-
-msgid "No suggestions yet"
-msgstr "Все още няма предложения"
-
-msgid "The AI assistant will provide suggestions as you use the CRM."
-msgstr "AI асистентът ще предоставя предложения, докато използвате CRM."
-
-msgid "Chat with AI"
-msgstr "Чат с AI"
-
-msgid "Generate Email for"
-msgstr "Генерирай имейл за"
-
-msgid "The AI will generate a professional email draft based on the contact"
-msgstr "AI ще генерира професионален имейл чернова на база на контакта"
-
-msgid "Email Purpose"
-msgstr "Цел на имейла"
-
-msgid "e.g., Follow-up on proposal, Meeting request, etc."
-msgstr "напр., Проследяване на оферта, Искане за среща и др."
-
-msgid "Generated Email"
-msgstr "Генериран имейл"
-
-msgid "Copy to Clipboard"
-msgstr "Копирай в клипборда"
-
-msgid "Error generating email. Please try again."
-msgstr "Грешка при генериране на имейл. Моля, опитайте отново."
-
-msgid "Email copied to clipboard!"
-msgstr "Имейлът е копиран в клипборда!"
-
-msgid "Delete Conversation"
-msgstr "Изтрий разговор"
-
-msgid "Are you sure you want to delete this conversation?"
-msgstr "Сигурни ли сте, че искате да изтриете този разговор?"
-
-msgid "messages"
-msgstr "съобщения"
-
-msgid "This action cannot be undone. All messages in this conversation will be permanently deleted."
-msgstr "Това действие не може да бъде отменено. Всички съобщения в този разговор ще бъдат изтрити завинаги."
-
-msgid "No conversations yet"
-msgstr "Все още няма разговори"
-
-msgid "You"
-msgstr "Вие"
-
-msgid "Start a conversation with the AI assistant!"
-msgstr "Започнете разговор с AI асистента!"
-
-msgid "Ask about your CRM, get insights, or request help with tasks."
-msgstr "Питайте за вашата CRM, получавайте анализи или поискайте помощ със задачи."
-
-msgid "Suggest Tasks"
-msgstr "Предложи задачи"
-
-msgid "View Suggestions"
-msgstr "Виж предложенията"
-
-# Subscription
-msgid "My Subscription"
-msgstr "Моят абонамент"
-
-msgid "Change Plan"
-msgstr "Промени план"
-
-msgid "Plan Limits"
-msgstr "Лимити на план"
-
-msgid "Unlimited contacts"
-msgstr "Неограничен брой контакти"
-
-msgid "contacts"
-msgstr "контакти"
-
-msgid "Unlimited users"
-msgstr "Неограничен брой потребители"
-
-msgid "users"
-msgstr "потребители"
-
-msgid "Unlimited AI requests"
-msgstr "Неограничен брой AI заявки"
-
-msgid "AI requests/month"
-msgstr "AI заявки/месец"
-
-msgid "AI requests"
-msgstr "AI заявки"
-
-msgid "Basic CRM"
-msgstr "Основна CRM"
-
-msgid "Advanced CRM"
-msgstr "Разширена CRM"
-
-msgid "Basic Templates"
-msgstr "Основни шаблони"
-
-msgid "Advanced Templates"
-msgstr "Разширени шаблони"
-
-msgid "Email Integration"
-msgstr "Имейл интеграция"
-
-msgid "Basic AI"
-msgstr "Основен AI"
-
-msgid "Advanced AI"
-msgstr "Разширен AI"
-
-msgid "Custom Fields"
-msgstr "Персонализирани полета"
-
-msgid "API Access"
-msgstr "Достъп до API"
-
-msgid "Priority Support"
-msgstr "Приоритетна поддръжка"
-
-msgid "White Label"
-msgstr "Бял етикет"
-
-msgid "Next billing date:"
-msgstr "Следваща дата на фактуриране:"
-
-msgid "Your subscription will be cancelled at the end of the current period."
-msgstr "Вашият абонамент ще бъде анулиран в края на текущия период."
-
-msgid "Cancel Subscription"
-msgstr "Анулирай абонамент"
-
-msgid "Usage This Month"
-msgstr "Използване през този месец"
-
-msgid "AI Requests"
-msgstr "AI заявки"
-
-msgid "Resets on:"
-msgstr "Нулира се на:"
-
-msgid "Team Members"
-msgstr "Членове на екипа"
-
-msgid "Subscription History"
-msgstr "История на абонамента"
-
-msgid "No history yet"
-msgstr "Все още няма история"
-
-msgid "Upgrade for More Features"
-msgstr "Надстройте за повече функции"
-
-msgid "Unlock advanced features, more contacts, and unlimited AI requests with our paid plans."
-msgstr "Отключете разширени функции, повече контакти и неограничени AI заявки с нашите платени планове."
-
-msgid "View Plans"
-msgstr "Виж плановете"
-
-msgid "Are you sure you want to cancel your subscription?"
-msgstr "Сигурни ли сте, че искате да анулирате вашия абонамент?"
-
-msgid "What happens when you cancel:"
-msgstr "Какво се случва, когато анулирате:"
-
-msgid "You'll be downgraded to the Free plan"
-msgstr "Ще бъдете понижени до безплатния план"
-
-msgid "Access to paid features will be removed"
-msgstr "Достъпът до платени функции ще бъде премахнат"
-
-msgid "Your data will be preserved"
-msgstr "Вашите данни ще бъдат запазени"
-
-msgid "You can upgrade again at any time"
-msgstr "Можете да надстроите отново по всяко време"
-
-msgid "Keep My Subscription"
-msgstr "Запази моя абонамент"
-
-msgid "Downgrade to Free"
-msgstr "Понижи до безплатен"
-
-msgid "Pricing Plans"
-msgstr "Тарифни планове"
-
-msgid "Get Started"
-msgstr "Започнете"
-
-msgid "Upgrade Plan"
-msgstr "Надстрой план"
-
-msgid "Subscription Plans"
-msgstr "Абонаментни планове"
-
-# Profile
-msgid "My Profile"
-msgstr "Моят профил"
-
-msgid "Personal Information"
+#: apps/accounts/admin.py:11
+#, fuzzy
+#| msgid "Personal Information"
+msgid "Personal info"
 msgstr "Лична информация"
 
-msgid "Company Information"
-msgstr "Информация за компания"
+# Company specific
+#: apps/accounts/admin.py:12
+#, fuzzy
+#| msgid "Company name"
+msgid "Company info"
+msgstr "Име на компания"
 
+#: apps/accounts/admin.py:13
+#, fuzzy
+#| msgid "New conversation"
+msgid "Stripe configuration"
+msgstr "Нов разговор"
+
+#: apps/accounts/admin.py:14 templates/accounts/profile.html:54
 msgid "Preferences"
 msgstr "Предпочитания"
 
-# Pipelines
-msgid "Pipelines"
-msgstr "Процеси"
+#: apps/accounts/admin.py:15
+msgid "Permissions"
+msgstr "Права"
 
-msgid "Sales Pipelines"
-msgstr "Процеси на продажби"
+#: apps/accounts/admin.py:16
+msgid "Important dates"
+msgstr "Важни дати"
 
-msgid "Sales Pipeline"
-msgstr "Процес на продажби"
+# Common
+#: apps/accounts/forms.py:10 apps/crm/models.py:188 apps/crm/models.py:235
+#: templates/crm/company_detail.html:40 templates/crm/company_list.html:40
+#: templates/crm/contact_detail.html:35 templates/crm/contact_list.html:38
+#: templates/invoices/send_email_form.html:43
+msgid "Email"
+msgstr "Имейл"
 
-msgid "New Pipeline"
-msgstr "Нов процес"
+# Company specific
+#: apps/accounts/forms.py:14
+msgid "Company name"
+msgstr "Име на компания"
 
-msgid "Edit Pipeline"
-msgstr "Редактирай процес"
+#: apps/accounts/forms.py:21
+msgid "Username"
+msgstr "Потребителско име"
 
-msgid "Create Pipeline"
+#: apps/accounts/forms.py:26 apps/accounts/forms.py:35
+msgid "Password"
+msgstr "Парола"
+
+#: apps/accounts/forms.py:27
+msgid "Confirm password"
+msgstr "Потвърди парола"
+
+#: apps/accounts/forms.py:32
+msgid "Username or email"
+msgstr "Потребителско име или имейл"
+
+#: apps/accounts/forms.py:78
+#, fuzzy
+#| msgid ""
+#| "Stripe is configured! You can now accept payments from your customers."
+msgid "Your Stripe publishable key for accepting payments from your customers"
+msgstr "Вашият Stripe публичен ключ за приемане на плащания от клиенти"
+"Stripe е конфигуриран! Вече можете да приемате плащания от вашите клиенти."
+
+#: apps/accounts/forms.py:79
+msgid "Your Stripe secret key (kept secure and never displayed)"
+msgstr "Вашият Stripe таен ключ (съхранява се сигурно и никога не се показва)"
+
+#: apps/accounts/forms.py:102
+msgid "Your Resend API key from resend.com (kept secure and never displayed)"
+msgstr "Вашият Resend API ключ от resend.com (съхранява се сигурно и никога не се показва)"
+
+#: apps/accounts/forms.py:103
+msgid "Email address to send from (must be verified in your Resend account)"
+msgstr "Имейл адрес за изпращане (трябва да бъде верифициран във вашия Resend акаунт)"
+
+#: apps/accounts/forms.py:104
+msgid "Name to display in the \"from\" field of emails"
+msgstr "Име за показване в полето "от" на имейлите"
+
+#: apps/accounts/models.py:9
+#, fuzzy
+#| msgid "Address"
+msgid "email address"
+msgstr "Адрес"
+
+#: apps/accounts/models.py:10
+#, fuzzy
+#| msgid "Invoice number"
+msgid "phone number"
+msgstr "Номер на фактура"
+
+# Company specific
+#: apps/accounts/models.py:11 apps/crm/models.py:12
+#, fuzzy
+#| msgid "Company name"
+msgid "company name"
+msgstr "Име на компания"
+
+#: apps/accounts/models.py:12
+msgid "avatar"
+msgstr "аватар"
+
+#: apps/accounts/models.py:16
+msgid "Stripe publishable key"
+msgstr "Stripe публичен ключ"
+
+#: apps/accounts/models.py:19
+#, fuzzy
+#| msgid ""
+#| "Stripe is configured! You can now accept payments from your customers."
+msgid ""
+"User's Stripe publishable key for accepting payments from their customers"
+msgstr ""
+"Stripe е конфигуриран! Вече можете да приемате плащания от вашите клиенти."
+
+#: apps/accounts/models.py:22
+msgid "Stripe secret key"
+msgstr "Stripe таен ключ"
+
+#: apps/accounts/models.py:25
+#, fuzzy
+#| msgid ""
+#| "Stripe is configured! You can now accept payments from your customers."
+msgid "User's Stripe secret key for accepting payments from their customers"
+msgstr "Stripe таен ключ на потребителя за приемане на плащания от клиенти"
+"Stripe е конфигуриран! Вече можете да приемате плащания от вашите клиенти."
+
+#: apps/accounts/models.py:30
+msgid "Resend API key"
+msgstr "Resend API ключ"
+
+#: apps/accounts/models.py:33
+msgid "Your Resend API key for sending emails"
+msgstr "Вашият Resend API ключ за изпращане на имейли"
+
+#: apps/accounts/models.py:36
+msgid "From email address"
+msgstr "От имейл адрес"
+
+#: apps/accounts/models.py:38
+msgid "Email address to send emails from (must be verified in Resend)"
+msgstr "Имейл адрес за изпращане (трябва да бъде верифициран в Resend)"
+
+#: apps/accounts/models.py:41
+#, fuzzy
+#| msgid "First name"
+msgid "From name"
+msgstr "Име"
+
+#: apps/accounts/models.py:44
+msgid "Name to display in \"from\" field of emails"
+msgstr "Име за показване в полето "от" на имейлите"
+
+#: apps/accounts/models.py:48 apps/crm/models.py:26
+msgid "VAT number"
+msgstr "ДДС номер"
+
+#: apps/accounts/models.py:49 apps/crm/models.py:21 apps/crm/models.py:60
+#, fuzzy
+#| msgid "Address"
+msgid "address"
+msgstr "Адрес"
+
+#: apps/accounts/models.py:50 apps/crm/models.py:22 apps/crm/models.py:61
+msgid "city"
+msgstr "град"
+
+#: apps/accounts/models.py:51 apps/crm/models.py:23 apps/crm/models.py:62
+#, fuzzy
+#| msgid "Country"
+msgid "country"
+msgstr "Държава"
+
+#: apps/accounts/models.py:52 apps/crm/models.py:24 apps/crm/models.py:63
+msgid "postal code"
+msgstr "пощенски код"
+
+#: apps/accounts/models.py:56
+msgid "language"
+msgstr "език"
+
+#: apps/accounts/models.py:61
+msgid "timezone"
+msgstr "часова зона"
+
+#: apps/accounts/models.py:67
+#, fuzzy
+#| msgid "users"
+msgid "user"
+msgstr "потребители"
+
+#: apps/accounts/models.py:68 templates/accounts/landing.html:153
+#: templates/subscriptions/current.html:57
+#: templates/subscriptions/plans.html:48 templates/subscriptions/plans.html:50
+msgid "users"
+msgstr "потребители"
+
+#: apps/accounts/models.py:86
+msgid "Owner"
+msgstr "Собственик"
+
+#: apps/accounts/models.py:87
+msgid "Admin"
+msgstr "Администратор"
+
+#: apps/accounts/models.py:88
+msgid "Manager"
+msgstr "Мениджър"
+
+#: apps/accounts/models.py:89 apps/ai_assistant/models.py:29
+#, fuzzy
+#| msgid "Username"
+msgid "User"
+msgstr "Потребителско име"
+
+#: apps/accounts/models.py:102
+#, fuzzy
+#| msgid "Team Members"
+msgid "team member"
+msgstr "Членове на екипа"
+
+#: apps/accounts/models.py:103
+#, fuzzy
+#| msgid "Team Members"
+msgid "team members"
+msgstr "Членове на екипа"
+
+# Messages
+#: apps/accounts/views.py:27
+msgid "Welcome! Your account has been created successfully."
+msgstr "Добре дошли! Вашият акаунт беше създаден успешно."
+
+#: apps/accounts/views.py:48
+msgid "Welcome back!"
+msgstr "Добре дошли обратно!"
+
+#: apps/accounts/views.py:60
+msgid "You have been logged out successfully."
+msgstr "Излязохте успешно от системата."
+
+#: apps/accounts/views.py:71
+msgid "Your profile has been updated successfully."
+msgstr "Вашият профил беше актуализиран успешно."
+
+#: apps/accounts/views.py:86
+#, fuzzy
+#| msgid "Your profile has been updated successfully."
+msgid "Your Stripe settings have been updated successfully."
+msgstr "Вашият профил беше актуализиран успешно."
+
+#: apps/accounts/views.py:101
+#, fuzzy
+#| msgid "Your profile has been updated successfully."
+msgid "Your Resend email settings have been updated successfully."
+msgstr "Вашият профил беше актуализиран успешно."
+
+#: apps/ai_assistant/models.py:11 apps/ai_assistant/models.py:66
+#: apps/crm/models.py:207 apps/crm/models.py:251
+#, fuzzy
+#| msgid "Title"
+msgid "title"
+msgstr "Заглавие"
+
+#: apps/ai_assistant/models.py:17
+#, fuzzy
+#| msgid "New conversation"
+msgid "AI conversation"
+msgstr "Нов разговор"
+
+#: apps/ai_assistant/models.py:18
+#, fuzzy
+#| msgid "Conversations"
+msgid "AI conversations"
+msgstr "Разговори"
+
+#: apps/ai_assistant/models.py:30
+#, fuzzy
+#| msgid "AI Assistant"
+msgid "Assistant"
+msgstr "AI Асистент"
+
+#: apps/ai_assistant/models.py:35
+msgid "role"
+msgstr "роля"
+
+#: apps/ai_assistant/models.py:36 apps/ai_assistant/models.py:67
+#, fuzzy
+#| msgid "Content"
+msgid "content"
+msgstr "Съдържание"
+
+#: apps/ai_assistant/models.py:39
+#, fuzzy
+#| msgid "contacts"
+msgid "context data"
+msgstr "контакти"
+
+#: apps/ai_assistant/models.py:39
+msgid "CRM data context for the message"
+msgstr "CRM данни контекст за съобщението"
+
+#: apps/ai_assistant/models.py:44
+#, fuzzy
+#| msgid "messages"
+msgid "AI message"
+msgstr "съобщения"
+
+#: apps/ai_assistant/models.py:45
+#, fuzzy
+#| msgid "messages"
+msgid "AI messages"
+msgstr "съобщения"
+
+#: apps/ai_assistant/models.py:56
+#, fuzzy
+#| msgid "Email Integration"
+msgid "Email Draft"
+msgstr "Имейл интеграция"
+
+# AI Assistant
+#: apps/ai_assistant/models.py:57
+#, fuzzy
+#| msgid "AI Suggestions"
+msgid "Task Suggestion"
+msgstr "AI предложения"
+
+#: apps/ai_assistant/models.py:58
+msgid "Deal Insight"
+msgstr "Анализ на сделка"
+
+#: apps/ai_assistant/models.py:59
+#, fuzzy
+#| msgid "Contact Information"
+msgid "Contact Recommendation"
+msgstr "Информация за контакт"
+
+#: apps/ai_assistant/models.py:60 templates/templates/template_detail.html:119
+msgid "Template Content"
+msgstr "Съдържание на шаблон"
+
+#: apps/ai_assistant/models.py:65 apps/crm/models.py:210 apps/crm/models.py:250
+msgid "type"
+msgstr "тип"
+
+#: apps/ai_assistant/models.py:70
+#, fuzzy
+#| msgid "Create Contact"
+msgid "related contact ID"
+msgstr "Създай контакт"
+
+#: apps/ai_assistant/models.py:71
+#, fuzzy
+#| msgid "Create Company"
+msgid "related company ID"
+msgstr "Създай компания"
+
+#: apps/ai_assistant/models.py:72
+msgid "related deal ID"
+msgstr "свързан ID на сделка"
+
+#: apps/ai_assistant/models.py:74
+msgid "applied"
+msgstr "приложено"
+
+#: apps/ai_assistant/models.py:75
+#, fuzzy
+#| msgid "Dismiss"
+msgid "dismissed"
+msgstr "Отхвърли"
+
+# AI Assistant
+#: apps/ai_assistant/models.py:80
+#, fuzzy
+#| msgid "AI Suggestions"
+msgid "AI suggestion"
+msgstr "AI предложения"
+
+# AI Assistant
+#: apps/ai_assistant/models.py:81
+#, fuzzy
+#| msgid "AI Suggestions"
+msgid "AI suggestions"
+msgstr "AI предложения"
+
+#: apps/ai_assistant/services.py:62
+#: templates/templates/template_studio.html:311
+#: templates/templates/template_studio.html:354
+msgid "Error communicating with AI"
+msgstr "Грешка при комуникация с AI"
+
+#: apps/ai_assistant/services.py:82
+#, fuzzy
+#| msgid "Error generating email. Please try again."
+msgid "Error generating email"
+msgstr "Грешка при генериране на имейл. Моля, опитайте отново."
+
+#: apps/ai_assistant/services.py:107
+msgid "Error analyzing deal"
+msgstr "Грешка при анализ на сделка"
+
+# Errors
+#: apps/ai_assistant/services.py:130
+#, fuzzy
+#| msgid "Error creating checkout session"
+msgid "Error generating tasks"
+msgstr "Грешка при създаване на сесия за плащане"
+
+#: apps/ai_assistant/services.py:150
+#, fuzzy
+#| msgid "Error generating email. Please try again."
+msgid "Error generating template content"
+msgstr "Грешка при генериране на имейл. Моля, опитайте отново."
+
+#: apps/ai_assistant/services.py:226
+#, fuzzy
+#| msgid "Error generating email. Please try again."
+msgid "Error generating template"
+msgstr "Грешка при генериране на имейл. Моля, опитайте отново."
+
+#: apps/ai_assistant/services.py:263
+msgid "Error refining template"
+msgstr "Грешка при пречистване на шаблон"
+
+#: apps/ai_assistant/services.py:288
+msgid "Error performing search"
+msgstr "Грешка при търсене"
+
+#: apps/ai_assistant/services.py:396
+#, fuzzy
+#| msgid "Error generating email. Please try again."
+msgid "Error generating email template"
+msgstr "Грешка при генериране на имейл. Моля, опитайте отново."
+
+#: apps/ai_assistant/views.py:18 apps/templates/views.py:149
+#: apps/templates/views.py:236 apps/templates/views.py:428
+#, fuzzy
+#| msgid "You have reached your AI request limit for this month."
+msgid ""
+"You have reached your AI request limit for this month. Please upgrade your "
+"plan."
+msgstr "Достигнахте лимита си за AI заявки за този месец."
+
+#: apps/ai_assistant/views.py:26 apps/ai_assistant/views.py:186
+msgid "New conversation"
+msgstr "Нов разговор"
+
+#: apps/ai_assistant/views.py:88 apps/ai_assistant/views.py:149
+#, fuzzy
+#| msgid "AI requests/month"
+msgid "AI request limit reached"
+msgstr "AI заявки/месец"
+
+#: apps/ai_assistant/views.py:93
+msgid "Follow-up"
+msgstr "Проследяване"
+
+#: apps/ai_assistant/views.py:102
+#, fuzzy
+#| msgid "Email Integration"
+msgid "Email draft for"
+msgstr "Имейл интеграция"
+
+#: apps/ai_assistant/views.py:119
+msgid "You have reached your AI request limit for this month."
+msgstr "Достигнахте лимита си за AI заявки за този месец."
+
+#: apps/ai_assistant/views.py:131
+msgid "Analysis for"
+msgstr "Анализ за"
+
+# AI Assistant
+#: apps/ai_assistant/views.py:166
+#, fuzzy
+#| msgid "AI Suggestions"
+msgid "Suggestion dismissed."
+msgstr "AI предложения"
+
+# AI Assistant
+#: apps/ai_assistant/views.py:177
+#, fuzzy
+#| msgid "AI Suggestions"
+msgid "Suggestion applied."
+msgstr "AI предложения"
+
+#: apps/ai_assistant/views.py:198
+#, fuzzy
+#| msgid "Conversations"
+msgid "Conversation deleted."
+msgstr "Разговори"
+
+#: apps/crm/forms.py:28 apps/crm/forms.py:59 apps/crm/forms.py:92
+#: apps/crm/models.py:29 apps/crm/models.py:68
+msgid "Comma-separated tags"
+msgstr "Тагове разделени със запетая"
+
+#: apps/crm/models.py:13
+#, fuzzy
+#| msgid "Website"
+msgid "website"
+msgstr "Уебсайт"
+
+#: apps/crm/models.py:14
+#, fuzzy
+#| msgid "Industry"
+msgid "industry"
+msgstr "Индустрия"
+
+#: apps/crm/models.py:15
+msgid "number of employees"
+msgstr "брой служители"
+
+#: apps/crm/models.py:16
+msgid "annual revenue"
+msgstr "годишен приход"
+
+#: apps/crm/models.py:18 apps/crm/models.py:57
+#, fuzzy
+#| msgid "Phone"
+msgid "phone"
+msgstr "Телефон"
+
+# Common
+#: apps/crm/models.py:19 apps/crm/models.py:56
+#, fuzzy
+#| msgid "Email"
+msgid "email"
+msgstr "Имейл"
+
+#: apps/crm/models.py:28 apps/crm/models.py:67 apps/crm/models.py:165
+#: apps/invoices/models.py:55 apps/invoices/models.py:206
+#: apps/invoices/models.py:325
+#, fuzzy
+#| msgid "Notes"
+msgid "notes"
+msgstr "Бележки"
+
+#: apps/crm/models.py:29 apps/crm/models.py:68 apps/crm/models.py:166
+msgid "tags"
+msgstr "тагове"
+
+#: apps/crm/models.py:35
+#, fuzzy
+#| msgid "Company"
+msgid "company"
+msgstr "Компания"
+
+#: apps/crm/models.py:36
+#, fuzzy
+#| msgid "Companies"
+msgid "companies"
+msgstr "Компании"
+
+#: apps/crm/models.py:52
+#, fuzzy
+#| msgid "First name"
+msgid "first name"
+msgstr "Име"
+
+#: apps/crm/models.py:53
+#, fuzzy
+#| msgid "Last name"
+msgid "last name"
+msgstr "Фамилия"
+
+#: apps/crm/models.py:54
+#, fuzzy
+#| msgid "Position"
+msgid "position"
+msgstr "Позиция"
+
+#: apps/crm/models.py:58
+#, fuzzy
+#| msgid "Mobile"
+msgid "mobile"
+msgstr "Мобилен"
+
+#: apps/crm/models.py:65
+msgid "birthday"
+msgstr "рожден ден"
+
+#: apps/crm/models.py:71
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+#: apps/crm/models.py:72
+msgid "Twitter"
+msgstr "Twitter"
+
+#: apps/crm/models.py:73
+msgid "Facebook"
+msgstr "Facebook"
+
+#: apps/crm/models.py:75 apps/templates/models.py:117
+#, fuzzy
+#| msgid "Inactive"
+msgid "active"
+msgstr "Неактивен"
+
+#: apps/crm/models.py:81
+#, fuzzy
+#| msgid "contacts"
+msgid "contact"
+msgstr "контакти"
+
+#: apps/crm/models.py:82 templates/accounts/landing.html:146
+#: templates/subscriptions/current.html:49
+#: templates/subscriptions/plans.html:40 templates/subscriptions/plans.html:42
+msgid "contacts"
+msgstr "контакти"
+
+#: apps/crm/models.py:101 apps/crm/models.py:122
+#, fuzzy
+#| msgid "Username"
+msgid "name"
+msgstr "Потребителско име"
+
+#: apps/crm/models.py:102 apps/crm/models.py:149 apps/crm/models.py:208
+#: apps/crm/models.py:252 apps/invoices/models.py:148
+#: apps/invoices/models.py:278 apps/templates/models.py:77
+#, fuzzy
+#| msgid "Description"
+msgid "description"
+msgstr "Описание"
+
+#: apps/crm/models.py:103
+#, fuzzy
+#| msgid "Create Pipeline"
+msgid "default pipeline"
 msgstr "Създай процес"
 
-msgid "No pipelines yet"
-msgstr "Все още няма процеси"
+#: apps/crm/models.py:109
+#, fuzzy
+#| msgid "Pipeline"
+msgid "pipeline"
+msgstr "Процес"
 
-msgid "Create your first sales pipeline to start tracking deals."
-msgstr "Създайте вашия първи процес на продажби, за да започнете да следите сделки."
+# Pipelines
+#: apps/crm/models.py:110
+#, fuzzy
+#| msgid "Pipelines"
+msgid "pipelines"
+msgstr "Процеси"
 
-msgid "Stages"
+#: apps/crm/models.py:123
+#, fuzzy
+#| msgid "Probability"
+msgid "win probability %"
+msgstr "Вероятност"
+
+#: apps/crm/models.py:123
+msgid "0-100"
+msgstr "0-100"
+
+#: apps/crm/models.py:124 apps/crm/models.py:291 apps/invoices/models.py:153
+#: apps/invoices/models.py:283
+msgid "order"
+msgstr "ред"
+
+#: apps/crm/models.py:127
+#, fuzzy
+#| msgid "Stage"
+msgid "stage"
+msgstr "Етап"
+
+#: apps/crm/models.py:128
+#, fuzzy
+#| msgid "Stages"
+msgid "stages"
 msgstr "Етапи"
 
-msgid "No stages defined"
-msgstr "Няма дефинирани етапи"
+#: apps/crm/models.py:139 templates/crm/deal_list.html:23
+msgid "Open"
+msgstr "Отворена"
 
-msgid "Revenue"
-msgstr "Приходи"
+#: apps/crm/models.py:140 templates/crm/deal_list.html:26
+msgid "Won"
+msgstr "Спечелена"
+
+#: apps/crm/models.py:141 templates/crm/deal_list.html:29
+msgid "Lost"
+msgstr "Загубена"
+
+# Deal specific
+#: apps/crm/models.py:148
+#, fuzzy
+#| msgid "Deal name"
+msgid "deal name"
+msgstr "Име на сделка"
+
+#: apps/crm/models.py:151
+#, fuzzy
+#| msgid "Value"
+msgid "value"
+msgstr "Стойност"
+
+#: apps/crm/models.py:152 apps/invoices/models.py:39
+#: apps/invoices/models.py:195 apps/invoices/models.py:316
+#: apps/subscriptions/models.py:151
+#, fuzzy
+#| msgid "Currency"
+msgid "currency"
+msgstr "Валута"
+
+#: apps/crm/models.py:157 apps/invoices/models.py:46
+#: apps/invoices/models.py:201 apps/subscriptions/models.py:27
+#: apps/subscriptions/models.py:153
+#, fuzzy
+#| msgid "Status"
+msgid "status"
+msgstr "Статус"
+
+#: apps/crm/models.py:158
+#, fuzzy
+#| msgid "Probability"
+msgid "probability %"
+msgstr "Вероятност"
+
+#: apps/crm/models.py:160
+#, fuzzy
+#| msgid "Expected close date"
+msgid "expected close date"
+msgstr "Очаквана дата на приключване"
+
+#: apps/crm/models.py:161
+#, fuzzy
+#| msgid "Expected close date"
+msgid "actual close date"
+msgstr "Очаквана дата на приключване"
+
+#: apps/crm/models.py:163
+msgid "reason for loss"
+msgstr "причина за загуба"
+
+#: apps/crm/models.py:172
+msgid "deal"
+msgstr "сделка"
+
+#: apps/crm/models.py:173
+#, fuzzy
+#| msgid "Deals"
+msgid "deals"
+msgstr "Сделки"
+
+#: apps/crm/models.py:187 apps/crm/models.py:234
+msgid "Call"
+msgstr "Обаждане"
+
+#: apps/crm/models.py:189 apps/crm/models.py:236
+msgid "Meeting"
+msgstr "Среща"
+
+#: apps/crm/models.py:190
+#, fuzzy
+#| msgid "Pipeline"
+msgid "Deadline"
+msgstr "Процес"
+
+#: apps/crm/models.py:191
+msgid "To-Do"
+msgstr "За правене"
+
+#: apps/crm/models.py:195
+msgid "Low"
+msgstr "Нисък"
+
+#: apps/crm/models.py:196
+msgid "Medium"
+msgstr "Среден"
+
+#: apps/crm/models.py:197
+msgid "High"
+msgstr "Висок"
+
+#: apps/crm/models.py:211
+#, fuzzy
+#| msgid "Priority"
+msgid "priority"
+msgstr "Приоритет"
+
+#: apps/crm/models.py:213 apps/invoices/models.py:30
+#, fuzzy
+#| msgid "Due date"
+msgid "due date"
+msgstr "Краен срок"
+
+#: apps/crm/models.py:214
+#, fuzzy
+#| msgid "Completed"
+msgid "completed"
+msgstr "Завършена"
+
+#: apps/crm/models.py:215
+#, fuzzy
+#| msgid "Completed"
+msgid "completed at"
+msgstr "Завършена"
+
+#: apps/crm/models.py:221
+msgid "task"
+msgstr "задача"
+
+#: apps/crm/models.py:222
+#, fuzzy
+#| msgid "Tasks"
+msgid "tasks"
+msgstr "Задачи"
+
+#: apps/crm/models.py:233
+#, fuzzy
+#| msgid "Notes"
+msgid "Note"
+msgstr "Бележки"
+
+# Task specific
+#: apps/crm/models.py:237
+msgid "Task"
+msgstr "Задача"
+
+#: apps/crm/models.py:238
+#, fuzzy
+#| msgid "Created"
+msgid "Deal Created"
+msgstr "Създаден"
+
+#: apps/crm/models.py:239
+#, fuzzy
+#| msgid "Updated"
+msgid "Deal Updated"
+msgstr "Обновен"
+
+# Deal specific
+#: apps/crm/models.py:240
+#, fuzzy
+#| msgid "Deal name"
+msgid "Deal Won"
+msgstr "Име на сделка"
+
+#: apps/crm/models.py:241
+#, fuzzy
+#| msgid "Deals"
+msgid "Deal Lost"
+msgstr "Сделки"
 
 # Additional common terms
-msgid "Activities"
+#: apps/crm/models.py:257
+#, fuzzy
+#| msgid "Activities"
+msgid "activity"
 msgstr "Дейности"
 
+# Additional common terms
+#: apps/crm/models.py:258
+#, fuzzy
+#| msgid "Activities"
+msgid "activities"
+msgstr "Дейности"
+
+#: apps/crm/models.py:269 templates/crm/deal_detail.html:42
+#: templates/crm/deal_list.html:46
 msgid "Contact"
 msgstr "Контакт"
 
-msgid "Type"
-msgstr "Тип"
+#: apps/crm/models.py:270 templates/crm/contact_list.html:40
+#: templates/crm/deal_detail.html:47 templates/crm/deal_list.html:47
+msgid "Company"
+msgstr "Компания"
 
-msgid "Back"
-msgstr "Назад"
+#: apps/crm/models.py:271 apps/crm/views.py:290 apps/crm/views.py:322
+#: apps/crm/views.py:332
+#, fuzzy
+#| msgid "Deals"
+msgid "Deal"
+msgstr "Сделки"
 
-msgid "Don"
-msgstr "Г-н"
+#: apps/crm/models.py:275 apps/templates/models.py:69
+msgid "Text"
+msgstr "Текст"
 
-msgid "Yes"
-msgstr "Да"
+#: apps/crm/models.py:276 apps/templates/models.py:70
+#, fuzzy
+#| msgid "Number:"
+msgid "Number"
+msgstr "Номер:"
 
-msgid "No"
-msgstr "Не"
+#: apps/crm/models.py:277 apps/invoices/email_service.py:228
+#: apps/invoices/email_service.py:330 apps/templates/models.py:71
+#: templates/invoices/invoice_detail.html:177
+#: templates/invoices/invoice_list.html:53
+#: templates/invoices/offer_list.html:30
+#: templates/invoices/payment_list.html:24
+msgid "Date"
+msgstr "Дата"
 
-msgid "This action cannot be undone."
-msgstr "Това действие не може да бъде отменено."
+#: apps/crm/models.py:278
+msgid "Checkbox"
+msgstr "Чекбокс"
 
-msgid "Are you sure you want to delete this company?"
-msgstr "Сигурни ли сте, че искате да изтриете тази компания?"
+#: apps/crm/models.py:279
+msgid "Select"
+msgstr "Избор"
 
-msgid "This action cannot be undone. All associated contacts, deals, and activities will remain but will no longer be linked to this company."
-msgstr "Това действие не може да бъде отменено. Всички свързани контакти, сделки и дейности ще останат, но няма да бъдат свързани с тази компания."
+#: apps/crm/models.py:280
+msgid "Text Area"
+msgstr "Текстова област"
 
-msgid "Are you sure you want to delete this deal?"
-msgstr "Сигурни ли сте, че искате да изтриете тази сделка?"
+#: apps/crm/models.py:285
+msgid "entity type"
+msgstr "тип обект"
 
-msgid "This action cannot be undone. All associated tasks and activities will also be affected."
-msgstr "Това действие не може да бъде отменено. Всички свързани задачи и дейности също ще бъдат засегнати."
+# Deal specific
+#: apps/crm/models.py:286
+#, fuzzy
+#| msgid "Deal name"
+msgid "field name"
+msgstr "Име на сделка"
 
-msgid "Are you sure you want to delete this task?"
-msgstr "Сигурни ли сте, че искате да изтриете тази задача?"
+#: apps/crm/models.py:287
+msgid "field type"
+msgstr "тип поле"
 
-msgid "Employees"
-msgstr "Служители"
+#: apps/crm/models.py:288
+msgid "field options"
+msgstr "опции на поле"
 
+#: apps/crm/models.py:290
+msgid "required"
+msgstr "задължително"
+
+#: apps/crm/models.py:296
+#, fuzzy
+#| msgid "Custom Fields"
+msgid "custom field"
+msgstr "Персонализирани полета"
+
+#: apps/crm/models.py:297
+#, fuzzy
+#| msgid "Custom Fields"
+msgid "custom fields"
+msgstr "Персонализирани полета"
+
+#: apps/crm/views.py:114
+msgid "Contact created successfully."
+msgstr "Контактът беше създаден успешно."
+
+#: apps/crm/views.py:131
+msgid "Contact updated successfully."
+msgstr "Контактът беше актуализиран успешно."
+
+#: apps/crm/views.py:145
+msgid "Contact deleted successfully."
+msgstr "Контактът беше изтрит успешно."
+
+#: apps/crm/views.py:199
+#, fuzzy
+#| msgid "Contact created successfully."
+msgid "Company created successfully."
+msgstr "Контактът беше създаден успешно."
+
+#: apps/crm/views.py:216
+#, fuzzy
+#| msgid "Contact updated successfully."
+msgid "Company updated successfully."
+msgstr "Контактът беше актуализиран успешно."
+
+#: apps/crm/views.py:230
+#, fuzzy
+#| msgid "Contact deleted successfully."
+msgid "Company deleted successfully."
+msgstr "Контактът беше изтрит успешно."
+
+# Deal specific
+#: apps/crm/views.py:289
+#, fuzzy
+#| msgid "Deal name"
+msgid "Deal created"
+msgstr "Име на сделка"
+
+#: apps/crm/views.py:290
+#, fuzzy
+#| msgid "Created"
+msgid "was created"
+msgstr "Създаден"
+
+#: apps/crm/views.py:293
+#, fuzzy
+#| msgid "Contact created successfully."
+msgid "Deal created successfully."
+msgstr "Контактът беше създаден успешно."
+
+# Deal specific
+#: apps/crm/views.py:321
+#, fuzzy
+#| msgid "Deal name"
+msgid "Deal won"
+msgstr "Име на сделка"
+
+#: apps/crm/views.py:322
+msgid "was won"
+msgstr "беше спечелена"
+
+#: apps/crm/views.py:331
+#, fuzzy
+#| msgid "Deals"
+msgid "Deal lost"
+msgstr "Сделки"
+
+#: apps/crm/views.py:332
+msgid "was lost"
+msgstr "беше загубена"
+
+#: apps/crm/views.py:335
+#, fuzzy
+#| msgid "Contact updated successfully."
+msgid "Deal updated successfully."
+msgstr "Контактът беше актуализиран успешно."
+
+#: apps/crm/views.py:349
+#, fuzzy
+#| msgid "Contact deleted successfully."
+msgid "Deal deleted successfully."
+msgstr "Контактът беше изтрит успешно."
+
+#: apps/crm/views.py:387
+#, fuzzy
+#| msgid "Contact created successfully."
+msgid "Task created successfully."
+msgstr "Контактът беше създаден успешно."
+
+#: apps/crm/views.py:407
+#, fuzzy
+#| msgid "Contact updated successfully."
+msgid "Task updated successfully."
+msgstr "Контактът беше актуализиран успешно."
+
+#: apps/crm/views.py:421
+#, fuzzy
+#| msgid "Contact deleted successfully."
+msgid "Task deleted successfully."
+msgstr "Контактът беше изтрит успешно."
+
+#: apps/crm/views.py:444
+#, fuzzy
+#| msgid "Contact created successfully."
+msgid "Pipeline created successfully."
+msgstr "Контактът беше създаден успешно."
+
+#: apps/faq/models.py:9
+msgid "име"
+msgstr "име"
+
+#: apps/faq/models.py:10
+msgid "име (английски)"
+msgstr "име (английски)"
+
+#: apps/faq/models.py:11
+msgid "slug"
+msgstr "slug"
+
+#: apps/faq/models.py:12
+msgid "описание"
+msgstr "описание"
+
+#: apps/faq/models.py:13
+msgid "икона"
+msgstr "икона"
+
+#: apps/faq/models.py:14
+msgid "Bootstrap icon класс (напр. bi-envelope)"
+msgstr "Bootstrap icon класс (напр. bi-envelope)"
+
+#: apps/faq/models.py:15 apps/faq/models.py:50
+msgid "ред"
+msgstr "ред"
+
+#: apps/faq/models.py:16 apps/faq/models.py:51
+msgid "активен"
+msgstr "активен"
+
+#: apps/faq/models.py:22 apps/faq/models.py:37
+msgid "категория"
+msgstr "категория"
+
+#: apps/faq/models.py:23
+msgid "категории"
+msgstr "категории"
+
+#: apps/faq/models.py:39 apps/faq/models.py:59
+msgid "въпрос"
+msgstr "въпрос"
+
+#: apps/faq/models.py:40
+msgid "въпрос (английски)"
+msgstr "въпрос (английски)"
+
+#: apps/faq/models.py:43
+msgid "отговор"
+msgstr "отговор"
+
+#: apps/faq/models.py:43 apps/faq/models.py:44
+msgid "Markdown формат"
+msgstr "Markdown формат"
+
+#: apps/faq/models.py:44
+msgid "отговор (английски)"
+msgstr "отговор (английски)"
+
+#: apps/faq/models.py:47
+msgid "файл с ръководство"
+msgstr "файл с ръководство"
+
+#: apps/faq/models.py:48
+msgid "Име на MD файл в faq/guides/ (напр. stripe-setup.md)"
+msgstr "Име на MD файл в faq/guides/ (напр. stripe-setup.md)"
+
+#: apps/faq/models.py:52
+msgid "брой прегледи"
+msgstr "брой прегледи"
+
+#: apps/faq/models.py:53
+msgid "препоръчан"
+msgstr "препоръчан"
+
+#: apps/faq/models.py:60
+msgid "въпроси"
+msgstr "въпроси"
+
+#: apps/invoices/email_service.py:168 apps/invoices/email_service.py:271
+msgid "Client email is required"
+msgstr "Имейлът на клиента е задължителен"
+
+#: apps/invoices/email_service.py:210 apps/invoices/email_service.py:312
+msgid "Email template not found"
+msgstr "Имейл шаблонът не е намерен"
+
+#: apps/invoices/email_service.py:213 apps/invoices/email_service.py:315
+msgid "Error rendering template: "
+msgstr "Грешка при рендериране на шаблон: "
+
+# Invoice specific
+#: apps/invoices/email_service.py:217 apps/templates/models.py:10
+#: templates/invoices/email_invoice.html:6
+#: templates/invoices/email_invoice.html:72
+#: templates/invoices/invoice_detail.html:4
+#: templates/invoices/invoice_detail.html:9
+#: templates/invoices/offer_detail.html:52
+#: templates/invoices/payment_list.html:27
+#: templates/invoices/send_email_form.html:29
+#: templates/templates/template_studio.html:52
+msgid "Invoice"
+msgstr "Фактура"
+
+#: apps/invoices/email_service.py:222 apps/invoices/email_service.py:324
+#: templates/invoices/email_invoice.html:76
+#: templates/invoices/email_offer.html:76
+msgid "Dear"
+msgstr "Уважаеми"
+
+#: apps/invoices/email_service.py:224
+#, fuzzy
+#| msgid "Create your first invoice"
+msgid "Please find your invoice"
+msgstr "Създайте вашата първа фактура"
+
+#: apps/invoices/email_service.py:226 templates/invoices/invoice_form.html:60
+msgid "Invoice Details"
+msgstr "Детайли на фактура"
+
+#: apps/invoices/email_service.py:227 templates/invoices/email_invoice.html:82
+msgid "Invoice Number"
+msgstr "Номер на фактура"
+
+#: apps/invoices/email_service.py:229 templates/invoices/email_invoice.html:90
+#: templates/invoices/invoice_list.html:54
+msgid "Due Date"
+msgstr "Падеж"
+
+#: apps/invoices/email_service.py:230 apps/invoices/email_service.py:332
+#: templates/invoices/email_invoice.html:94
+#: templates/invoices/email_offer.html:94
 msgid "Total Amount"
 msgstr "Обща сума"
 
-msgid "VAT"
-msgstr "ДДС"
+#: apps/invoices/email_service.py:232
+msgid "View and download your invoice here"
+msgstr "Вижте и изтеглете вашата фактура тук"
 
-msgid "Your Company Name"
-msgstr "Име на вашата компания"
+#: apps/invoices/email_service.py:234 templates/invoices/email_invoice.html:111
+#, fuzzy
+#| msgid "Powerful CRM for Your Business"
+msgid "Thank you for your business!"
+msgstr "Мощна CRM система за вашия бизнес"
 
+#: apps/invoices/email_service.py:236 apps/invoices/email_service.py:338
+#: templates/invoices/email_invoice.html:114
+#: templates/invoices/email_offer.html:108
+msgid "Best regards"
+msgstr "С най-добри пожелания"
+
+# Offer specific
+#: apps/invoices/email_service.py:319 apps/templates/models.py:11
+#: templates/invoices/email_offer.html:6 templates/invoices/email_offer.html:72
+#: templates/invoices/offer_detail.html:4
+#: templates/invoices/offer_detail.html:9
+#: templates/invoices/send_email_form.html:31
+#: templates/templates/template_studio.html:53
+msgid "Offer"
+msgstr "Оферта"
+
+#: apps/invoices/email_service.py:326
+#, fuzzy
+#| msgid "Create your first offer"
+msgid "Please find your offer"
+msgstr "Създайте вашата първа оферта"
+
+#: apps/invoices/email_service.py:328
+#, fuzzy
+#| msgid "Invoice Details"
+msgid "Offer Details"
+msgstr "Детайли на фактура"
+
+#: apps/invoices/email_service.py:329 templates/invoices/email_offer.html:82
+#, fuzzy
+#| msgid "Offer number"
+msgid "Offer Number"
+msgstr "Номер на оферта"
+
+#: apps/invoices/email_service.py:331 templates/invoices/email_offer.html:90
+#: templates/invoices/offer_list.html:31
+msgid "Valid Until"
+msgstr "Валидна до"
+
+#: apps/invoices/email_service.py:334
+msgid "View and download your offer here"
+msgstr "Вижте и изтеглете вашата оферта тук"
+
+#: apps/invoices/email_service.py:336 templates/invoices/email_offer.html:105
+msgid "We look forward to working with you!"
+msgstr "Очакваме с нетърпение да работим с вас!"
+
+#: apps/invoices/models.py:16 apps/invoices/models.py:174
+#: templates/invoices/invoice_list.html:26
+msgid "Draft"
+msgstr "Чернова"
+
+#: apps/invoices/models.py:17 apps/invoices/models.py:175
+#: templates/invoices/invoice_list.html:29
+msgid "Sent"
+msgstr "Изпратена"
+
+#: apps/invoices/models.py:18 templates/invoices/invoice_list.html:32
+#: templates/invoices/invoice_list.html:56
+msgid "Paid"
+msgstr "Платена"
+
+#: apps/invoices/models.py:19
+msgid "Partially Paid"
+msgstr "Частично платена"
+
+#: apps/invoices/models.py:20 templates/invoices/invoice_list.html:35
+msgid "Overdue"
+msgstr "Просрочена"
+
+#: apps/invoices/models.py:21 apps/subscriptions/models.py:19
+#, fuzzy
+#| msgid "Cancel"
+msgid "Cancelled"
+msgstr "Отказ"
+
+#: apps/invoices/models.py:28
+#, fuzzy
+#| msgid "Invoice number"
+msgid "invoice number"
+msgstr "Номер на фактура"
+
+#: apps/invoices/models.py:29
+#, fuzzy
+#| msgid "Invoice date"
+msgid "invoice date"
+msgstr "Дата на фактура"
+
+#: apps/invoices/models.py:33 apps/invoices/models.py:190
+#, fuzzy
+#| msgid "Client Name"
+msgid "client name"
+msgstr "Име на клиент"
+
+#: apps/invoices/models.py:34 apps/invoices/models.py:191
+#, fuzzy
+#| msgid "Recent Deals"
+msgid "client email"
+msgstr "Последни сделки"
+
+#: apps/invoices/models.py:35 apps/invoices/models.py:192
+#, fuzzy
+#| msgid "Client Name"
+msgid "client address"
+msgstr "Име на клиент"
+
+#: apps/invoices/models.py:36
+#, fuzzy
+#| msgid "VAT number"
+msgid "client VAT number"
+msgstr "ДДС номер"
+
+#: apps/invoices/models.py:40 apps/invoices/models.py:196
+#, fuzzy
+#| msgid "Subtotal"
+msgid "subtotal"
+msgstr "Междинна сума"
+
+#: apps/invoices/models.py:41 apps/invoices/models.py:197
+msgid "tax rate %"
+msgstr "% данък"
+
+#: apps/invoices/models.py:42 apps/invoices/models.py:198
+#, fuzzy
+#| msgid "Total Amount"
+msgid "tax amount"
+msgstr "Обща сума"
+
+#: apps/invoices/models.py:43 apps/invoices/models.py:199
+#, fuzzy
+#| msgid "Total Amount"
+msgid "total amount"
+msgstr "Обща сума"
+
+#: apps/invoices/models.py:44
+#, fuzzy
+#| msgid "Total Amount"
+msgid "paid amount"
+msgstr "Обща сума"
+
+#: apps/invoices/models.py:52
+msgid "QR code"
+msgstr "QR код"
+
+# Payments
+#: apps/invoices/models.py:53
+#, fuzzy
+#| msgid "Payments"
+msgid "payment URL"
+msgstr "Плащания"
+
+#: apps/invoices/models.py:53
+#, fuzzy
+#| msgid "Stripe Settings"
+msgid "Stripe payment link"
+msgstr "Stripe настройки"
+
+#: apps/invoices/models.py:56 apps/invoices/models.py:207
+#, fuzzy
+#| msgid "Terms & Conditions:"
+msgid "terms and conditions"
+msgstr "Общи условия:"
+
+#: apps/invoices/models.py:59 apps/invoices/models.py:210
+#, fuzzy
+#| msgid "Email Purpose"
+msgid "email sent"
+msgstr "Цел на имейла"
+
+#: apps/invoices/models.py:60 apps/invoices/models.py:211
+#, fuzzy
+#| msgid "Email Integration"
+msgid "email sent at"
+msgstr "Имейл интеграция"
+
+# Invoice specific
+#: apps/invoices/models.py:66
+#, fuzzy
+#| msgid "Invoice"
+msgid "invoice"
+msgstr "Фактура"
+
+#: apps/invoices/models.py:67
+#, fuzzy
+#| msgid "Invoices"
+msgid "invoices"
+msgstr "Фактури"
+
+#: apps/invoices/models.py:119
+msgid "Client email is required to send invoice"
+msgstr "Имейлът на клиента е задължителен за изпращане на фактура"
+
+#: apps/invoices/models.py:128 apps/invoices/models.py:258
+msgid "Failed to send email"
+msgstr "Неуспешно изпращане на имейл"
+
+#: apps/invoices/models.py:149 apps/invoices/models.py:279
+msgid "quantity"
+msgstr "количество"
+
+#: apps/invoices/models.py:150 apps/invoices/models.py:280
+#, fuzzy
+#| msgid "Unit Price"
+msgid "unit price"
+msgstr "Единична цена"
+
+#: apps/invoices/models.py:151 apps/invoices/models.py:281
+#, fuzzy
+#| msgid "Total"
+msgid "total"
+msgstr "Общо"
+
+#: apps/invoices/models.py:156
+#, fuzzy
+#| msgid "Invoice date"
+msgid "invoice item"
+msgstr "Дата на фактура"
+
+#: apps/invoices/models.py:157
+#, fuzzy
+#| msgid "Invoice date"
+msgid "invoice items"
+msgstr "Дата на фактура"
+
+#: apps/invoices/models.py:176
+msgid "Accepted"
+msgstr "Приета"
+
+#: apps/invoices/models.py:177
+msgid "Rejected"
+msgstr "Отхвърлена"
+
+#: apps/invoices/models.py:178 apps/subscriptions/models.py:20
+msgid "Expired"
+msgstr "Изтекла"
+
+#: apps/invoices/models.py:185
+#, fuzzy
+#| msgid "Offer number"
+msgid "offer number"
+msgstr "Номер на оферта"
+
+#: apps/invoices/models.py:186
+#, fuzzy
+#| msgid "Due date"
+msgid "offer date"
+msgstr "Краен срок"
+
+#: apps/invoices/models.py:187
+#, fuzzy
+#| msgid "Valid until"
+msgid "valid until"
+msgstr "Валидна до"
+
+# Offer specific
+#: apps/invoices/models.py:226
+#, fuzzy
+#| msgid "Offer"
+msgid "offer"
+msgstr "Оферта"
+
+# Offers
+#: apps/invoices/models.py:227
+#, fuzzy
+#| msgid "Offers"
+msgid "offers"
+msgstr "Оферти"
+
+#: apps/invoices/models.py:249
+msgid "Client email is required to send offer"
+msgstr "Имейлът на клиента е задължителен за изпращане на оферта"
+
+#: apps/invoices/models.py:286
+msgid "offer item"
+msgstr "артикул на оферта"
+
+#: apps/invoices/models.py:287
+msgid "offer items"
+msgstr "артикули на оферта"
+
+#: apps/invoices/models.py:304
+msgid "Stripe"
+msgstr "Stripe"
+
+#: apps/invoices/models.py:305
+msgid "Bank Transfer"
+msgstr "Банков превод"
+
+#: apps/invoices/models.py:306
+msgid "Cash"
+msgstr "В брой"
+
+#: apps/invoices/models.py:307
+msgid "Check"
+msgstr "Чек"
+
+#: apps/invoices/models.py:308
+msgid "Other"
+msgstr "Друго"
+
+#: apps/invoices/models.py:314
+#, fuzzy
+#| msgid "No payments recorded."
+msgid "payment date"
+msgstr "Няма записани плащания."
+
+#: apps/invoices/models.py:315
+#, fuzzy
+#| msgid "Amount"
+msgid "amount"
+msgstr "Сума"
+
+#: apps/invoices/models.py:318
+#, fuzzy
+#| msgid "No payments recorded."
+msgid "payment method"
+msgstr "Няма записани плащания."
+
+#: apps/invoices/models.py:321
+msgid "Stripe Payment Intent ID"
+msgstr "Stripe Payment Intent ID"
+
+#: apps/invoices/models.py:322
+msgid "Stripe Charge ID"
+msgstr "Stripe Charge ID"
+
+#: apps/invoices/models.py:324
+#, fuzzy
+#| msgid "Preferences"
+msgid "reference"
+msgstr "Предпочитания"
+
+#: apps/invoices/models.py:327
+#, fuzzy
+#| msgid "Create Invoice"
+msgid "matched to invoice"
+msgstr "Създай фактура"
+
+# Payments
+#: apps/invoices/models.py:333
+#, fuzzy
+#| msgid "Payments"
+msgid "payment"
+msgstr "Плащания"
+
+# Payments
+#: apps/invoices/models.py:334
+#, fuzzy
+#| msgid "Payments"
+msgid "payments"
+msgstr "Плащания"
+
+#: apps/invoices/views.py:63
+#, fuzzy
+#| msgid "Contact created successfully."
+msgid "Invoice created successfully."
+msgstr "Контактът беше създаден успешно."
+
+#: apps/invoices/views.py:98
+#, fuzzy
+#| msgid "Contact updated successfully."
+msgid "Invoice updated successfully."
+msgstr "Контактът беше актуализиран успешно."
+
+#: apps/invoices/views.py:118
+#, fuzzy
+#| msgid "Contact deleted successfully."
+msgid "Invoice deleted successfully."
+msgstr "Контактът беше изтрит успешно."
+
+#: apps/invoices/views.py:185
+#, fuzzy
+#| msgid "Contact created successfully."
+msgid "Offer created successfully."
+msgstr "Контактът беше създаден успешно."
+
+#: apps/invoices/views.py:216
+#, fuzzy
+#| msgid "Contact updated successfully."
+msgid "Offer updated successfully."
+msgstr "Контактът беше актуализиран успешно."
+
+#: apps/invoices/views.py:236
+#, fuzzy
+#| msgid "Contact deleted successfully."
+msgid "Offer deleted successfully."
+msgstr "Контактът беше изтрит успешно."
+
+#: apps/invoices/views.py:248
+#, fuzzy
+#| msgid "This offer has been converted to"
+msgid "This offer has already been converted to an invoice."
+msgstr "Тази оферта беше преобразувана в"
+
+#: apps/invoices/views.py:289
+#, fuzzy
+#| msgid "Contact created successfully."
+msgid "Offer converted to invoice successfully."
+msgstr "Контактът беше създаден успешно."
+
+#: apps/invoices/views.py:332
+#, fuzzy
+#| msgid "Contact created successfully."
+msgid "Payment recorded successfully."
+msgstr "Контактът беше създаден успешно."
+
+#: apps/invoices/views.py:347 apps/invoices/views.py:400
+msgid "Cannot send email: Client email address is missing."
+msgstr "Не може да се изпрати имейл: Липсва имейл адрес на клиент."
+
+#: apps/invoices/views.py:373 apps/invoices/views.py:426
+#: apps/templates/models.py:19 apps/templates/models.py:116
+#, fuzzy
+#| msgid "Default Template"
+msgid "default template"
+msgstr "Шаблон по подразбиране"
+
+#: apps/invoices/views.py:384
+#, python-brace-format
+msgid "Invoice email sent successfully to {email} using {template}"
+msgstr "Имейлът за фактура е изпратен успешно до {email} използвайки {template}"
+
+#: apps/invoices/views.py:389 apps/invoices/views.py:442
+#, python-brace-format
+msgid "Failed to send email: {error}"
+msgstr "Неуспешно изпращане на имейл: {error}"
+
+#: apps/invoices/views.py:437
+#, python-brace-format
+msgid "Offer email sent successfully to {email} using {template}"
+msgstr "Имейлът за оферта е изпратен успешно до {email} използвайки {template}"
+
+#: apps/subscriptions/middleware.py:42
+msgid "Your subscription has expired. Please renew to continue using the CRM."
+msgstr "Вашият абонамент е изтекъл. Моля, обновете за да продължите да използвате CRM."
+
+# Subscription
+#: apps/subscriptions/models.py:11 templates/accounts/landing.html:133
+#: templates/subscriptions/current.html:30
+#: templates/subscriptions/plans.html:28
+msgid "Free"
+msgstr "Безплатен"
+
+#: apps/subscriptions/models.py:12
+msgid "Basic"
+msgstr "Базов"
+
+#: apps/subscriptions/models.py:13
+msgid "Pro"
+msgstr "Професионален"
+
+#: apps/subscriptions/models.py:14
+msgid "Enterprise"
+msgstr "Корпоративен"
+
+#: apps/subscriptions/models.py:18 templates/crm/contact_detail.html:57
+#: templates/crm/contact_list.html:65
+msgid "Active"
+msgstr "Активен"
+
+#: apps/subscriptions/models.py:21
+msgid "Past Due"
+msgstr "Просрочен"
+
+#: apps/subscriptions/models.py:26
+msgid "plan"
+msgstr "план"
+
+#: apps/subscriptions/models.py:30
+#, fuzzy
+#| msgid "Subscription"
+msgid "Stripe subscription ID"
+msgstr "Абонамент"
+
+#: apps/subscriptions/models.py:31
+msgid "Stripe customer ID"
+msgstr "Stripe ID на клиент"
+
+#: apps/subscriptions/models.py:32
+msgid "Stripe price ID"
+msgstr "Stripe ID на цена"
+
+#: apps/subscriptions/models.py:35
+msgid "current period start"
+msgstr "начало на текущ период"
+
+#: apps/subscriptions/models.py:36
+msgid "current period end"
+msgstr "край на текущ период"
+
+#: apps/subscriptions/models.py:39
+msgid "cancel at period end"
+msgstr "анулирай в края на периода"
+
+#: apps/subscriptions/models.py:42
+#, fuzzy
+#| msgid "Requests this month"
+msgid "AI requests used this month"
+msgstr "Заявки този месец"
+
+#: apps/subscriptions/models.py:43
+#, fuzzy
+#| msgid "AI requests"
+msgid "AI requests reset date"
+msgstr "AI заявки"
+
+#: apps/subscriptions/models.py:49
+#, fuzzy
+#| msgid "Subscription"
+msgid "subscription"
+msgstr "Абонамент"
+
+#: apps/subscriptions/models.py:50
+#, fuzzy
+#| msgid "Subscription"
+msgid "subscriptions"
+msgstr "Абонамент"
+
+#: apps/subscriptions/models.py:126
+msgid "from plan"
+msgstr "от план"
+
+#: apps/subscriptions/models.py:127
+msgid "to plan"
+msgstr "към план"
+
+#: apps/subscriptions/models.py:129
+msgid "reason"
+msgstr "причина"
+
+#: apps/subscriptions/models.py:134
+#, fuzzy
+#| msgid "Subscription History"
+msgid "subscription history"
+msgstr "История на абонамента"
+
+#: apps/subscriptions/models.py:135
+#, fuzzy
+#| msgid "Subscription History"
+msgid "subscription histories"
+msgstr "История на абонамента"
+
+#: apps/subscriptions/models.py:147
+msgid "Stripe invoice ID"
+msgstr "Stripe ID на фактура"
+
+#: apps/subscriptions/models.py:149
+#, fuzzy
+#| msgid "Amount"
+msgid "amount due"
+msgstr "Сума"
+
+#: apps/subscriptions/models.py:150
+msgid "amount paid"
+msgstr "платена сума"
+
+#: apps/subscriptions/models.py:155
+#, fuzzy
+#| msgid "Invoice #"
+msgid "invoice PDF"
+msgstr "Фактура №"
+
+#: apps/subscriptions/models.py:156
+msgid "hosted invoice URL"
+msgstr "URL на хоствана фактура"
+
+#: apps/subscriptions/models.py:158
+msgid "period start"
+msgstr "начало на период"
+
+#: apps/subscriptions/models.py:159
+msgid "period end"
+msgstr "край на период"
+
+#: apps/subscriptions/models.py:164
+#, fuzzy
+#| msgid "Subscription History"
+msgid "subscription invoice"
+msgstr "История на абонамента"
+
+#: apps/subscriptions/models.py:165
+#, fuzzy
+#| msgid "Subscription Plans"
+msgid "subscription invoices"
+msgstr "Абонаментни планове"
+
+#: apps/subscriptions/views.py:40
+msgid "Invalid plan selected."
+msgstr "Избран е невалиден план."
+
+#: apps/subscriptions/views.py:59
+#, fuzzy
+#| msgid "Subscription Plans"
+msgid "Subscription updated to Free plan."
+msgstr "Абонаментни планове"
+
+#: apps/subscriptions/views.py:84
+msgid "Plan configuration error."
+msgstr "Грешка в конфигурацията на плана."
+
+# Errors
+#: apps/subscriptions/views.py:107
+msgid "Error creating checkout session"
+msgstr "Грешка при създаване на сесия за плащане"
+
+#: apps/subscriptions/views.py:147
+#, fuzzy
+#| msgid "Subscription activated successfully! Welcome to your new plan."
+msgid "Subscription activated! Please refresh to see your updated plan."
+msgstr "Абонаментът беше активиран успешно! Добре дошли във вашия нов план."
+
+#: apps/subscriptions/views.py:150
+msgid ""
+"Payment processed successfully! Your subscription will be updated shortly."
+msgstr ""
+
+#: apps/subscriptions/views.py:152
+msgid "Subscription activated successfully! Welcome to your new plan."
+msgstr "Абонаментът беше активиран успешно! Добре дошли във вашия нов план."
+
+#: apps/subscriptions/views.py:204
+#, fuzzy
+#| msgid ""
+#| "Your subscription will be cancelled at the end of the current period."
+msgid ""
+"Your subscription will be cancelled at the end of the current billing period."
+msgstr "Вашият абонамент ще бъде анулиран в края на текущия период."
+
+#: apps/subscriptions/views.py:206
+#, fuzzy
+#| msgid "Cancel Subscription"
+msgid "Error cancelling subscription"
+msgstr "Анулирай абонамент"
+
+#: apps/subscriptions/views.py:223
+#, fuzzy
+#| msgid "Contact deleted successfully."
+msgid "Subscription cancelled successfully."
+msgstr "Контактът беше изтрит успешно."
+
+#: apps/templates/models.py:16 apps/templates/models.py:106
+#, fuzzy
+#| msgid "No templates yet"
+msgid "template name"
+msgstr "Все още няма шаблони"
+
+#: apps/templates/models.py:17 apps/templates/models.py:107
+#, fuzzy
+#| msgid "Template Types"
+msgid "template type"
+msgstr "Типове шаблони"
+
+#: apps/templates/models.py:22
+#, fuzzy
+#| msgid "Template Content"
+msgid "header content"
+msgstr "Съдържание на шаблон"
+
+#: apps/templates/models.py:23
+#, fuzzy
+#| msgid "Template Content"
+msgid "footer content"
+msgstr "Съдържание на шаблон"
+
+#: apps/templates/models.py:26
+#, fuzzy
+#| msgid "Primary Color"
+msgid "primary color"
+msgstr "Основен цвят"
+
+#: apps/templates/models.py:27
+#, fuzzy
+#| msgid "Secondary Color"
+msgid "secondary color"
+msgstr "Вторичен цвят"
+
+#: apps/templates/models.py:28
+msgid "font family"
+msgstr "семейство шрифтове"
+
+#: apps/templates/models.py:31
+msgid "logo"
+msgstr "лого"
+
+#: apps/templates/models.py:34
+#, fuzzy
+#| msgid "Payment Settings"
+msgid "layout settings"
+msgstr "Настройки на плащане"
+
+#: apps/templates/models.py:37
+#, fuzzy
+#| msgid "Custom CSS"
+msgid "custom CSS"
+msgstr "Персонализиран CSS"
+
+#: apps/templates/models.py:40
+#, fuzzy
+#| msgid "Custom HTML Template"
+msgid "HTML template"
+msgstr "Персонализиран HTML шаблон"
+
+#: apps/templates/models.py:40
+#, fuzzy
+#| msgid "Custom HTML Template"
+msgid "Custom HTML template with placeholders"
+msgstr "Персонализиран HTML шаблон"
+
+#: apps/templates/models.py:46
+#, fuzzy
+#| msgid "Document Templates"
+msgid "document template"
+msgstr "Шаблони за документи"
+
+#: apps/templates/models.py:47
+#, fuzzy
+#| msgid "Document Templates"
+msgid "document templates"
+msgstr "Шаблони за документи"
+
+#: apps/templates/models.py:72
+msgid "Currency"
+msgstr "Валута"
+
+#: apps/templates/models.py:73
+msgid "Image"
+msgstr "Изображение"
+
+#: apps/templates/models.py:76
+#, fuzzy
+#| msgid "Variable"
+msgid "variable name"
+msgstr "Променлива"
+
+#: apps/templates/models.py:78
+#, fuzzy
+#| msgid "Variable"
+msgid "variable type"
+msgstr "Променлива"
+
+#: apps/templates/models.py:79
+#, fuzzy
+#| msgid "Example"
+msgid "example value"
+msgstr "Пример"
+
+#: apps/templates/models.py:81
+msgid "applies to"
+msgstr "приложимо за"
+
+#: apps/templates/models.py:81
+msgid "invoice, offer, or both"
+msgstr "фактура, оферта или и двете"
+
+#: apps/templates/models.py:84
+#, fuzzy
+#| msgid "Available Template Variables"
+msgid "template variable"
+msgstr "Налични променливи на шаблон"
+
+#: apps/templates/models.py:85
+#, fuzzy
+#| msgid "Available Template Variables"
+msgid "template variables"
+msgstr "Налични променливи на шаблон"
+
+#: apps/templates/models.py:96 templates/templates/template_studio.html:445
+#: templates/templates/template_studio.html:488
+#, fuzzy
+#| msgid "Invoice Details"
+msgid "Invoice Email"
+msgstr "Детайли на фактура"
+
+#: apps/templates/models.py:97 templates/templates/template_studio.html:446
+#, fuzzy
+#| msgid "Offer #"
+msgid "Offer Email"
+msgstr "Оферта №"
+
+#: apps/templates/models.py:98 templates/templates/template_studio.html:447
+#, fuzzy
+#| msgid "Custom Fields"
+msgid "Custom Email"
+msgstr "Персонализирани полета"
+
+#: apps/templates/models.py:99 templates/templates/template_studio.html:448
+#: templates/templates/template_studio.html:491
+#, fuzzy
+#| msgid "Payment Settings"
+msgid "Payment Reminder"
+msgstr "Настройки на плащане"
+
+#: apps/templates/models.py:100 templates/templates/template_studio.html:449
+#: templates/templates/template_studio.html:494
+#, fuzzy
+#| msgid "Welcome back!"
+msgid "Welcome Email"
+msgstr "Добре дошли обратно!"
+
+#: apps/templates/models.py:101 templates/templates/template_studio.html:450
+msgid "Follow-up Email"
+msgstr "Имейл за проследяване"
+
+#: apps/templates/models.py:109
+msgid "email subject"
+msgstr "тема на имейл"
+
+#: apps/templates/models.py:109
+msgid "Can include template variables like {{contact_name}}"
+msgstr "Може да включва променливи като {{contact_name}}"
+
+#: apps/templates/models.py:112
+#, fuzzy
+#| msgid "Content"
+msgid "HTML content"
+msgstr "Съдържание"
+
+#: apps/templates/models.py:112
+#, fuzzy
+#| msgid "Available Template Variables"
+msgid "HTML email body with template variables"
+msgstr "Налични променливи на шаблон"
+
+#: apps/templates/models.py:113
+msgid "plain text version"
+msgstr "версия на обикновен текст"
+
+#: apps/templates/models.py:113
+msgid "Plain text fallback (auto-generated if empty)"
+msgstr "Резервен обикновен текст (автоматично генериран ако е празен)"
+
+#: apps/templates/models.py:116
+msgid "Use this as the default for this type"
+msgstr "Използвай това като по подразбиране за този тип"
+
+#: apps/templates/models.py:120
+msgid "AI generated"
+msgstr "генериран от AI"
+
+#: apps/templates/models.py:121
+msgid "AI prompt"
+msgstr "AI подкана"
+
+#: apps/templates/models.py:121
+#, fuzzy
+#| msgid "Are you sure you want to delete this template?"
+msgid "Original prompt used to generate this template"
+msgstr "Сигурни ли сте, че искате да изтриете този шаблон?"
+
+#: apps/templates/models.py:124
+msgid "times sent"
+msgstr "пъти изпратен"
+
+#: apps/templates/models.py:125
+msgid "last used at"
+msgstr "последно използван на"
+
+#: apps/templates/models.py:131
+#, fuzzy
+#| msgid "Default Template"
+msgid "email template"
+msgstr "Шаблон по подразбиране"
+
+#: apps/templates/models.py:132
+#, fuzzy
+#| msgid "Basic Templates"
+msgid "email templates"
+msgstr "Основни шаблони"
+
+#: apps/templates/views.py:29
+#, fuzzy
+#| msgid "Contact created successfully."
+msgid "Template created successfully."
+msgstr "Контактът беше създаден успешно."
+
+#: apps/templates/views.py:65
+#, fuzzy
+#| msgid "Contact updated successfully."
+msgid "Template updated successfully."
+msgstr "Контактът беше актуализиран успешно."
+
+#: apps/templates/views.py:87
+#, fuzzy
+#| msgid "Contact deleted successfully."
+msgid "Template deleted successfully."
+msgstr "Контактът беше изтрит успешно."
+
+#: apps/templates/views.py:159 apps/templates/views.py:246
+#: apps/templates/views.py:438
+msgid "Too many requests. Please wait a moment and try again."
+msgstr "Твърде много заявки. Моля, изчакайте момент и опитайте отново."
+
+#: apps/templates/views.py:173
+msgid "Please provide a description for your template"
+msgstr "Моля, предоставете описание за вашия шаблон"
+
+#: apps/templates/views.py:179 apps/templates/views.py:456
+msgid "Description is too long. Please keep it under 2000 characters."
+msgstr "Описанието е твърде дълго. Моля, ограничете го до 2000 символа."
+
+#: apps/templates/views.py:194
+msgid "Generated template is too large. Please simplify your requirements."
+msgstr "Генерираният шаблон е твърде голям. Моля, опростете изискванията си."
+
+#: apps/templates/views.py:203 templates/templates/template_studio.html:293
+#, fuzzy
+#| msgid "Contact created successfully."
+msgid "Template generated successfully!"
+msgstr "Контактът беше създаден успешно."
+
+#: apps/templates/views.py:210 apps/templates/views.py:304
+#: apps/templates/views.py:402 apps/templates/views.py:480
+#: apps/templates/views.py:566
+msgid "Invalid request format"
+msgstr "Невалиден формат на заявка"
+
+#: apps/templates/views.py:217
+#, fuzzy
+#| msgid "Error generating email. Please try again."
+msgid "Failed to generate template. Please try again."
+msgstr "Грешка при генериране на имейл. Моля, опитайте отново."
+
+#: apps/templates/views.py:262
+msgid "Please provide both current template and feedback"
+msgstr "Моля, предоставете както текущия шаблон, така и обратна връзка"
+
+#: apps/templates/views.py:268
+msgid "Feedback is too long. Please keep it under 1000 characters."
+msgstr "Обратната връзка е твърде дълга. Моля, ограничете я до 1000 символа."
+
+#: apps/templates/views.py:274
+msgid "Current template is too large."
+msgstr "Текущият шаблон е твърде голям."
+
+#: apps/templates/views.py:288
+msgid "Refined template is too large. Please simplify your requirements."
+msgstr "Прецизираният шаблон е твърде голям. Моля, опростете изискванията си."
+
+#: apps/templates/views.py:297 templates/templates/template_studio.html:349
+#, fuzzy
+#| msgid "Contact created successfully."
+msgid "Template refined successfully!"
+msgstr "Контактът беше създаден успешно."
+
+#: apps/templates/views.py:311
+#, fuzzy
+#| msgid "Error generating email. Please try again."
+msgid "Failed to refine template. Please try again."
+msgstr "Грешка при генериране на имейл. Моля, опитайте отново."
+
+#: apps/templates/views.py:338
+msgid "Please provide template name and content"
+msgstr "Моля, предоставете име и съдържание на шаблон"
+
+#: apps/templates/views.py:344
+msgid "Template name is too long. Please keep it under 200 characters."
+msgstr "Името на шаблона е твърде дълго. Моля, ограничете го до 200 символа."
+
+#: apps/templates/views.py:350
+#, fuzzy
+#| msgid "Template Content"
+msgid "Template content is too large."
+msgstr "Съдържание на шаблон"
+
+#: apps/templates/views.py:357
+#, fuzzy
+#| msgid "No templates yet"
+msgid "Invalid template type"
+msgstr "Все още няма шаблони"
+
+#: apps/templates/views.py:395 templates/templates/template_studio.html:393
+#, fuzzy
+#| msgid "Contact created successfully."
+msgid "Template saved successfully!"
+msgstr "Контактът беше създаден успешно."
+
+#: apps/templates/views.py:409
+#, fuzzy
+#| msgid "Error generating email. Please try again."
+msgid "Failed to save template. Please try again."
+msgstr "Грешка при генериране на имейл. Моля, опитайте отново."
+
+#: apps/templates/views.py:450
+msgid "Please provide a description for your email template"
+msgstr "Моля, предоставете описание за вашия имейл шаблон"
+
+#: apps/templates/views.py:473 templates/templates/template_studio.html:658
+#, fuzzy
+#| msgid "Contact created successfully."
+msgid "Email template generated successfully!"
+msgstr "Контактът беше създаден успешно."
+
+#: apps/templates/views.py:487
+#, fuzzy
+#| msgid "Error generating email. Please try again."
+msgid "Failed to generate email template. Please try again."
+msgstr "Грешка при генериране на имейл. Моля, опитайте отново."
+
+#: apps/templates/views.py:514
+msgid "Please provide template name, subject, and content"
+msgstr "Моля, предоставете име на шаблон, тема и съдържание"
+
+#: apps/templates/views.py:520
+#, fuzzy
+#| msgid "Template Information"
+msgid "Template name is too long"
+msgstr "Информация за шаблон"
+
+#: apps/templates/views.py:526
+msgid "Subject is too long"
+msgstr "Темата е твърде дълга"
+
+#: apps/templates/views.py:532
+#, fuzzy
+#| msgid "Template Content"
+msgid "Template content is too large"
+msgstr "Съдържание на шаблон"
+
+#: apps/templates/views.py:539
+msgid "A template with this name already exists"
+msgstr "Шаблон с това име вече съществува"
+
+#: apps/templates/views.py:560 templates/templates/template_studio.html:704
+#, fuzzy
+#| msgid "Contact created successfully."
+msgid "Email template saved successfully!"
+msgstr "Контактът беше създаден успешно."
+
+#: apps/templates/views.py:573
+#, fuzzy
+#| msgid "Error generating email. Please try again."
+msgid "Failed to save email template. Please try again."
+msgstr "Грешка при генериране на имейл. Моля, опитайте отново."
+
+#: apps/templates/views.py:597
+#, fuzzy
+#| msgid "Contact deleted successfully."
+msgid "Email template deleted successfully."
+msgstr "Контактът беше изтрит успешно."
+
+# Landing page
+#: templates/accounts/landing.html:7
+msgid "Welcome to CRM System"
+msgstr "Добре дошли в CRM системата"
+
+#: templates/accounts/landing.html:42
+msgid "Powerful CRM for Your Business"
+msgstr "Мощна CRM система за вашия бизнес"
+
+#: templates/accounts/landing.html:43
+msgid "Manage contacts, deals, invoices, and more with AI-powered insights."
+msgstr "Управлявайте контакти, сделки, фактури и др. с AI-базирани анализи."
+
+#: templates/accounts/landing.html:45
+msgid "Get Started Free"
+msgstr "Започнете безплатно"
+
+#: templates/accounts/landing.html:46 templates/accounts/login.html:7
+#: templates/accounts/login.html:16 templates/accounts/login.html:30
+#: templates/accounts/register.html:25
+msgid "Login"
+msgstr "Вход"
+
+#: templates/accounts/landing.html:61
+#: templates/accounts/resend_settings.html:136
+#: templates/subscriptions/current.html:70
+msgid "Features"
+msgstr "Функции"
+
+# Contact specific
+#: templates/accounts/landing.html:67
+msgid "Contact Management"
+msgstr "Управление на контакти"
+
+#: templates/accounts/landing.html:68
+msgid "Keep all your contacts and companies organized in one place."
+msgstr "Поддържайте всички ваши контакти и компании организирани на едно място."
+"Поддържайте всички ваши контакти и компании организирани на едно място."
+
+#: templates/accounts/landing.html:76
+msgid "Sales Pipeline"
+msgstr "Процес на продажби"
+
+#: templates/accounts/landing.html:77
+msgid "Track deals through customizable sales pipelines."
+msgstr "Следете сделките чрез персонализируеми процеси на продажба."
+
+#: templates/accounts/landing.html:85
+msgid "Invoices & Offers"
+msgstr "Фактури и оферти"
+
+#: templates/accounts/landing.html:86
+msgid "Create professional invoices and offers with custom templates."
+msgstr "Създавайте професионални фактури и оферти с персонализирани шаблони."
+
+#: templates/accounts/landing.html:94
 msgid "QR Code Payments"
 msgstr "QR код плащания"
 
+#: templates/accounts/landing.html:95
+msgid "Add QR codes to invoices for easy Stripe payments."
+msgstr "Добавяйте QR кодове към фактури за лесни Stripe плащания."
+
+#: templates/accounts/landing.html:103 templates/ai_assistant/chat.html:4
+#: templates/ai_assistant/chat.html:66 templates/ai_assistant/chat.html:92
+#: templates/base.html:77
+msgid "AI Assistant"
+msgstr "AI Асистент"
+
+#: templates/accounts/landing.html:104
+msgid "Get intelligent insights and suggestions powered by Gemini AI."
+msgstr "Получавайте интелигентни анализи и предложения, задвижвани от Gemini AI."
+"Получавайте интелигентни анализи и предложения, задвижвани от Gemini AI."
+
+#: templates/accounts/landing.html:112
+#: templates/invoices/send_email_form.html:130
+#: templates/templates/template_list.html:13
+msgid "Template Studio"
+msgstr "Студио за шаблони"
+
+#: templates/accounts/landing.html:113
+msgid "Design custom invoice and offer templates with visual editor."
+msgstr "Проектирайте персонализирани шаблони за фактури и оферти с визуален редактор."
+"Проектирайте персонализирани шаблони за фактури и оферти с визуален редактор."
+
+#: templates/accounts/landing.html:124
+msgid "Pricing Plans"
+msgstr "Тарифни планове"
+
+#: templates/accounts/landing.html:138 templates/subscriptions/current.html:32
+#: templates/subscriptions/plans.html:33
+msgid "per month"
+msgstr "на месец"
+
+#: templates/accounts/landing.html:144 templates/subscriptions/current.html:47
+msgid "Unlimited contacts"
+msgstr "Неограничен брой контакти"
+
+#: templates/accounts/landing.html:151 templates/subscriptions/current.html:55
+msgid "Unlimited users"
+msgstr "Неограничен брой потребители"
+
+#: templates/accounts/landing.html:158 templates/subscriptions/current.html:63
+msgid "Unlimited AI requests"
+msgstr "Неограничен брой AI заявки"
+
+#: templates/accounts/landing.html:160 templates/subscriptions/current.html:65
+#: templates/subscriptions/plans.html:58
+msgid "AI requests/month"
+msgstr "AI заявки/месец"
+
+#: templates/accounts/landing.html:166
+msgid "Get Started"
+msgstr "Започнете"
+
+#: templates/accounts/login.html:34
+msgid "Don't have an account?"
+msgstr "Нямате акаунт?"
+
+#: templates/accounts/login.html:34 templates/accounts/register.html:7
+#: templates/accounts/register.html:16
+msgid "Register"
+msgstr "Регистрация"
+
+#: templates/accounts/profile.html:4 templates/base.html:135
+msgid "Profile"
+msgstr "Профил"
+
+# Profile
+#: templates/accounts/profile.html:11
+msgid "My Profile"
+msgstr "Моят профил"
+
+#: templates/accounts/profile.html:17
+msgid "Personal Information"
+msgstr "Лична информация"
+
+#: templates/accounts/profile.html:38 templates/crm/company_detail.html:30
+msgid "Company Information"
+msgstr "Информация за компания"
+
+#: templates/accounts/profile.html:65
+#: templates/accounts/stripe_settings.html:56
+#: templates/ai_assistant/conversation_confirm_delete.html:27
+#: templates/ai_assistant/generate_email.html:31
+#: templates/crm/company_confirm_delete.html:28
+#: templates/crm/company_form.html:33
+#: templates/crm/contact_confirm_delete.html:28
+#: templates/crm/contact_form.html:33 templates/crm/deal_confirm_delete.html:28
+#: templates/crm/deal_form.html:33 templates/crm/pipeline_form.html:32
+#: templates/crm/task_confirm_delete.html:28 templates/crm/task_form.html:32
+#: templates/invoices/invoice_confirm_delete.html:29
+#: templates/invoices/invoice_form.html:194
+#: templates/invoices/offer_confirm_delete.html:29
+#: templates/invoices/offer_form.html:133
+#: templates/invoices/payment_form.html:27
+#: templates/invoices/send_email_form.html:114
+#: templates/templates/email_template_confirm_delete.html:30
+#: templates/templates/template_confirm_delete.html:30
+#: templates/templates/template_form.html:90
+#: templates/templates/template_studio.html:210
+msgid "Cancel"
+msgstr "Отказ"
+
+#: templates/accounts/profile.html:67 templates/crm/company_form.html:40
+#: templates/crm/contact_form.html:40 templates/crm/deal_form.html:40
+#: templates/crm/pipeline_form.html:39 templates/crm/task_form.html:39
+#: templates/invoices/invoice_form.html:201
+#: templates/invoices/offer_form.html:140
+#: templates/templates/template_form.html:97
+msgid "Save Changes"
+msgstr "Запази промените"
+
+#: templates/accounts/register.html:21
+msgid "Create Account"
+msgstr "Създай акаунт"
+
+#: templates/accounts/register.html:25
+msgid "Already have an account?"
+msgstr "Вече имате акаунт?"
+
+#: templates/accounts/resend_settings.html:4
+#: templates/accounts/resend_settings.html:12
+#, fuzzy
+#| msgid "Financial Settings"
+msgid "Resend Email Settings"
+msgstr "Финансови настройки"
+
+#: templates/accounts/resend_settings.html:16
+msgid "Configured"
+msgstr "Конфигуриран"
+
+#: templates/accounts/resend_settings.html:20
+msgid "Not Configured"
+msgstr "Не е конфигуриран"
+
+#: templates/accounts/resend_settings.html:27
+msgid "About Resend"
+msgstr "За Resend"
+
+#: templates/accounts/resend_settings.html:30
+msgid ""
+"Resend is a modern email API that makes it easy to send transactional "
+"emails. Configure your Resend account to send invoices, offers, and custom "
+"email templates."
+msgstr ""
+
+#: templates/accounts/resend_settings.html:34
+#, fuzzy
+#| msgid "Don't have an account?"
+msgid "Don't have an account yet?"
+msgstr "Нямате акаунт?"
+
+#: templates/accounts/resend_settings.html:36
+msgid "Sign up for Resend"
+msgstr "Регистрирайте се за Resend"
+
+#: templates/accounts/resend_settings.html:45
+#, fuzzy
+#| msgid "Confirm Deletion"
+msgid "API Configuration"
+msgstr "Потвърди изтриването"
+
+#: templates/accounts/resend_settings.html:62
+#, fuzzy
+#| msgid "Email Integration"
+msgid "Email Configuration"
+msgstr "Имейл интеграция"
+
+#: templates/accounts/resend_settings.html:93
+#, fuzzy
+#| msgid "Back to Deal"
+msgid "Back to Profile"
+msgstr "Обратно към сделката"
+
+#: templates/accounts/resend_settings.html:96
+#, fuzzy
+#| msgid "Save Stripe Settings"
+msgid "Save Settings"
+msgstr "Запази Stripe настройки"
+
+#: templates/accounts/resend_settings.html:108
+msgid "Setup Guide"
+msgstr "Ръководство за настройка"
+
+#: templates/accounts/resend_settings.html:114
+msgid "Sign up for a Resend account at"
+msgstr "Регистрирайте се за Resend акаунт на"
+
+#: templates/accounts/resend_settings.html:118
+msgid "Verify your domain or use their test domain"
+msgstr "Верифицирайте вашия домейн или използвайте техния тестов домейн"
+
+#: templates/accounts/resend_settings.html:121
+msgid "Generate an API key in your Resend dashboard"
+msgstr "Генерирайте API ключ в панела на Resend"
+
+#: templates/accounts/resend_settings.html:124
+msgid "Enter your API key and email settings above"
+msgstr "Въведете вашия API ключ и имейл настройки по-горе"
+
+#: templates/accounts/resend_settings.html:127
+msgid "Start sending beautiful emails!"
+msgstr "Започнете да изпращате красиви имейли!"
+
+#: templates/accounts/resend_settings.html:143
+#, fuzzy
+#| msgid "Create and customize invoice and offer templates"
+msgid "Send invoices and offers via email"
+msgstr "Създавайте и персонализирайте шаблони за фактури и оферти"
+
+#: templates/accounts/resend_settings.html:147
+#, fuzzy
+#| msgid "Create and customize invoice and offer templates"
+msgid "Create custom email templates with AI"
+msgstr "Създавайте и персонализирайте шаблони за фактури и оферти"
+
+#: templates/accounts/resend_settings.html:151
+msgid "Track email delivery status"
+msgstr "Следете статуса на доставката на имейли"
+
+#: templates/accounts/resend_settings.html:155
+msgid "Professional email design"
+msgstr "Професионален дизайн на имейли"
+
+#: templates/accounts/resend_settings.html:159
+msgid "High deliverability rates"
+msgstr "Високи нива на доставяемост"
+
+#: templates/accounts/stripe_settings.html:4
+#: templates/accounts/stripe_settings.html:11
+msgid "Stripe Settings"
+msgstr "Stripe настройки"
+
+#: templates/accounts/stripe_settings.html:15
+msgid "Accept Payments from Your Customers"
+msgstr "Приемайте плащания от вашите клиенти"
+
+#: templates/accounts/stripe_settings.html:17
+msgid ""
+"Configure your Stripe API keys to accept payments from your customers "
+"through invoices. These keys are separate from your subscription to this CRM "
+"platform."
+msgstr ""
+"Конфигурирайте вашите Stripe API ключове, за да приемате плащания от клиенти "
+"чрез фактури. Тези ключове са отделни от вашия абонамент към тази CRM "
+"платформа."
+
 # Stripe Settings
+#: templates/accounts/stripe_settings.html:24
 msgid "Your Stripe API Keys"
 msgstr "Вашите Stripe API ключове"
 
-msgid "Configure your Stripe API keys to accept payments from your customers through invoices. These keys are separate from your subscription to this CRM platform."
-msgstr "Конфигурирайте вашите Stripe API ключове, за да приемате плащания от клиенти чрез фактури. Тези ключове са отделни от вашия абонамент към тази CRM платформа."
-
-msgid "How to Get Your Stripe Keys"
-msgstr "Как да получите вашите Stripe ключове"
-
-msgid "Visit"
-msgstr "Посетете"
-
-msgid "and create an account"
-msgstr "и създайте акаунт"
-
-msgid "Go to Developers → API Keys"
-msgstr "Отидете на Developers → API Keys"
-
-msgid "Copy your Publishable key (starts with pk_)"
-msgstr "Копирайте вашия Publishable ключ (започва с pk_)"
-
-msgid "Copy your Secret key (starts with sk_)"
-msgstr "Копирайте вашия Secret ключ (започва с sk_)"
-
-msgid "Paste them in the form above"
-msgstr "Поставете ги във формата по-горе"
-
-msgid "Use test keys for testing, live keys for production"
-msgstr "Използвайте тестови ключове за тестване, реални ключове за продукция"
-
+#: templates/accounts/stripe_settings.html:30
 msgid "Security Notice"
 msgstr "Известие за сигурност"
 
+#: templates/accounts/stripe_settings.html:32
 msgid "Your secret key is encrypted and stored securely"
 msgstr "Вашият таен ключ е криптиран и съхраняван сигурно"
 
+#: templates/accounts/stripe_settings.html:33
 msgid "Never share your secret key with anyone"
 msgstr "Никога не споделяйте вашия таен ключ с никого"
 
-msgid "Use test keys (pk_test_ and sk_test_) for testing"
-msgstr "Използвайте тестови ключове (pk_test_ и sk_test_) за тестване"
+#: templates/accounts/stripe_settings.html:34
+msgid "Use test keys for testing, live keys for production"
+msgstr "Използвайте тестови ключове за тестване, реални ключове за продукция"
 
-msgid "Use live keys (pk_live_ and sk_live_) for production"
-msgstr "Използвайте реални ключове (pk_live_ и sk_live_) за продукция"
+#: templates/accounts/stripe_settings.html:40
+msgid "How to Get Your Stripe Keys"
+msgstr "Как да получите вашите Stripe ключове"
 
+#: templates/accounts/stripe_settings.html:42
+msgid "Visit"
+msgstr "Посетете"
+
+#: templates/accounts/stripe_settings.html:42
+msgid "and create an account"
+msgstr "и създайте акаунт"
+
+#: templates/accounts/stripe_settings.html:43
+msgid "Go to Developers → API Keys"
+msgstr "Отидете на Developers → API Keys"
+
+#: templates/accounts/stripe_settings.html:44
+msgid "Copy your Publishable key (starts with pk_)"
+msgstr "Копирайте вашия Publishable ключ (започва с pk_)"
+
+#: templates/accounts/stripe_settings.html:45
+msgid "Copy your Secret key (starts with sk_)"
+msgstr "Копирайте вашия Secret ключ (започва с sk_)"
+
+#: templates/accounts/stripe_settings.html:46
+msgid "Paste them in the form above"
+msgstr "Поставете ги във формата по-горе"
+
+#: templates/accounts/stripe_settings.html:50
 msgid "Test Mode:"
 msgstr "Тестов режим:"
 
+#: templates/accounts/stripe_settings.html:50
+msgid "Use test keys (pk_test_ and sk_test_) for testing"
+msgstr "Използвайте тестови ключове (pk_test_ и sk_test_) за тестване"
+
+#: templates/accounts/stripe_settings.html:51
 msgid "Live Mode:"
 msgstr "Реален режим:"
 
+#: templates/accounts/stripe_settings.html:51
+msgid "Use live keys (pk_live_ and sk_live_) for production"
+msgstr "Използвайте реални ключове (pk_live_ и sk_live_) за продукция"
+
+#: templates/accounts/stripe_settings.html:59
 msgid "Save Stripe Settings"
 msgstr "Запази Stripe настройки"
 
+#: templates/accounts/stripe_settings.html:66
 msgid "Stripe is configured! You can now accept payments from your customers."
 msgstr "Stripe е конфигуриран! Вече можете да приемате плащания от вашите клиенти."
+"Stripe е конфигуриран! Вече можете да приемате плащания от вашите клиенти."
 
-msgid "Stripe is not configured yet. Add your keys above to start accepting payments."
-msgstr "Stripe все още не е конфигуриран. Добавете вашите ключове по-горе, за да започнете да приемате плащания."
+#: templates/accounts/stripe_settings.html:70
+msgid ""
+"Stripe is not configured yet. Add your keys above to start accepting "
+"payments."
+msgstr ""
+"Stripe все още не е конфигуриран. Добавете вашите ключове по-горе, за да "
+"започнете да приемате плащания."
 
+#: templates/ai_assistant/chat.html:12
+msgid "Conversations"
+msgstr "Разговори"
+
+#: templates/ai_assistant/chat.html:28
+msgid "No conversations yet"
+msgstr "Все още няма разговори"
+
+#: templates/ai_assistant/chat.html:37
+msgid "AI Usage"
+msgstr "AI използване"
+
+#: templates/ai_assistant/chat.html:46
+msgid "Requests this month"
+msgstr "Заявки този месец"
+
+#: templates/ai_assistant/chat.html:90
+msgid "You"
+msgstr "Вие"
+
+#: templates/ai_assistant/chat.html:109
+msgid "Start a conversation with the AI assistant!"
+msgstr "Започнете разговор с AI асистента!"
+
+#: templates/ai_assistant/chat.html:110
+msgid "Ask about your CRM, get insights, or request help with tasks."
+msgstr "Питайте за вашата CRM, получавайте анализи или поискайте помощ със задачи."
+"Питайте за вашата CRM, получавайте анализи или поискайте помощ със задачи."
+
+#: templates/ai_assistant/chat.html:121
+msgid "Type your message..."
+msgstr "Напишете съобщението си..."
+
+#: templates/ai_assistant/chat.html:125
+msgid "Send"
+msgstr "Изпрати"
+
+#: templates/ai_assistant/chat.html:136
+msgid "Suggest Tasks"
+msgstr "Предложи задачи"
+
+#: templates/ai_assistant/chat.html:141
+msgid "View Suggestions"
+msgstr "Виж предложенията"
+
+#: templates/ai_assistant/chat.html:146
+msgid "Upgrade Plan"
+msgstr "Надстрой план"
+
+#: templates/ai_assistant/conversation_confirm_delete.html:4
+#: templates/ai_assistant/conversation_confirm_delete.html:30
+msgid "Delete Conversation"
+msgstr "Изтрий разговор"
+
+#: templates/ai_assistant/conversation_confirm_delete.html:11
+#: templates/crm/company_confirm_delete.html:11
+#: templates/crm/contact_confirm_delete.html:11
+#: templates/crm/deal_confirm_delete.html:11
+#: templates/crm/task_confirm_delete.html:11
+#: templates/invoices/invoice_confirm_delete.html:11
+#: templates/invoices/offer_confirm_delete.html:11
+#: templates/templates/template_confirm_delete.html:11
+msgid "Confirm Deletion"
+msgstr "Потвърди изтриването"
+
+#: templates/ai_assistant/conversation_confirm_delete.html:14
+msgid "Are you sure you want to delete this conversation?"
+msgstr "Сигурни ли сте, че искате да изтриете този разговор?"
+
+#: templates/ai_assistant/conversation_confirm_delete.html:17
+msgid "messages"
+msgstr "съобщения"
+
+#: templates/ai_assistant/conversation_confirm_delete.html:20
+msgid ""
+"This action cannot be undone. All messages in this conversation will be "
+"permanently deleted."
+msgstr ""
+"Това действие не може да бъде отменено. Всички съобщения в този разговор ще "
+"бъдат изтрити завинаги."
+
+#: templates/ai_assistant/deal_analysis.html:4
+#: templates/ai_assistant/deal_analysis.html:9
+msgid "AI Deal Analysis"
+msgstr "AI анализ на сделка"
+
+#: templates/ai_assistant/deal_analysis.html:14
+msgid "Back to Deal"
+msgstr "Обратно към сделката"
+
+#: templates/ai_assistant/deal_analysis.html:23
+msgid "AI Analysis & Recommendations"
+msgstr "AI анализ и препоръки"
+
+#: templates/ai_assistant/deal_analysis.html:33
+msgid ""
+"This analysis was generated by AI and should be used as guidance. Always "
+"apply your own business judgment."
+msgstr ""
+"Този анализ е генериран от AI и трябва да се използва като насока. Винаги "
+"прилагайте собственото си бизнес решение."
+
+#: templates/ai_assistant/generate_email.html:4
+#: templates/ai_assistant/generate_email.html:34
+#: templates/crm/contact_detail.html:93
+msgid "Generate Email"
+msgstr "Генерирай имейл"
+
+#: templates/ai_assistant/generate_email.html:12
+msgid "Generate Email for"
+msgstr "Генерирай имейл за"
+
+#: templates/ai_assistant/generate_email.html:18
+#, fuzzy
+#| msgid "The AI will generate a professional email draft based on the contact"
+msgid ""
+"The AI will generate a professional email draft based on the contact's "
+"information and your specified purpose."
+msgstr "AI ще генерира професионален имейл чернова на база на контакта"
+
+#: templates/ai_assistant/generate_email.html:24
+msgid "Email Purpose"
+msgstr "Цел на имейла"
+
+#: templates/ai_assistant/generate_email.html:26
+msgid "e.g., Follow-up on proposal, Meeting request, etc."
+msgstr "напр., Проследяване на оферта, Искане за среща и др."
+
+#: templates/ai_assistant/generate_email.html:41
+msgid "Generated Email"
+msgstr "Генериран имейл"
+
+#: templates/ai_assistant/generate_email.html:48
+msgid "Copy to Clipboard"
+msgstr "Копирай в клипборда"
+
+#: templates/ai_assistant/generate_email.html:77
+msgid "Error generating email. Please try again."
+msgstr "Грешка при генериране на имейл. Моля, опитайте отново."
+
+#: templates/ai_assistant/generate_email.html:84
+msgid "Email copied to clipboard!"
+msgstr "Имейлът е копиран в клипборда!"
+
+# AI Assistant
+#: templates/ai_assistant/suggestions.html:4
+#: templates/ai_assistant/suggestions.html:9
+msgid "AI Suggestions"
+msgstr "AI предложения"
+
+#: templates/ai_assistant/suggestions.html:10
+msgid "Smart recommendations from your AI assistant"
+msgstr "Интелигентни препоръки от вашия AI асистент"
+
+#: templates/ai_assistant/suggestions.html:14
+msgid "AI Chat"
+msgstr "AI чат"
+
+#: templates/ai_assistant/suggestions.html:42
+msgid "Apply"
+msgstr "Приложи"
+
+#: templates/ai_assistant/suggestions.html:45
+msgid "Dismiss"
+msgstr "Отхвърли"
+
+#: templates/ai_assistant/suggestions.html:55
+msgid "No suggestions yet"
+msgstr "Все още няма предложения"
+
+#: templates/ai_assistant/suggestions.html:56
+msgid "The AI assistant will provide suggestions as you use the CRM."
+msgstr "AI асистентът ще предоставя предложения, докато използвате CRM."
+
+#: templates/ai_assistant/suggestions.html:58
+msgid "Chat with AI"
+msgstr "Чат с AI"
+
+# Navigation
+#: templates/base.html:42 templates/crm/dashboard.html:4
+#: templates/crm/dashboard.html:12
+msgid "Dashboard"
+msgstr "Табло"
+
+#: templates/base.html:47 templates/crm/company_detail.html:83
+#: templates/crm/contact_list.html:4 templates/crm/contact_list.html:9
+#: templates/subscriptions/current.html:139
+msgid "Contacts"
+msgstr "Контакти"
+
+#: templates/base.html:52 templates/crm/company_list.html:4
+#: templates/crm/company_list.html:9 templates/crm/dashboard.html:49
+msgid "Companies"
+msgstr "Компании"
+
+#: templates/base.html:57 templates/crm/company_detail.html:108
+#: templates/crm/contact_detail.html:104 templates/crm/deal_list.html:4
+#: templates/crm/deal_list.html:9
+msgid "Deals"
+msgstr "Сделки"
+
+#: templates/base.html:62 templates/crm/contact_detail.html:129
+#: templates/crm/deal_detail.html:69 templates/crm/task_list.html:4
+#: templates/crm/task_list.html:9
+msgid "Tasks"
+msgstr "Задачи"
+
+#: templates/base.html:67 templates/invoices/invoice_list.html:4
+#: templates/invoices/invoice_list.html:9 templates/invoices/offer_list.html:13
+msgid "Invoices"
+msgstr "Фактури"
+
+# Templates
+#: templates/base.html:72 templates/templates/template_list.html:4
+msgid "Templates"
+msgstr "Шаблони"
+
+#: templates/base.html:126
+msgid "Signed in as"
+msgstr "Влезли сте като"
+
+#: templates/base.html:140
+msgid "Subscription"
+msgstr "Абонамент"
+
+#: templates/base.html:145
+#, fuzzy
+#| msgid "Stripe Settings"
+msgid "Settings"
+msgstr "Stripe настройки"
+
+#: templates/base.html:151
+msgid "Logout"
+msgstr "Изход"
+
+# Additional common phrases
+#: templates/base.html:196
+msgid "All rights reserved."
+msgstr "Всички права запазени."
+
+#: templates/base.html:200
+msgid "Полезни връзки"
+msgstr "Полезни връзки"
+
+#: templates/base.html:202 templates/faq/faq_home.html:12
+msgid "Често задавани въпроси"
+msgstr "Често задавани въпроси"
+
+#: templates/base.html:203
+msgid "Студио за шаблони"
+msgstr "Студио за шаблони"
+
+#: templates/base.html:204
+msgid "AI Асистент"
+msgstr "AI Асистент"
+
+#: templates/base.html:209
+msgid "Made with"
+msgstr "Направено с"
+
+#: templates/base.html:209
+msgid "using Django"
+msgstr "използвайки Django"
+
+#: templates/base.html:213
+msgid "Поддръжка"
+msgstr "Поддръжка"
+
+#: templates/crm/company_confirm_delete.html:4
+#: templates/crm/company_confirm_delete.html:31
+msgid "Delete Company"
+msgstr "Изтрий компания"
+
+#: templates/crm/company_confirm_delete.html:14
+msgid "Are you sure you want to delete this company?"
+msgstr "Сигурни ли сте, че искате да изтриете тази компания?"
+
+#: templates/crm/company_confirm_delete.html:21
+msgid ""
+"This action cannot be undone. All associated contacts, deals, and activities "
+"will remain but will no longer be linked to this company."
+msgstr ""
+"Това действие не може да бъде отменено. Всички свързани контакти, сделки и "
+"дейности ще останат, но няма да бъдат свързани с тази компания."
+
+#: templates/crm/company_detail.html:17 templates/crm/contact_detail.html:17
+#: templates/crm/deal_detail.html:19 templates/invoices/invoice_detail.html:23
+#: templates/invoices/offer_detail.html:28
+#: templates/templates/template_detail.html:22
+#: templates/templates/template_list.html:57
+#: templates/templates/template_preview.html:16
+msgid "Edit"
+msgstr "Редактирай"
+
+#: templates/crm/company_detail.html:20 templates/crm/contact_detail.html:20
+#: templates/crm/deal_detail.html:22
+#: templates/templates/template_detail.html:25
+msgid "Delete"
+msgstr "Изтрий"
+
+#: templates/crm/company_detail.html:35 templates/crm/company_list.html:39
+msgid "Website"
+msgstr "Уебсайт"
+
+#: templates/crm/company_detail.html:45 templates/crm/company_list.html:41
+#: templates/crm/contact_detail.html:40 templates/crm/contact_list.html:39
+msgid "Phone"
+msgstr "Телефон"
+
+#: templates/crm/company_detail.html:50 templates/crm/company_list.html:38
+msgid "Industry"
+msgstr "Индустрия"
+
+#: templates/crm/company_detail.html:55
+msgid "Employees"
+msgstr "Служители"
+
+#: templates/crm/company_detail.html:60
+msgid "Revenue"
+msgstr "Приходи"
+
+#: templates/crm/company_detail.html:65
+msgid "VAT"
+msgstr "ДДС"
+
+#: templates/crm/company_detail.html:70 templates/crm/contact_detail.html:50
+msgid "Address"
+msgstr "Адрес"
+
+#: templates/crm/company_detail.html:84 templates/crm/contact_form.html:6
+#: templates/crm/contact_form.html:19 templates/crm/contact_list.html:13
+#: templates/crm/dashboard.html:19
+msgid "New Contact"
+msgstr "Нов контакт"
+
+#: templates/crm/company_detail.html:100 templates/crm/dashboard.html:207
+msgid "No contacts yet"
+msgstr "Все още няма контакти"
+
+#: templates/crm/company_detail.html:109 templates/crm/contact_detail.html:105
+#: templates/crm/dashboard.html:22 templates/crm/deal_form.html:6
+#: templates/crm/deal_form.html:19 templates/crm/deal_list.html:13
+msgid "New Deal"
+msgstr "Нова сделка"
+
+#: templates/crm/company_detail.html:125 templates/crm/contact_detail.html:121
+#: templates/crm/dashboard.html:302
+msgid "No deals yet"
+msgstr "Все още няма сделки"
+
+# Additional common terms
+#: templates/crm/company_detail.html:133 templates/crm/contact_detail.html:155
+#: templates/crm/deal_detail.html:95
+msgid "Activities"
+msgstr "Дейности"
+
+#: templates/crm/company_detail.html:150 templates/crm/contact_detail.html:172
+#: templates/crm/dashboard.html:344 templates/crm/deal_detail.html:112
+msgid "No activities yet"
+msgstr "Все още няма дейности"
+
+#: templates/crm/company_form.html:6 templates/crm/company_form.html:19
+#: templates/crm/company_list.html:13
+msgid "New Company"
+msgstr "Нова компания"
+
+#: templates/crm/company_form.html:8 templates/crm/company_form.html:21
+msgid "Edit Company"
+msgstr "Редактирай компания"
+
+#: templates/crm/company_form.html:38
+msgid "Create Company"
+msgstr "Създай компания"
+
+#: templates/crm/company_list.html:22
+msgid "Search companies..."
+msgstr "Търсене на компании..."
+
+#: templates/crm/company_list.html:24 templates/crm/contact_list.html:24
+msgid "Search"
+msgstr "Търсене"
+
+#: templates/crm/company_list.html:37
+msgid "Company Name"
+msgstr "Име на компанията"
+
+#: templates/crm/company_list.html:42 templates/crm/contact_list.html:42
+#: templates/crm/deal_list.html:51 templates/invoices/invoice_list.html:58
+#: templates/invoices/offer_list.html:34
+#: templates/templates/email_template_detail.html:84
+#: templates/templates/email_template_list.html:31
+#: templates/templates/template_studio.html:555
+msgid "Actions"
+msgstr "Действия"
+
+#: templates/crm/company_list.html:78
+msgid "No companies found."
+msgstr "Не са намерени компании."
+
+#: templates/crm/company_list.html:79
+msgid "Create your first company"
+msgstr "Създайте вашата първа компания"
+
+#: templates/crm/company_list.html:93 templates/crm/contact_list.html:97
+#: templates/crm/deal_list.html:114 templates/crm/task_list.html:88
+#: templates/invoices/invoice_list.html:104
+msgid "Previous"
+msgstr "Предишна"
+
+#: templates/crm/company_list.html:103 templates/crm/contact_list.html:107
+#: templates/crm/deal_list.html:124 templates/crm/task_list.html:98
+#: templates/invoices/invoice_list.html:114
+msgid "Next"
+msgstr "Следваща"
+
+#: templates/crm/contact_confirm_delete.html:4
+#: templates/crm/contact_confirm_delete.html:31
+msgid "Delete Contact"
+msgstr "Изтрий контакт"
+
+#: templates/crm/contact_confirm_delete.html:14
+msgid "Are you sure you want to delete this contact?"
+msgstr "Сигурни ли сте, че искате да изтриете този контакт?"
+
+#: templates/crm/contact_confirm_delete.html:21
+msgid ""
+"This action cannot be undone. All associated activities and history will be "
+"removed."
+msgstr ""
+"Това действие не може да бъде отменено. Всички свързани дейности и история "
+"ще бъдат премахнати."
+
+#: templates/crm/contact_detail.html:12
+msgid "at"
+msgstr "в"
+
+#: templates/crm/contact_detail.html:30
+msgid "Contact Information"
+msgstr "Информация за контакт"
+
+#: templates/crm/contact_detail.html:45
+msgid "Mobile"
+msgstr "Мобилен"
+
+#: templates/crm/contact_detail.html:54 templates/crm/contact_list.html:41
+#: templates/crm/deal_list.html:50 templates/invoices/invoice_list.html:57
+#: templates/invoices/offer_list.html:33
+msgid "Status"
+msgstr "Статус"
+
+#: templates/crm/contact_detail.html:59 templates/crm/contact_list.html:67
+msgid "Inactive"
+msgstr "Неактивен"
+
+#: templates/crm/contact_detail.html:66
+msgid "Social Media"
+msgstr "Социални мрежи"
+
+# AI
+#: templates/crm/contact_detail.html:91
+msgid "AI Actions"
+msgstr "AI Действия"
+
+#: templates/crm/contact_detail.html:130 templates/crm/deal_detail.html:70
+#: templates/crm/task_form.html:6 templates/crm/task_form.html:19
+#: templates/crm/task_list.html:13
+msgid "New Task"
+msgstr "Нова задача"
+
+#: templates/crm/contact_detail.html:142 templates/crm/dashboard.html:245
+#: templates/crm/deal_detail.html:82 templates/invoices/invoice_detail.html:59
+msgid "Due:"
+msgstr "Падеж:"
+
+#: templates/crm/contact_detail.html:147 templates/crm/deal_detail.html:87
+msgid "No tasks yet"
+msgstr "Все още няма задачи"
+
+#: templates/crm/contact_form.html:8 templates/crm/contact_form.html:21
+msgid "Edit Contact"
+msgstr "Редактирай контакт"
+
+#: templates/crm/contact_form.html:38
+msgid "Create Contact"
+msgstr "Създай контакт"
+
+#: templates/crm/contact_list.html:22
+msgid "Search contacts..."
+msgstr "Търсене на контакти..."
+
+#: templates/crm/contact_list.html:37
+#: templates/templates/email_template_list.html:26
+#: templates/templates/template_studio.html:551
+msgid "Name"
+msgstr "Име"
+
+#: templates/crm/contact_list.html:82
+msgid "No contacts found."
+msgstr "Не са намерени контакти."
+
+#: templates/crm/contact_list.html:83
+msgid "Create your first contact"
+msgstr "Създайте вашия първи контакт"
+
+#: templates/crm/dashboard.html:14
+msgid "Welcome back! Here's what's happening with your business today."
+msgstr "Добре дошли обратно! Ето какво се случва с вашия бизнес днес."
+
+#: templates/crm/dashboard.html:36
+#, fuzzy
+#| msgid "Contacts"
+msgid "Total Contacts"
+msgstr "Контакти"
+
+#: templates/crm/dashboard.html:38 templates/crm/dashboard.html:51
+#: templates/crm/dashboard.html:64 templates/crm/dashboard.html:93
+#, fuzzy
+#| msgid "View All"
+msgid "View all"
+msgstr "Виж всички"
+
+#: templates/crm/dashboard.html:62
+msgid "Open Deals"
+msgstr "Отворени сделки"
+
+# Dashboard
+#: templates/crm/dashboard.html:75
+msgid "Pipeline Value"
+msgstr "Стойност на процеса"
+
+#: templates/crm/dashboard.html:77
+#, fuzzy
+#| msgid "New Pipeline"
+msgid "Active pipeline"
+msgstr "Нов процес"
+
+#: templates/crm/dashboard.html:91
+#, fuzzy
+#| msgid "Completed"
+msgid "Completed Tasks"
+msgstr "Завършена"
+
+#: templates/crm/dashboard.html:104
+#, fuzzy
+#| msgid "Revenue"
+msgid "Total Revenue"
+msgstr "Приходи"
+
+#: templates/crm/dashboard.html:106
+#, fuzzy
+#| msgid "New Invoice"
+msgid "View invoices"
+msgstr "Нова фактура"
+
+#: templates/crm/dashboard.html:117
+msgid "Average Deal Size"
+msgstr "Средна стойност на сделка"
+
+#: templates/crm/dashboard.html:119
+msgid "Growing"
+msgstr "Нараства"
+
+#: templates/crm/dashboard.html:130
+#, fuzzy
+#| msgid "Overdue"
+msgid "Overdue Tasks"
+msgstr "Просрочена"
+
+#: templates/crm/dashboard.html:133
+msgid "Needs attention"
+msgstr "Изисква внимание"
+
+#: templates/crm/dashboard.html:137
+msgid "All caught up!"
+msgstr "Всичко е изпълнено!"
+
+# Deal specific
+#: templates/crm/dashboard.html:152
+#, fuzzy
+#| msgid "Deal name"
+msgid "Deals by Stage"
+msgstr "Име на сделка"
+
+#: templates/crm/dashboard.html:154
+msgid "Visual representation of your sales pipeline"
+msgstr "Визуално представяне на вашия процес на продажби"
+
+#: templates/crm/dashboard.html:173
+msgid "Recent Contacts"
+msgstr "Последни контакти"
+
+#: templates/crm/dashboard.html:176 templates/crm/dashboard.html:227
+#: templates/crm/dashboard.html:273
+msgid "View All"
+msgstr "Виж всички"
+
+#: templates/crm/dashboard.html:209
+#, fuzzy
+#| msgid "Create your first contact"
+msgid "Add your first contact"
+msgstr "Създайте вашия първи контакт"
+
+#: templates/crm/dashboard.html:224
+msgid "Upcoming Tasks"
+msgstr "Предстоящи задачи"
+
+#: templates/crm/dashboard.html:253
+msgid "No upcoming tasks"
+msgstr "Няма предстоящи задачи"
+
+#: templates/crm/dashboard.html:255
+#, fuzzy
+#| msgid "Create Task"
+msgid "Create a task"
+msgstr "Създай задача"
+
+#: templates/crm/dashboard.html:270
+msgid "Recent Deals"
+msgstr "Последни сделки"
+
+#: templates/crm/dashboard.html:294
+#, fuzzy
+#| msgid "Probability"
+msgid "probability"
+msgstr "Вероятност"
+
+#: templates/crm/dashboard.html:304 templates/crm/deal_list.html:100
+msgid "Create your first deal"
+msgstr "Създайте вашата първа сделка"
+
+#: templates/crm/dashboard.html:318
+msgid "Recent Activities"
+msgstr "Последни дейности"
+
+#: templates/crm/dashboard.html:345
+msgid "Activities will appear here as you use the system"
+msgstr "Дейностите ще се показват тук, докато използвате системата"
+
+#: templates/crm/dashboard.html:367
+#, fuzzy
+#| msgid "New Deal"
+msgid "Number of Deals"
+msgstr "Нова сделка"
+
+#: templates/crm/deal_confirm_delete.html:4
+#: templates/crm/deal_confirm_delete.html:31
+msgid "Delete Deal"
+msgstr "Изтрий сделка"
+
+#: templates/crm/deal_confirm_delete.html:14
+msgid "Are you sure you want to delete this deal?"
+msgstr "Сигурни ли сте, че искате да изтриете тази сделка?"
+
+#: templates/crm/deal_confirm_delete.html:21
+msgid ""
+"This action cannot be undone. All associated tasks and activities will also "
+"be affected."
+msgstr ""
+"Това действие не може да бъде отменено. Всички свързани задачи и дейности "
+"също ще бъдат засегнати."
+
+#: templates/crm/deal_detail.html:31
+msgid "Deal Information"
+msgstr "Информация за сделка"
+
+#: templates/crm/deal_detail.html:35 templates/crm/deal_list.html:48
+msgid "Value"
+msgstr "Стойност"
+
+#: templates/crm/deal_detail.html:38
+msgid "Probability"
+msgstr "Вероятност"
+
+#: templates/crm/deal_detail.html:52
+msgid "Expected Close"
+msgstr "Очаквано затваряне"
+
+#: templates/crm/deal_detail.html:57
+msgid "Closed"
+msgstr "Затворена"
+
+#: templates/crm/deal_form.html:8 templates/crm/deal_form.html:21
+msgid "Edit Deal"
+msgstr "Редактирай сделка"
+
+#: templates/crm/deal_form.html:38
+msgid "Create Deal"
+msgstr "Създай сделка"
+
+#: templates/crm/deal_list.html:32 templates/crm/task_list.html:29
+#: templates/invoices/invoice_list.html:38
+msgid "All"
+msgstr "Всички"
+
+#: templates/crm/deal_list.html:45
+msgid "Deal Name"
+msgstr "Име на сделка"
+
+#: templates/crm/deal_list.html:49
+msgid "Stage"
+msgstr "Етап"
+
+# Deals
+#: templates/crm/deal_list.html:99
+msgid "No deals found."
+msgstr "Не са намерени сделки."
+
+#: templates/crm/pipeline_form.html:6 templates/crm/pipeline_form.html:19
+#: templates/crm/pipeline_list.html:13
+msgid "New Pipeline"
+msgstr "Нов процес"
+
+#: templates/crm/pipeline_form.html:8 templates/crm/pipeline_form.html:21
+msgid "Edit Pipeline"
+msgstr "Редактирай процес"
+
+#: templates/crm/pipeline_form.html:37 templates/crm/pipeline_list.html:56
+msgid "Create Pipeline"
+msgstr "Създай процес"
+
+# Pipelines
+#: templates/crm/pipeline_list.html:4
+msgid "Pipelines"
+msgstr "Процеси"
+
+#: templates/crm/pipeline_list.html:9
+msgid "Sales Pipelines"
+msgstr "Процеси на продажби"
+
+#: templates/crm/pipeline_list.html:27
+#: templates/invoices/send_email_form.html:71
+#: templates/templates/email_template_list.html:40
+#: templates/templates/template_detail.html:13
+#: templates/templates/template_detail.html:42
+#: templates/templates/template_list.html:33
+#: templates/templates/template_studio.html:564
+msgid "Default"
+msgstr "По подразбиране"
+
+#: templates/crm/pipeline_list.html:36
+msgid "Stages"
+msgstr "Етапи"
+
+#: templates/crm/pipeline_list.html:44
+msgid "No stages defined"
+msgstr "Няма дефинирани етапи"
+
+#: templates/crm/pipeline_list.html:53
+msgid "No pipelines yet"
+msgstr "Все още няма процеси"
+
+#: templates/crm/pipeline_list.html:54
+msgid "Create your first sales pipeline to start tracking deals."
+msgstr "Създайте вашия първи процес на продажби, за да започнете да следите сделки."
+"Създайте вашия първи процес на продажби, за да започнете да следите сделки."
+
+#: templates/crm/task_confirm_delete.html:4
+#: templates/crm/task_confirm_delete.html:31
+msgid "Delete Task"
+msgstr "Изтрий задача"
+
+#: templates/crm/task_confirm_delete.html:14
+msgid "Are you sure you want to delete this task?"
+msgstr "Сигурни ли сте, че искате да изтриете тази задача?"
+
+#: templates/crm/task_confirm_delete.html:21
+#: templates/invoices/offer_confirm_delete.html:22
+#: templates/templates/email_template_confirm_delete.html:21
+msgid "This action cannot be undone."
+msgstr "Това действие не може да бъде отменено."
+
+#: templates/crm/task_form.html:8 templates/crm/task_form.html:21
+msgid "Edit Task"
+msgstr "Редактирай задача"
+
+#: templates/crm/task_form.html:37
+msgid "Create Task"
+msgstr "Създай задача"
+
+#: templates/crm/task_list.html:23
+msgid "Pending"
+msgstr "Чакаща"
+
+#: templates/crm/task_list.html:26
+msgid "Completed"
+msgstr "Завършена"
+
+# Tasks
+#: templates/crm/task_list.html:75
+msgid "No tasks found."
+msgstr "Не са намерени задачи."
+
+#: templates/crm/task_list.html:77
+msgid "Create your first task"
+msgstr "Създайте вашата първа задача"
+
+#: templates/faq/faq_category.html:22 templates/faq/faq_home.html:76
+msgid "въпроса"
+msgstr "въпроса"
+
+#: templates/faq/faq_category.html:42 templates/faq/faq_search.html:58
+msgid "Прочети повече"
+msgstr "Прочети повече"
+
+#: templates/faq/faq_category.html:53
+msgid "Все още няма въпроси в тази категория."
+msgstr "Все още няма въпроси в тази категория."
+
+#: templates/faq/faq_category.html:62
+msgid "Обратно към всички категории"
+msgstr "Обратно към всички категории"
+
+#: templates/faq/faq_detail.html:33
+msgid "прегледи"
+msgstr "прегледи"
+
+#: templates/faq/faq_detail.html:46
+msgid "Подробно ръководство"
+msgstr "Подробно ръководство"
+
+#: templates/faq/faq_detail.html:57
+msgid "Беше ли полезно?"
+msgstr "Беше ли полезно?"
+
+#: templates/faq/faq_detail.html:59
+msgid "Да"
+msgstr "Да"
+
+#: templates/faq/faq_detail.html:62
+msgid "Не"
+msgstr "Не"
+
+#: templates/faq/faq_detail.html:68
+msgid "Последна актуализация"
+msgstr "Последна актуализация"
+
+#: templates/faq/faq_detail.html:82
+msgid "Свързани въпроси"
+msgstr "Свързани въпроси"
+
+#: templates/faq/faq_detail.html:98
+msgid "Обратно към"
+msgstr "Обратно към"
+
+#: templates/faq/faq_detail.html:101
+msgid "Всички категории"
+msgstr "Всички категории"
+
+#: templates/faq/faq_home.html:4
+msgid "Често задавани въпроси (FAQ)"
+msgstr "Често задавани въпроси (FAQ)"
+
+#: templates/faq/faq_home.html:14
+msgid "Намерете отговори на най-често задаваните въпроси"
+msgstr "Намерете отговори на най-често задаваните въпроси"
+
+#: templates/faq/faq_home.html:23 templates/faq/faq_search.html:21
+msgid "Търсете въпроси..."
+msgstr "Търсете въпроси..."
+
+#: templates/faq/faq_home.html:26 templates/faq/faq_search.html:24
+msgid "Търси"
+msgstr "Търси"
+
+#: templates/faq/faq_home.html:38
+msgid "Препоръчани въпроси"
+msgstr "Препоръчани въпроси"
+
+#: templates/faq/faq_home.html:64
+msgid "Категории"
+msgstr "Категории"
+
+#: templates/faq/faq_home.html:110
+msgid "Виж пълното ръководство"
+msgstr "Виж пълното ръководство"
+
+#: templates/faq/faq_home.html:124
+msgid "Не намирате отговор на въпроса си?"
+msgstr "Не намирате отговор на въпроса си?"
+
+#: templates/faq/faq_home.html:125
+msgid "Свържете се с нас за допълнителна помощ"
+msgstr "Свържете се с нас за допълнителна помощ"
+
+#: templates/faq/faq_home.html:127
+msgid "Свържете се с нас"
+msgstr "Свържете се с нас"
+
+#: templates/faq/faq_search.html:4
+msgid "Търсене в FAQ"
+msgstr "Търсене в FAQ"
+
+#: templates/faq/faq_search.html:11
+msgid "Търсене"
+msgstr "Търсене"
+
+#: templates/faq/faq_search.html:37
+msgid "Намерени"
+msgstr "Намерени"
+
+#: templates/faq/faq_search.html:37
+msgid "резултата за"
+msgstr "резултата за"
+
+#: templates/faq/faq_search.html:39
+msgid "Няма резултати за"
+msgstr "Няма резултати за"
+
+#: templates/faq/faq_search.html:65
+msgid "Не са намерени резултати. Опитайте с други ключови думи."
+msgstr "Не са намерени резултати. Опитайте с други ключови думи."
+
+#: templates/faq/faq_search.html:75
+msgid "Обратно към FAQ"
+msgstr "Обратно към FAQ"
+
+#: templates/invoices/email_invoice.html:78
+msgid "Thank you for your business. Please find your invoice details below."
+msgstr "Благодарим ви за бизнеса. Моля, намерете детайлите на вашата фактура по-долу."
+
+#: templates/invoices/email_invoice.html:86
+msgid "Invoice Date"
+msgstr "Дата на фактура"
+
+#: templates/invoices/email_invoice.html:100
+#, fuzzy
+#| msgid "New Invoice"
+msgid "View Invoice PDF"
+msgstr "Нова фактура"
+
+#: templates/invoices/email_invoice.html:105
+msgid "Pay Now"
+msgstr "Платете сега"
+
+#: templates/invoices/email_invoice.html:109
+msgid "If you have any questions about this invoice, please contact us."
+msgstr "Ако имате въпроси относно тази фактура, моля свържете се с нас."
+
+#: templates/invoices/email_invoice.html:116
+#: templates/invoices/email_offer.html:110
+msgid ""
+"This is an automated email. Please do not reply directly to this message."
+msgstr ""
+
+#: templates/invoices/email_offer.html:78
+msgid ""
+"We are pleased to present you with this offer. Please find the details below."
+msgstr ""
+
+#: templates/invoices/email_offer.html:86
+#, fuzzy
+#| msgid "Offer #"
+msgid "Offer Date"
+msgstr "Оферта №"
+
+#: templates/invoices/email_offer.html:100
+#, fuzzy
+#| msgid "New Offer"
+msgid "View Offer PDF"
+msgstr "Нова оферта"
+
+#: templates/invoices/email_offer.html:103
+msgid "This offer is valid until"
+msgstr "Тази оферта е валидна до"
+
+#: templates/invoices/email_offer.html:103
+msgid "Please let us know if you have any questions or would like to proceed."
+msgstr "Моля, уведомете ни ако имате въпроси или желаете да продължите."
+
+#: templates/invoices/invoice_confirm_delete.html:4
+#: templates/invoices/invoice_confirm_delete.html:32
+msgid "Delete Invoice"
+msgstr "Изтрий фактура"
+
+#: templates/invoices/invoice_confirm_delete.html:14
+msgid "Are you sure you want to delete this invoice?"
+msgstr "Сигурни ли сте, че искате да изтриете тази фактура?"
+
+#: templates/invoices/invoice_confirm_delete.html:22
+msgid ""
+"This action cannot be undone. All associated payments will remain but will "
+"be unlinked."
+msgstr ""
+"Това действие не може да бъде отменено. Всички свързани плащания ще останат, "
+"но ще бъдат откачени."
+
+# Common
+#: templates/invoices/invoice_detail.html:14
+#: templates/invoices/offer_detail.html:14
+#, fuzzy
+#| msgid "Email"
+msgid "Email Sent"
+msgstr "Имейл"
+
+#: templates/invoices/invoice_detail.html:26
+msgid "PDF"
+msgstr "PDF"
+
+#: templates/invoices/invoice_detail.html:29
+#: templates/invoices/offer_detail.html:31
+#: templates/templates/template_preview.html:28
+msgid "Print"
+msgstr "Печат"
+
+#: templates/invoices/invoice_detail.html:35
+#: templates/invoices/offer_detail.html:37
+msgid "Send Email to Client"
+msgstr "Изпрати имейл до клиент"
+
+#: templates/invoices/invoice_detail.html:38
+#: templates/invoices/offer_detail.html:40
+msgid "Client email address is missing"
+msgstr "Липсва имейл адрес на клиент"
+
+#: templates/invoices/invoice_detail.html:39
+#: templates/invoices/offer_detail.html:41
+#, fuzzy
+#| msgid "Address"
+msgid "No Email Address"
+msgstr "Адрес"
+
+#: templates/invoices/invoice_detail.html:51
+#: templates/templates/template_preview.html:56
+msgid "INVOICE"
+msgstr "ФАКТУРА"
+
+#: templates/invoices/invoice_detail.html:58
+#: templates/invoices/offer_detail.html:67
+#: templates/templates/template_preview.html:62
+msgid "Date:"
+msgstr "Дата:"
+
+#: templates/invoices/invoice_detail.html:67
+#: templates/invoices/offer_detail.html:76
+msgid "From:"
+msgstr "От:"
+
+#: templates/invoices/invoice_detail.html:69
+#: templates/invoices/invoice_detail.html:76
+msgid "VAT:"
+msgstr "ДДС:"
+
+#: templates/invoices/invoice_detail.html:74
+#: templates/templates/template_preview.html:66
+msgid "Bill To:"
+msgstr "Фактуриране на:"
+
+#: templates/invoices/invoice_detail.html:87
+#: templates/invoices/invoice_form.html:131
+#: templates/invoices/offer_detail.html:93
+#: templates/invoices/offer_form.html:101
+#: templates/templates/template_preview.html:76
+msgid "Description"
+msgstr "Описание"
+
+#: templates/invoices/invoice_detail.html:88
+#: templates/invoices/offer_detail.html:94
+#: templates/templates/template_preview.html:77
+msgid "Qty"
+msgstr "Кол."
+
+#: templates/invoices/invoice_detail.html:89
+#: templates/invoices/offer_detail.html:95
+#: templates/templates/template_preview.html:78
+msgid "Unit Price"
+msgstr "Единична цена"
+
+#: templates/invoices/invoice_detail.html:90
+#: templates/invoices/offer_detail.html:96
+#: templates/templates/template_preview.html:79
+msgid "Total"
+msgstr "Общо"
+
+#: templates/invoices/invoice_detail.html:105
+#: templates/invoices/offer_detail.html:111
+#: templates/templates/template_preview.html:94
+msgid "Subtotal:"
+msgstr "Междинна сума:"
+
+#: templates/invoices/invoice_detail.html:109
+#: templates/invoices/offer_detail.html:115
+msgid "Tax"
+msgstr "Данък"
+
+#: templates/invoices/invoice_detail.html:113
+#: templates/invoices/offer_detail.html:119
+#: templates/templates/template_preview.html:102
+msgid "TOTAL:"
+msgstr "ОБЩО:"
+
+#: templates/invoices/invoice_detail.html:117
+msgid "Paid:"
+msgstr "Платено:"
+
+#: templates/invoices/invoice_detail.html:121
+msgid "Balance Due:"
+msgstr "Дължима сума:"
+
+#: templates/invoices/invoice_detail.html:132
+msgid "Scan to Pay"
+msgstr "Сканирайте за плащане"
+
+#: templates/invoices/invoice_detail.html:137
+msgid "Pay Online"
+msgstr "Платете онлайн"
+
+#: templates/invoices/invoice_detail.html:149
+#: templates/invoices/offer_detail.html:129
+msgid "Notes:"
+msgstr "Бележки:"
+
+#: templates/invoices/invoice_detail.html:154
+#: templates/invoices/offer_detail.html:134
+msgid "Terms & Conditions:"
+msgstr "Общи условия:"
+
+# Payments
+#: templates/invoices/invoice_detail.html:167
+#: templates/invoices/payment_list.html:4
+#: templates/invoices/payment_list.html:9
+msgid "Payments"
+msgstr "Плащания"
+
+#: templates/invoices/invoice_detail.html:169
+#: templates/invoices/payment_form.html:4
+#: templates/invoices/payment_form.html:12
+#: templates/invoices/payment_form.html:30
+#: templates/invoices/payment_list.html:13
+msgid "Record Payment"
+msgstr "Запиши плащане"
+
+#: templates/invoices/invoice_detail.html:178
+#: templates/invoices/invoice_list.html:55
+#: templates/invoices/offer_list.html:32
+#: templates/invoices/payment_list.html:25
+msgid "Amount"
+msgstr "Сума"
+
+#: templates/invoices/invoice_detail.html:179
+#: templates/invoices/payment_list.html:26
+msgid "Method"
+msgstr "Метод"
+
+#: templates/invoices/invoice_detail.html:180
+#: templates/invoices/payment_list.html:28
+msgid "Reference"
+msgstr "Референция"
+
+#: templates/invoices/invoice_detail.html:195
+msgid "No payments recorded yet"
+msgstr "Все още няма записани плащания"
+
+#: templates/invoices/invoice_form.html:6
+#: templates/invoices/invoice_form.html:19
+#: templates/invoices/invoice_list.html:16
+msgid "New Invoice"
+msgstr "Нова фактура"
+
+#: templates/invoices/invoice_form.html:8
+#: templates/invoices/invoice_form.html:21
+msgid "Edit Invoice"
+msgstr "Редактирай фактура"
+
+#: templates/invoices/invoice_form.html:31
+#: templates/invoices/offer_form.html:31
+msgid "Please correct the errors below:"
+msgstr "Моля, коригирайте грешките по-долу:"
+
+#: templates/invoices/invoice_form.html:43
+#: templates/invoices/offer_form.html:43
+#, fuzzy
+#| msgid "Items"
+msgid "Item"
+msgstr "Артикули"
+
+#: templates/invoices/invoice_form.html:75
+msgid "Client Information"
+msgstr "Информация за клиент"
+
+#: templates/invoices/invoice_form.html:92
+#: templates/invoices/offer_form.html:62
+msgid "Items"
+msgstr "Артикули"
+
+#: templates/invoices/invoice_form.html:94
+#: templates/invoices/offer_form.html:64
+msgid "Add Row"
+msgstr "Добави ред"
+
+#: templates/invoices/invoice_form.html:112
+#: templates/invoices/invoice_form.html:148
+#: templates/invoices/offer_form.html:82 templates/invoices/offer_form.html:118
+msgid "Remove item"
+msgstr "Премахни артикул"
+
+#: templates/invoices/invoice_form.html:113
+#: templates/invoices/invoice_form.html:149
+#: templates/invoices/offer_form.html:83 templates/invoices/offer_form.html:119
+msgid "Remove"
+msgstr "Премахни"
+
+#: templates/invoices/invoice_form.html:137
+#: templates/invoices/offer_form.html:107
+msgid "Quantity"
+msgstr "Количество"
+
+#: templates/invoices/invoice_form.html:143
+#: templates/invoices/offer_form.html:113
+#, fuzzy
+#| msgid "Unit Price"
+msgid "Unit price"
+msgstr "Единична цена"
+
+#: templates/invoices/invoice_form.html:162
+msgid "Financial Settings"
+msgstr "Финансови настройки"
+
+#: templates/invoices/invoice_form.html:182
+msgid "Payment Settings"
+msgstr "Настройки на плащане"
+
+#: templates/invoices/invoice_form.html:184
+msgid ""
+"Add a Stripe payment link to generate a QR code for easy customer payments."
+msgstr ""
+"Добавете Stripe линк за плащане, за да генерирате QR код за лесни плащания "
+"от клиенти."
+
+#: templates/invoices/invoice_form.html:199
+msgid "Create Invoice"
+msgstr "Създай фактура"
+
+# Offers
+#: templates/invoices/invoice_list.html:13 templates/invoices/offer_list.html:4
+#: templates/invoices/offer_list.html:9
+msgid "Offers"
+msgstr "Оферти"
+
+#: templates/invoices/invoice_list.html:51
+msgid "Invoice #"
+msgstr "Фактура №"
+
+#: templates/invoices/invoice_list.html:52
+#: templates/invoices/offer_list.html:29
+#: templates/invoices/send_email_form.html:35
+msgid "Client"
+msgstr "Клиент"
+
+# Invoices
+#: templates/invoices/invoice_list.html:89
+msgid "No invoices found."
+msgstr "Не са намерени фактури."
+
+#: templates/invoices/invoice_list.html:90
+msgid "Create your first invoice"
+msgstr "Създайте вашата първа фактура"
+
+#: templates/invoices/offer_confirm_delete.html:4
+#: templates/invoices/offer_confirm_delete.html:32
+msgid "Delete Offer"
+msgstr "Изтрий оферта"
+
+#: templates/invoices/offer_confirm_delete.html:14
+msgid "Are you sure you want to delete this offer?"
+msgstr "Сигурни ли сте, че искате да изтриете тази оферта?"
+
+#: templates/invoices/offer_detail.html:24
+#: templates/invoices/offer_list.html:58
+msgid "Convert to Invoice"
+msgstr "Преобразувай във фактура"
+
+#: templates/invoices/offer_detail.html:50
+msgid "This offer has been converted to"
+msgstr "Тази оферта беше преобразувана в"
+
+#: templates/invoices/offer_detail.html:63
+#: templates/templates/template_preview.html:58
+msgid "OFFER"
+msgstr "ОФЕРТА"
+
+#: templates/invoices/offer_detail.html:68
+msgid "Valid Until:"
+msgstr "Валидна до:"
+
+#: templates/invoices/offer_detail.html:81
+msgid "To:"
+msgstr "До:"
+
+#: templates/invoices/offer_form.html:6 templates/invoices/offer_form.html:19
+#: templates/invoices/offer_list.html:16
+msgid "New Offer"
+msgstr "Нова оферта"
+
+#: templates/invoices/offer_form.html:8 templates/invoices/offer_form.html:21
+msgid "Edit Offer"
+msgstr "Редактирай оферта"
+
+#: templates/invoices/offer_form.html:138
+msgid "Create Offer"
+msgstr "Създай оферта"
+
+#: templates/invoices/offer_list.html:28
+msgid "Offer #"
+msgstr "Оферта №"
+
+#: templates/invoices/offer_list.html:67
+msgid "No offers found."
+msgstr "Не са намерени оферти."
+
+#: templates/invoices/offer_list.html:68
+msgid "Create your first offer"
+msgstr "Създайте вашата първа оферта"
+
+#: templates/invoices/payment_form.html:18
+msgid ""
+"Record payments received from customers. The system will automatically try "
+"to match payments to invoices."
+msgstr ""
+"Записвайте получени плащания от клиенти. Системата автоматично ще опита да "
+"съпостави плащанията с фактури."
+
+#: templates/invoices/payment_list.html:29
+#: templates/invoices/payment_list.html:50
+msgid "Matched"
+msgstr "Съпоставено"
+
+#: templates/invoices/payment_list.html:52
+msgid "Unmatched"
+msgstr "Несъпоставено"
+
+#: templates/invoices/payment_list.html:59
+msgid "No payments recorded."
+msgstr "Няма записани плащания."
+
+#: templates/invoices/payment_list.html:60
+msgid "Record your first payment"
+msgstr "Запишете вашето първо плащане"
+
+#: templates/invoices/send_email_form.html:5
+#: templates/invoices/send_email_form.html:117
+#, fuzzy
+#| msgid "Generated Email"
+msgid "Send Email"
+msgstr "Генериран имейл"
+
+#: templates/invoices/send_email_form.html:18
+#, fuzzy
+#| msgid "Invoice Details"
+msgid "Send Invoice Email"
+msgstr "Детайли на фактура"
+
+#: templates/invoices/send_email_form.html:20
+#, fuzzy
+#| msgid "Generate Email"
+msgid "Send Offer Email"
+msgstr "Генерирай имейл"
+
+#: templates/invoices/send_email_form.html:58
+#, fuzzy
+#| msgid "Edit Template"
+msgid "Email Template"
+msgstr "Редактирай шаблон"
+
+#: templates/invoices/send_email_form.html:63
+#, fuzzy
+#| msgid "Default Template"
+msgid "Use Default Template"
+msgstr "Шаблон по подразбиране"
+
+#: templates/invoices/send_email_form.html:74
+#: templates/templates/email_template_list.html:43
+#: templates/templates/template_studio.html:567
+msgid "AI"
+msgstr "AI"
+
+#: templates/invoices/send_email_form.html:80
+msgid "Select a custom email template or use the default one"
+msgstr "Изберете персонализиран имейл шаблон или използвайте този по подразбиране"
+
+#: templates/invoices/send_email_form.html:87
+#: templates/templates/template_preview.html:9
+msgid "Template Preview"
+msgstr "Преглед на шаблон"
+
+#: templates/invoices/send_email_form.html:89
+#: templates/templates/email_template_list.html:28
+#: templates/templates/template_studio.html:553
+msgid "Subject"
+msgstr "Тема"
+
+#: templates/invoices/send_email_form.html:93
+msgid "Template variables will be replaced with actual values when sent"
+msgstr "Променливите на шаблона ще бъдат заменени с реални стойности при изпращане"
+
+#: templates/invoices/send_email_form.html:101
+msgid "You don't have any custom email templates yet."
+msgstr "Все още нямате персонализирани имейл шаблони."
+
+#: templates/invoices/send_email_form.html:102
+msgid "The default template will be used."
+msgstr "Ще се използва шаблонът по подразбиране."
+
+#: templates/invoices/send_email_form.html:104
+#, fuzzy
+#| msgid "Welcome to the Template Studio!"
+msgid "Create one in the Template Studio"
+msgstr "Добре дошли в Студиото за шаблони!"
+
+#: templates/invoices/send_email_form.html:127
+msgid "Tip"
+msgstr "Съвет"
+
+#: templates/invoices/send_email_form.html:129
+msgid "You can create custom email templates with AI in the"
+msgstr "Можете да създадете персонализирани имейл шаблони с AI в"
+
+#: templates/invoices/send_email_form.html:131
+msgid "Custom templates let you personalize your email design and content."
+msgstr "Персонализираните шаблони ви позволяват да персонализирате дизайна и съдържанието на вашия имейл."
+
+#: templates/subscriptions/cancel_confirm.html:4
+#: templates/subscriptions/cancel_confirm.html:11
+#: templates/subscriptions/cancel_confirm.html:33
+#: templates/subscriptions/current.html:108
+msgid "Cancel Subscription"
+msgstr "Анулирай абонамент"
+
+#: templates/subscriptions/cancel_confirm.html:14
+msgid "Are you sure you want to cancel your subscription?"
+msgstr "Сигурни ли сте, че искате да анулирате вашия абонамент?"
+
+#: templates/subscriptions/cancel_confirm.html:17
+msgid "What happens when you cancel:"
+msgstr "Какво се случва, когато анулирате:"
+
+#: templates/subscriptions/cancel_confirm.html:19
+msgid "You'll be downgraded to the Free plan"
+msgstr "Ще бъдете понижени до безплатния план"
+
+#: templates/subscriptions/cancel_confirm.html:20
+msgid "Access to paid features will be removed"
+msgstr "Достъпът до платени функции ще бъде премахнат"
+
+#: templates/subscriptions/cancel_confirm.html:21
+msgid "Your data will be preserved"
+msgstr "Вашите данни ще бъдат запазени"
+
+#: templates/subscriptions/cancel_confirm.html:22
+msgid "You can upgrade again at any time"
+msgstr "Можете да надстроите отново по всяко време"
+
+#: templates/subscriptions/cancel_confirm.html:30
+msgid "Keep My Subscription"
+msgstr "Запази моя абонамент"
+
+# Subscription
+#: templates/subscriptions/current.html:4
+#: templates/subscriptions/current.html:9
+msgid "My Subscription"
+msgstr "Моят абонамент"
+
+#: templates/subscriptions/current.html:13
+msgid "Change Plan"
+msgstr "Промени план"
+
+#: templates/subscriptions/current.html:23
+#: templates/subscriptions/plans.html:21 templates/subscriptions/plans.html:84
+msgid "Current Plan"
+msgstr "Текущ план"
+
+#: templates/subscriptions/current.html:42
+msgid "Plan Limits"
+msgstr "Лимити на план"
+
+#: templates/subscriptions/current.html:75
+#: templates/subscriptions/plans.html:65
+msgid "Basic CRM"
+msgstr "Основна CRM"
+
+#: templates/subscriptions/current.html:76
+#: templates/subscriptions/plans.html:66
+msgid "Advanced CRM"
+msgstr "Разширена CRM"
+
+#: templates/subscriptions/current.html:77
+#: templates/subscriptions/plans.html:67
+msgid "Basic Templates"
+msgstr "Основни шаблони"
+
+#: templates/subscriptions/current.html:78
+#: templates/subscriptions/plans.html:68
+msgid "Advanced Templates"
+msgstr "Разширени шаблони"
+
+#: templates/subscriptions/current.html:79
+#: templates/subscriptions/plans.html:69
+msgid "Email Integration"
+msgstr "Имейл интеграция"
+
+#: templates/subscriptions/current.html:80
+#: templates/subscriptions/plans.html:70
+msgid "Basic AI"
+msgstr "Основен AI"
+
+#: templates/subscriptions/current.html:81
+#: templates/subscriptions/plans.html:71
+msgid "Advanced AI"
+msgstr "Разширен AI"
+
+#: templates/subscriptions/current.html:82
+#: templates/subscriptions/plans.html:72
+msgid "Custom Fields"
+msgstr "Персонализирани полета"
+
+#: templates/subscriptions/current.html:83
+#: templates/subscriptions/plans.html:73
+msgid "API Access"
+msgstr "Достъп до API"
+
+#: templates/subscriptions/current.html:84
+#: templates/subscriptions/plans.html:74
+msgid "Priority Support"
+msgstr "Приоритетна поддръжка"
+
+#: templates/subscriptions/current.html:85
+#: templates/subscriptions/plans.html:75
+msgid "White Label"
+msgstr "Бял етикет"
+
+#: templates/subscriptions/current.html:94
+msgid "Next billing date:"
+msgstr "Следваща дата на фактуриране:"
+
+#: templates/subscriptions/current.html:101
+msgid "Your subscription will be cancelled at the end of the current period."
+msgstr "Вашият абонамент ще бъде анулиран в края на текущия период."
+
+#: templates/subscriptions/current.html:119
+msgid "Usage This Month"
+msgstr "Използване през този месец"
+
+#: templates/subscriptions/current.html:122
+msgid "AI Requests"
+msgstr "AI заявки"
+
+#: templates/subscriptions/current.html:134
+msgid "Resets on:"
+msgstr "Нулира се на:"
+
+#: templates/subscriptions/current.html:151
+msgid "Team Members"
+msgstr "Членове на екипа"
+
+#: templates/subscriptions/current.html:166
+msgid "Subscription History"
+msgstr "История на абонамента"
+
+#: templates/subscriptions/current.html:186
+msgid "No history yet"
+msgstr "Все още няма история"
+
+#: templates/subscriptions/current.html:198
+msgid "Upgrade for More Features"
+msgstr "Надстройте за повече функции"
+
+#: templates/subscriptions/current.html:199
+msgid ""
+"Unlock advanced features, more contacts, and unlimited AI requests with our "
+"paid plans."
+msgstr ""
+"Отключете разширени функции, повече контакти и неограничени AI заявки с "
+"нашите платени планове."
+
+#: templates/subscriptions/current.html:201
+msgid "View Plans"
+msgstr "Виж плановете"
+
+#: templates/subscriptions/plans.html:4
+msgid "Subscription Plans"
+msgstr "Абонаментни планове"
+
+#: templates/subscriptions/plans.html:9
+msgid "Choose Your Plan"
+msgstr "Изберете вашия план"
+
+#: templates/subscriptions/plans.html:10
+msgid "Select the perfect plan for your business needs"
+msgstr "Изберете перфектния план за нуждите на вашия бизнес"
+
+#: templates/subscriptions/plans.html:40 templates/subscriptions/plans.html:48
+#: templates/subscriptions/plans.html:56
+msgid "Unlimited"
+msgstr "Неограничен"
+
+#: templates/subscriptions/plans.html:56
+msgid "AI requests"
+msgstr "AI заявки"
+
+#: templates/subscriptions/plans.html:89
+msgid "Downgrade to Free"
+msgstr "Понижи до безплатен"
+
+#: templates/subscriptions/plans.html:91
+msgid "Upgrade Now"
+msgstr "Надстрой сега"
+
+#: templates/subscriptions/plans.html:104
+msgid "All plans include 30-day money-back guarantee"
+msgstr "Всички планове включват 30-дневна гаранция за връщане на парите"
+
+#: templates/subscriptions/plans.html:105
+msgid "View Current Subscription"
+msgstr "Виж текущия абонамент"
+
+#: templates/templates/email_template_confirm_delete.html:4
+#: templates/templates/email_template_confirm_delete.html:12
+#, fuzzy
+#| msgid "Delete Template"
+msgid "Delete Email Template"
+msgstr "Изтрий шаблон"
+
+#: templates/templates/email_template_confirm_delete.html:16
+#, fuzzy
+#| msgid "Are you sure you want to delete this template?"
+msgid "Are you sure you want to delete this email template?"
+msgstr "Сигурни ли сте, че искате да изтриете този шаблон?"
+
+#: templates/templates/email_template_confirm_delete.html:27
+#, fuzzy
+#| msgid "Delete"
+msgid "Yes, Delete"
+msgstr "Изтрий"
+
+#: templates/templates/email_template_detail.html:14
+#: templates/templates/template_preview.html:13
+msgid "Back"
+msgstr "Назад"
+
+#: templates/templates/email_template_detail.html:23
+#: templates/templates/template_studio.html:506
+#, fuzzy
+#| msgid "Live Preview"
+msgid "Email Preview"
+msgstr "Преглед на живо"
+
+#: templates/templates/email_template_detail.html:27
+#: templates/templates/template_studio.html:649
+msgid "Subject:"
+msgstr "Тема:"
+
+#: templates/templates/email_template_detail.html:39
+#, fuzzy
+#| msgid "Template Information"
+msgid "Template Info"
+msgstr "Информация за шаблон"
+
+#: templates/templates/email_template_detail.html:43
+#, fuzzy
+#| msgid "Type"
+msgid "Type:"
+msgstr "Тип"
+
+#: templates/templates/email_template_detail.html:46
+#, fuzzy
+#| msgid "Default"
+msgid "Default:"
+msgstr "По подразбиране"
+
+#: templates/templates/email_template_detail.html:49
+#: templates/templates/email_template_detail.html:58
+#: templates/templates/template_detail.html:45
+msgid "Yes"
+msgstr "Да"
+
+#: templates/templates/email_template_detail.html:51
+#: templates/templates/email_template_detail.html:60
+#: templates/templates/template_detail.html:47
+msgid "No"
+msgstr "Не"
+
+#: templates/templates/email_template_detail.html:55
+#, fuzzy
+#| msgid "Generated Email"
+msgid "AI Generated:"
+msgstr "Генериран имейл"
+
+#: templates/templates/email_template_detail.html:64
+msgid "Times Sent:"
+msgstr "Пъти изпратен:"
+
+#: templates/templates/email_template_detail.html:67
+#, fuzzy
+#| msgid "Last name"
+msgid "Last Used:"
+msgstr "Фамилия"
+
+#: templates/templates/email_template_detail.html:70
+#: templates/templates/template_list.html:65
+msgid "Created:"
+msgstr "Създаден:"
+
+#: templates/templates/email_template_detail.html:76
+msgid "AI Prompt"
+msgstr "AI подкана"
+
+#: templates/templates/email_template_detail.html:89
+#: templates/templates/template_confirm_delete.html:14
+msgid "Are you sure you want to delete this template?"
+msgstr "Сигурни ли сте, че искате да изтриете този шаблон?"
+
+#: templates/templates/email_template_detail.html:90
+#: templates/templates/template_confirm_delete.html:4
+#: templates/templates/template_confirm_delete.html:33
+msgid "Delete Template"
+msgstr "Изтрий шаблон"
+
+#: templates/templates/email_template_list.html:4
+#: templates/templates/email_template_list.html:9
+#: templates/templates/template_studio.html:31
+#, fuzzy
+#| msgid "Basic Templates"
+msgid "Email Templates"
+msgstr "Основни шаблони"
+
+#: templates/templates/email_template_list.html:10
+msgid "Manage your email templates"
+msgstr "Управлявайте вашите имейл шаблони"
+
+#: templates/templates/email_template_list.html:14
+#: templates/templates/email_template_list.html:72
+#, fuzzy
+#| msgid "Chat with AI"
+msgid "Create with AI"
+msgstr "Чат с AI"
+
+#: templates/templates/email_template_list.html:27
+#: templates/templates/template_detail.html:39
+#: templates/templates/template_studio.html:552
+msgid "Type"
+msgstr "Тип"
+
+#: templates/templates/email_template_list.html:29
+#: templates/templates/template_studio.html:554
+msgid "Times Sent"
+msgstr "Пъти изпратен"
+
+#: templates/templates/email_template_list.html:30
+#, fuzzy
+#| msgid "Last name"
+msgid "Last Used"
+msgstr "Фамилия"
+
+#: templates/templates/email_template_list.html:52
+#: templates/templates/template_list.html:51
+msgid "View"
+msgstr "Виж"
+
+#: templates/templates/email_template_list.html:56
+msgid "Are you sure?"
+msgstr "Сигурни ли сте?"
+
+#: templates/templates/email_template_list.html:69
+#, fuzzy
+#| msgid "No templates yet"
+msgid "No email templates yet"
+msgstr "Все още няма шаблони"
+
+#: templates/templates/email_template_list.html:70
+msgid "Create your first email template using AI in the Studio"
+msgstr "Създайте вашия първи имейл шаблон с AI в Студиото"
+
+#: templates/templates/template_confirm_delete.html:19
+msgid "Default Template"
+msgstr "Шаблон по подразбиране"
+
+#: templates/templates/template_confirm_delete.html:23
+msgid ""
+"This action cannot be undone. Any invoices or offers using this template "
+"will no longer have template formatting."
+msgstr ""
+"Това действие не може да бъде отменено. Всички фактури или оферти, "
+"използващи този шаблон, няма да имат форматиране на шаблон."
+
+#: templates/templates/template_detail.html:19
+#: templates/templates/template_list.html:54
+#: templates/templates/template_preview.html:4
+#: templates/templates/template_studio.html:132
+msgid "Preview"
+msgstr "Преглед"
+
+#: templates/templates/template_detail.html:35
+msgid "Template Information"
+msgstr "Информация за шаблон"
+
+#: templates/templates/template_detail.html:51
+msgid "Created"
+msgstr "Създаден"
+
+#: templates/templates/template_detail.html:54
+msgid "Updated"
+msgstr "Обновен"
+
+#: templates/templates/template_detail.html:62
+msgid "Styling"
+msgstr "Стилизиране"
+
+#: templates/templates/template_detail.html:66
+msgid "Primary Color"
+msgstr "Основен цвят"
+
+#: templates/templates/template_detail.html:73
+msgid "Secondary Color"
+msgstr "Вторичен цвят"
+
+#: templates/templates/template_detail.html:80
+msgid "Font"
+msgstr "Шрифт"
+
+#: templates/templates/template_detail.html:89
+msgid "Logo"
+msgstr "Лого"
+
+#: templates/templates/template_detail.html:100
+#: templates/templates/template_form.html:76
+msgid "Available Variables"
+msgstr "Налични променливи"
+
+#: templates/templates/template_detail.html:103
+msgid "Use these in your template:"
+msgstr "Използвайте ги във вашия шаблон:"
+
+#: templates/templates/template_detail.html:122
+msgid "Header"
+msgstr "Заглавие"
+
+#: templates/templates/template_detail.html:125
+msgid "Footer"
+msgstr "Долен колонтитул"
+
+#: templates/templates/template_detail.html:129
+msgid "Custom CSS"
+msgstr "Персонализиран CSS"
+
+#: templates/templates/template_detail.html:134
+msgid "Custom HTML Template"
+msgstr "Персонализиран HTML шаблон"
+
+#: templates/templates/template_form.html:6
+#: templates/templates/template_list.html:16
+msgid "New Template"
+msgstr "Нов шаблон"
+
+#: templates/templates/template_form.html:8
+#: templates/templates/template_form.html:21
+msgid "Edit Template"
+msgstr "Редактирай шаблон"
+
+#: templates/templates/template_form.html:19
+#: templates/templates/template_form.html:95
+#: templates/templates/template_list.html:76
+msgid "Create Template"
+msgstr "Създай шаблон"
+
+#: templates/templates/template_form.html:29
+msgid "Basic Information"
+msgstr "Основна информация"
+
+#: templates/templates/template_form.html:42
+msgid "Branding"
+msgstr "Брандинг"
+
+#: templates/templates/template_form.html:56
+msgid "Content"
+msgstr "Съдържание"
+
+#: templates/templates/template_form.html:62
+msgid "Advanced (Optional)"
+msgstr "Разширени (по избор)"
+
+#: templates/templates/template_form.html:66
+msgid ""
+"Advanced users can add custom CSS and HTML for complete control over the "
+"template design."
+msgstr ""
+"Напреднали потребители могат да добавят персонализиран CSS и HTML за пълен "
+"контрол над дизайна на шаблона."
+
+#: templates/templates/template_form.html:77
+msgid "Use these variables in your templates:"
+msgstr "Използвайте тези променливи във вашите шаблони:"
+
+#: templates/templates/template_list.html:9
+#: templates/templates/template_studio.html:26
+msgid "Document Templates"
+msgstr "Шаблони за документи"
+
+#: templates/templates/template_list.html:43
+msgid "Colors:"
+msgstr "Цветове:"
+
+#: templates/templates/template_list.html:73
+msgid "No templates yet"
+msgstr "Все още няма шаблони"
+
+#: templates/templates/template_list.html:74
+msgid ""
+"Create your first template to get started with custom invoices and offers."
+msgstr ""
+"Създайте вашия първи шаблон, за да започнете с персонализирани фактури и "
+"оферти."
+
+#: templates/templates/template_preview.html:26
+msgid "Preview with Sample Data"
+msgstr "Преглед с примерни данни"
+
+#: templates/templates/template_preview.html:61
+msgid "Number:"
+msgstr "Номер:"
+
+#: templates/templates/template_preview.html:63
+msgid "Due Date:"
+msgstr "Падеж:"
+
+#: templates/templates/template_preview.html:98
+msgid "Tax:"
+msgstr "Данък:"
+
+#: templates/templates/template_preview.html:121
+msgid ""
+"This is a preview with sample data. Actual invoices and offers will use real "
+"data from your CRM."
+msgstr ""
+"Това е преглед с примерни данни. Реалните фактури и оферти ще използват "
+"истински данни от вашата CRM."
+
+#: templates/templates/template_studio.html:4
+#: templates/templates/template_studio.html:9
+#, fuzzy
+#| msgid "Template Studio"
+msgid "AI Template Studio"
+msgstr "Студио за шаблони"
+
+#: templates/templates/template_studio.html:10
+msgid "Create professional templates using AI - documents and emails!"
+msgstr "Създавайте професионални шаблони с AI - документи и имейли!"
+
+#: templates/templates/template_studio.html:14
+#, fuzzy
+#| msgid "Document Templates"
+msgid "Documents"
+msgstr "Шаблони за документи"
+
+# Common
+#: templates/templates/template_studio.html:17
+#, fuzzy
+#| msgid "Email"
+msgid "Emails"
+msgstr "Имейл"
+
+#: templates/templates/template_studio.html:45
+#, fuzzy
+#| msgid "Template Information"
+msgid "AI Template Generator"
+msgstr "Информация за шаблон"
+
+#: templates/templates/template_studio.html:50
+#, fuzzy
+#| msgid "Template Types"
+msgid "Template Type"
+msgstr "Типове шаблони"
+
+#: templates/templates/template_studio.html:59
+#, fuzzy
+#| msgid "Use these in your template:"
+msgid "Describe your template"
+msgstr "Използвайте ги във вашия шаблон:"
+
+#: templates/templates/template_studio.html:66
+msgid ""
+"Example: Create a modern invoice template with a blue header, company logo "
+"on the left, clean table for items, and a footer with payment terms. Use a "
+"professional font and make it print-friendly."
+msgstr ""
+
+#: templates/templates/template_studio.html:69
+msgid "Be specific about colors, layout, style, and any special requirements."
+msgstr "Бъдете конкретни относно цветове, оформление, стил и специални изисквания."
+
+#: templates/templates/template_studio.html:78
+#, fuzzy
+#| msgid "Create Template"
+msgid "Generate Template"
+msgstr "Създай шаблон"
+
+#: templates/templates/template_studio.html:85
+#: templates/templates/template_studio.html:478
+msgid "Loading..."
+msgstr "Зареждане..."
+
+#: templates/templates/template_studio.html:87
+#, fuzzy
+#| msgid "Use these in your template:"
+msgid "AI is creating your template..."
+msgstr "Използвайте ги във вашия шаблон:"
+
+#: templates/templates/template_studio.html:92
+#: templates/templates/template_studio.html:485
+msgid "Quick Ideas:"
+msgstr "Бързи идеи:"
+
+#: templates/templates/template_studio.html:95
+msgid "Minimalist B&W"
+msgstr "Минималистичен Ч/Б"
+
+#: templates/templates/template_studio.html:98
+msgid "Modern Gradient"
+msgstr "Модерен градиент"
+
+#: templates/templates/template_studio.html:101
+msgid "Sidebar Layout"
+msgstr "Оформление със странична лента"
+
+#: templates/templates/template_studio.html:104
+msgid "Elegant Gold"
+msgstr "Елегантно злато"
+
+#: templates/templates/template_studio.html:112
+#, fuzzy
+#| msgid "View Templates"
+msgid "Refine Template"
+msgstr "Виж шаблони"
+
+#: templates/templates/template_studio.html:118
+msgid ""
+"Example: Make the header smaller, change color to green, add more spacing..."
+msgstr ""
+
+#: templates/templates/template_studio.html:120
+msgid "Refine"
+msgstr "Прецизирай"
+
+#: templates/templates/template_studio.html:134
+#: templates/templates/template_studio.html:194
+#: templates/templates/template_studio.html:530
+#, fuzzy
+#| msgid "New Template"
+msgid "Save Template"
+msgstr "Нов шаблон"
+
+#: templates/templates/template_studio.html:141
+msgid "Your AI-generated template will appear here"
+msgstr "Вашият генериран от AI шаблон ще се появи тук"
+
+#: templates/templates/template_studio.html:154
+msgid "Available Template Variables"
+msgstr "Налични променливи на шаблон"
+
+#: templates/templates/template_studio.html:157
+#, fuzzy
+#| msgid "Use these variables in your templates:"
+msgid "The AI will automatically use these variables in your template:"
+msgstr "Използвайте тези променливи във вашите шаблони:"
+
+#: templates/templates/template_studio.html:161
+#, fuzzy
+#| msgid "Invoice number"
+msgid "Document number"
+msgstr "Номер на фактура"
+
+#: templates/templates/template_studio.html:162
+#, fuzzy
+#| msgid "Document Templates"
+msgid "Document date"
+msgstr "Шаблони за документи"
+
+#: templates/templates/template_studio.html:163
+msgid "Due date"
+msgstr "Краен срок"
+
+#: templates/templates/template_studio.html:164
+#, fuzzy
+#| msgid "Client Name"
+msgid "Client name"
+msgstr "Име на клиент"
+
+#: templates/templates/template_studio.html:165
+#, fuzzy
+#| msgid "Client Name"
+msgid "Client address"
+msgstr "Име на клиент"
+
+#: templates/templates/template_studio.html:166
+#, fuzzy
+#| msgid "Client Name"
+msgid "Client email"
+msgstr "Име на клиент"
+
+#: templates/templates/template_studio.html:167
+#, fuzzy
+#| msgid "Your Company Name"
+msgid "Your company name"
+msgstr "Име на вашата компания"
+
+#: templates/templates/template_studio.html:168
+#, fuzzy
+#| msgid "Your Company Name"
+msgid "Your company address"
+msgstr "Име на вашата компания"
+
+#: templates/templates/template_studio.html:173
+#, fuzzy
+#| msgid "Company"
+msgid "Company logo"
+msgstr "Компания"
+
+#: templates/templates/template_studio.html:174
+msgid "Line items (table)"
+msgstr "Артикули (таблица)"
+
+#: templates/templates/template_studio.html:175
+msgid "Subtotal"
+msgstr "Междинна сума"
+
+#: templates/templates/template_studio.html:176
+#, fuzzy
+#| msgid "Total Amount"
+msgid "Tax amount"
+msgstr "Обща сума"
+
+#: templates/templates/template_studio.html:177
+msgid "Grand total"
+msgstr "Обща сума"
+
+#: templates/templates/template_studio.html:178
+msgid "Additional notes"
+msgstr "Допълнителни бележки"
+
+# Payments
+#: templates/templates/template_studio.html:179
+#, fuzzy
+#| msgid "Payments"
+msgid "Payment terms"
+msgstr "Плащания"
+
+#: templates/templates/template_studio.html:180
+#, fuzzy
+#| msgid "Invoice details"
+msgid "Bank details"
+msgstr "Детайли на фактура"
+
+#: templates/templates/template_studio.html:199
+#: templates/templates/template_studio.html:521
+#, fuzzy
+#| msgid "Template Types"
+msgid "Template Name"
+msgstr "Типове шаблони"
+
+#: templates/templates/template_studio.html:205
+#, fuzzy
+#| msgid "Default Template"
+msgid "Set as default template"
+msgstr "Шаблон по подразбиране"
+
+#: templates/templates/template_studio.html:212
+msgid "Save"
+msgstr "Запази"
+
+#: templates/templates/template_studio.html:261
+#, fuzzy
+#| msgid "Use these in your template:"
+msgid "Please describe your template"
+msgstr "Използвайте ги във вашия шаблон:"
+
+#: templates/templates/template_studio.html:295
+#, fuzzy
+#| msgid "Requests this month"
+msgid "AI requests remaining this month"
+msgstr "Заявки този месец"
+
+#: templates/templates/template_studio.html:299
+msgid "Failed to generate template"
+msgstr "Неуспешно генериране на шаблон"
+
+#: templates/templates/template_studio.html:304
+#, fuzzy
+#| msgid "You have reached your AI request limit for this month."
+msgid "You have reached your AI limit. Would you like to upgrade your plan?"
+msgstr "Достигнахте лимита си за AI заявки за този месец."
+
+#: templates/templates/template_studio.html:323
+msgid "Please provide refinement instructions"
+msgstr "Моля, предоставете инструкции за прецизиране"
+
+#: templates/templates/template_studio.html:351
+#, fuzzy
+#| msgid "Delete Template"
+msgid "Failed to refine template"
+msgstr "Изтрий шаблон"
+
+#: templates/templates/template_studio.html:371
+msgid "Please provide a template name"
+msgstr "Моля, предоставете име на шаблон"
+
+#: templates/templates/template_studio.html:404
+#, fuzzy
+#| msgid "Delete Template"
+msgid "Failed to save template"
+msgstr "Изтрий шаблон"
+
+#: templates/templates/template_studio.html:407
+msgid "Error saving template"
+msgstr "Грешка при запазване на шаблон"
+
+#: templates/templates/template_studio.html:438
+msgid "AI Email Template Generator"
+msgstr "AI генератор на имейл шаблони"
+
+#: templates/templates/template_studio.html:443
+#, fuzzy
+#| msgid "Email Purpose"
+msgid "Email Type"
+msgstr "Цел на имейла"
+
+#: templates/templates/template_studio.html:456
+#, fuzzy
+#| msgid "Use these in your template:"
+msgid "Describe your email template"
+msgstr "Използвайте ги във вашия шаблон:"
+
+#: templates/templates/template_studio.html:462
+msgid ""
+"Example: Create a professional payment reminder email with a friendly tone. "
+"Include payment details, due date, and a prominent Pay Now button. Use "
+"modern styling with blue accents."
+msgstr ""
+
+#: templates/templates/template_studio.html:464
+msgid "The AI will generate the subject line and HTML content for you."
+msgstr "AI ще генерира темата и HTML съдържанието за вас."
+
+#: templates/templates/template_studio.html:471
+#, fuzzy
+#| msgid "Generate Email"
+msgid "Generate Email Template"
+msgstr "Генерирай имейл"
+
+#: templates/templates/template_studio.html:480
+msgid "AI is creating your email template..."
+msgstr "AI създава вашия имейл шаблон..."
+
+#: templates/templates/template_studio.html:512
+msgid "Generate an email template to see preview here"
+msgstr "Генерирайте имейл шаблон, за да видите преглед тук"
+
+#: templates/templates/template_studio.html:519
+#, fuzzy
+#| msgid "Edit Template"
+msgid "Save Email Template"
+msgstr "Редактирай шаблон"
+
+#: templates/templates/template_studio.html:526
+msgid "Set as default template for this type"
+msgstr "Задай като шаблон по подразбиране за този тип"
+
+#: templates/templates/template_studio.html:543
+#, fuzzy
+#| msgid "Your Templates"
+msgid "Your Email Templates"
+msgstr "Вашите шаблони"
+
+#: templates/templates/template_studio.html:586
+msgid "No email templates yet. Create your first one above!"
+msgstr "Все още няма имейл шаблони. Създайте вашия първи по-горе!"
+
+#: templates/templates/template_studio.html:614
+msgid "Please describe the email template you want to create"
+msgstr "Моля, опишете имейл шаблона, който искате да създадете"
+
+#: templates/templates/template_studio.html:660
+msgid "Failed to generate email template"
+msgstr "Неуспешно генериране на имейл шаблон"
+
+#: templates/templates/template_studio.html:667
+#, fuzzy
+#| msgid "Error generating email. Please try again."
+msgid "Error generating email template. Please try again."
+msgstr "Грешка при генериране на имейл. Моля, опитайте отново."
+
+#: templates/templates/template_studio.html:677
+msgid "Please enter a template name"
+msgstr "Моля, въведете име на шаблон"
+
+#: templates/templates/template_studio.html:682
+msgid "Please generate a template first"
+msgstr "Моля, първо генерирайте шаблон"
+
+#: templates/templates/template_studio.html:709
+msgid "Failed to save email template"
+msgstr "Неуспешно запазване на имейл шаблон"
+
+#: templates/templates/template_studio.html:714
+#, fuzzy
+#| msgid "Error generating email. Please try again."
+msgid "Error saving email template. Please try again."
+msgstr "Грешка при генериране на имейл. Моля, опитайте отново."
+
+#~ msgid "City"
+#~ msgstr "Град"
+
+#~ msgid "Create"
+#~ msgstr "Създай"
+
+#~ msgid "Due"
+#~ msgstr "Падеж"
+
+#~ msgid "Invoice Number:"
+#~ msgstr "Номер на фактура:"
+
+#~ msgid "Invoice Date:"
+#~ msgstr "Дата на фактура:"
+
+#~ msgid ""
+#~ "Any invoices or offers using this template will no longer have template "
+#~ "formatting."
+#~ msgstr ""
+#~ "Всички фактури или оферти, използващи този шаблон, няма да имат "
+#~ "форматиране на шаблон."
+
+#~ msgid "Template Design Studio"
+#~ msgstr "Студио за дизайн на шаблони"
+
+#~ msgid ""
+#~ "Create professional invoice and offer templates with custom branding, "
+#~ "colors, and layouts."
+#~ msgstr ""
+#~ "Създавайте професионални шаблони за фактури и оферти с персонализиран "
+#~ "брандинг, цветове и оформление."
+
+#~ msgid ""
+#~ "Create separate templates for invoices and offers with different designs."
+#~ msgstr "Създавайте отделни шаблони за фактури и оферти с различни дизайни."
+
+#~ msgid "View All Templates"
+#~ msgstr "Виж всички шаблони"
+
+#~ msgid "Create New Template"
+#~ msgstr "Създай нов шаблон"
+
+#~ msgid "Preview your templates with sample data before using them."
+#~ msgstr "Прегледайте вашите шаблони с примерни данни преди да ги използвате."
+
+#~ msgid "Custom Branding"
+#~ msgstr "Персонализиран брандинг"
+
+#~ msgid ""
+#~ "Upload your logo, choose colors, and customize fonts to match your brand."
+#~ msgstr ""
+#~ "Качете вашето лого, изберете цветове и персонализирайте шрифтове, за да "
+#~ "отговарят на вашия бранд."
+
+#~ msgid "Custom HTML/CSS"
+#~ msgstr "Персонализиран HTML/CSS"
+
+#~ msgid "Advanced users can add custom HTML and CSS for complete control."
+#~ msgstr ""
+#~ "Напреднали потребители могат да добавят персонализиран HTML и CSS за "
+#~ "пълен контрол."
+
+#~ msgid "Use these variables in your templates to display dynamic content:"
+#~ msgstr ""
+#~ "Използвайте тези променливи във вашите шаблони за показване на динамично "
+#~ "съдържание:"
+
+#~ msgid "Don"
+#~ msgstr "Г-н"
