@@ -98,7 +98,7 @@ msgstr "Имейл адрес за изпращане (трябва да бъд�
 
 #: apps/accounts/forms.py:104
 msgid "Name to display in the \"from\" field of emails"
-msgstr "Име за показване в полето "от" на имейлите"
+msgstr "Име за показване в полето \"от\" на имейлите"
 
 #: apps/accounts/models.py:9
 #, fuzzy
@@ -172,7 +172,7 @@ msgstr "Име"
 
 #: apps/accounts/models.py:44
 msgid "Name to display in \"from\" field of emails"
-msgstr "Име за показване в полето "от" на имейлите"
+msgstr "Име за показване в полето \"от\" на имейлите"
 
 #: apps/accounts/models.py:48 apps/crm/models.py:26
 msgid "VAT number"
@@ -4974,10 +4974,6 @@ msgstr "Намерете отговори на най-често задаван�
 msgid "Search questions..."
 msgstr "Търсете въпроси..."
 
-#: templates/faq/faq_home.html:26 templates/faq/faq_search.html:24
-msgid "Search"
-msgstr "Търси"
-
 #: templates/faq/faq_home.html:38
 msgid "Featured Questions"
 msgstr "Препоръчани въпроси"
@@ -5058,17 +5054,9 @@ msgstr "Беше ли полезно?"
 msgid "Thank you!"
 msgstr "Благодарим!"
 
-#: templates/faq/faq_detail.html:59
-msgid "Yes"
-msgstr "Да"
-
 #: templates/faq/faq_detail.html:61
 msgid "Sorry to hear that! Please contact support."
 msgstr "Съжаляваме! Свържете се с поддръжката."
-
-#: templates/faq/faq_detail.html:62
-msgid "No"
-msgstr "Не"
 
 #: templates/faq/faq_detail.html:68
 msgid "Last updated"
