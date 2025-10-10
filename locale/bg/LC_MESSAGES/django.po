@@ -4949,6 +4949,143 @@ msgstr "Неуспешно запазване на имейл шаблон"
 msgid "Error saving email template. Please try again."
 msgstr "Грешка при генериране на имейл. Моля, опитайте отново."
 
+# Footer and FAQ translations
+#: templates/base.html:200
+msgid "Useful Links"
+msgstr "Полезни връзки"
+
+#: templates/base.html:213
+msgid "Support"
+msgstr "Поддръжка"
+
+#: templates/faq/faq_home.html:4
+msgid "Frequently Asked Questions (FAQ)"
+msgstr "Често задавани въпроси (FAQ)"
+
+#: templates/faq/faq_home.html:12
+msgid "Frequently Asked Questions"
+msgstr "Често задавани въпроси"
+
+#: templates/faq/faq_home.html:14
+msgid "Find answers to the most frequently asked questions"
+msgstr "Намерете отговори на най-често задаваните въпроси"
+
+#: templates/faq/faq_home.html:23
+msgid "Search questions..."
+msgstr "Търсете въпроси..."
+
+#: templates/faq/faq_home.html:26 templates/faq/faq_search.html:24
+msgid "Search"
+msgstr "Търси"
+
+#: templates/faq/faq_home.html:38
+msgid "Featured Questions"
+msgstr "Препоръчани въпроси"
+
+#: templates/faq/faq_home.html:64
+msgid "Categories"
+msgstr "Категории"
+
+#: templates/faq/faq_home.html:76 templates/faq/faq_category.html:22
+msgid "questions"
+msgstr "въпроса"
+
+#: templates/faq/faq_home.html:110
+msgid "View Full Guide"
+msgstr "Виж пълното ръководство"
+
+#: templates/faq/faq_home.html:124
+msgid "Can't find an answer to your question?"
+msgstr "Не намирате отговор на въпроса си?"
+
+#: templates/faq/faq_home.html:125
+msgid "Contact us for additional help"
+msgstr "Свържете се с нас за допълнителна помощ"
+
+#: templates/faq/faq_home.html:127
+msgid "Contact Us"
+msgstr "Свържете се с нас"
+
+#: templates/faq/faq_search.html:4
+msgid "FAQ Search"
+msgstr "Търсене в FAQ"
+
+#: templates/faq/faq_search.html:37
+msgid "Found"
+msgstr "Намерени"
+
+#: templates/faq/faq_search.html:37
+msgid "results for"
+msgstr "резултата за"
+
+#: templates/faq/faq_search.html:39
+msgid "No results for"
+msgstr "Няма резултати за"
+
+#: templates/faq/faq_search.html:58 templates/faq/faq_category.html:42
+msgid "Read more"
+msgstr "Прочети повече"
+
+#: templates/faq/faq_search.html:65
+msgid "No results found. Try with different keywords."
+msgstr "Не са намерени резултати. Опитайте с други ключови думи."
+
+#: templates/faq/faq_search.html:75
+msgid "Back to FAQ"
+msgstr "Обратно към FAQ"
+
+#: templates/faq/faq_category.html:53
+msgid "No questions in this category yet."
+msgstr "Все още няма въпроси в тази категория."
+
+#: templates/faq/faq_category.html:62
+msgid "Back to all categories"
+msgstr "Обратно към всички категории"
+
+#: templates/faq/faq_detail.html:33
+msgid "views"
+msgstr "прегледи"
+
+#: templates/faq/faq_detail.html:46
+msgid "Detailed Guide"
+msgstr "Подробно ръководство"
+
+#: templates/faq/faq_detail.html:57
+msgid "Was this helpful?"
+msgstr "Беше ли полезно?"
+
+#: templates/faq/faq_detail.html:58
+msgid "Thank you!"
+msgstr "Благодарим!"
+
+#: templates/faq/faq_detail.html:59
+msgid "Yes"
+msgstr "Да"
+
+#: templates/faq/faq_detail.html:61
+msgid "Sorry to hear that! Please contact support."
+msgstr "Съжаляваме! Свържете се с поддръжката."
+
+#: templates/faq/faq_detail.html:62
+msgid "No"
+msgstr "Не"
+
+#: templates/faq/faq_detail.html:68
+msgid "Last updated"
+msgstr "Последна актуализация"
+
+#: templates/faq/faq_detail.html:82
+msgid "Related Questions"
+msgstr "Свързани въпроси"
+
+#: templates/faq/faq_detail.html:98
+msgid "Back to"
+msgstr "Обратно към"
+
+#: templates/faq/faq_detail.html:101
+msgid "All Categories"
+msgstr "Всички категории"
+
 #~ msgid "City"
 #~ msgstr "Град"
 

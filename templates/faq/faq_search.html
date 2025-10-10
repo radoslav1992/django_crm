@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 {% load i18n %}
 
-{% block title %}{% trans "Търсене в FAQ" %}{% endblock %}
+{% block title %}{% trans "FAQ Search" %}{% endblock %}
 
 {% block content %}
 <div class="container mt-4">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{% url 'faq:home' %}">FAQ</a></li>
-            <li class="breadcrumb-item active">{% trans "Търсене" %}</li>
+            <li class="breadcrumb-item active">{% trans "Search" %}</li>
         </ol>
     </nav>
 
@@ -18,10 +18,10 @@
             <form action="{% url 'faq:search' %}" method="get">
                 <div class="input-group input-group-lg">
                     <input type="text" name="q" class="form-control" 
-                           placeholder="{% trans 'Търсете въпроси...' %}" 
+                           placeholder="{% trans 'Search questions...' %}" 
                            value="{{ query }}" autofocus>
                     <button class="btn btn-primary" type="submit">
-                        <i class="bi bi-search"></i> {% trans "Търси" %}
+                        <i class="bi bi-search"></i> {% trans "Search" %}
                     </button>
                 </div>
             </form>
@@ -34,9 +34,9 @@
         <div class="col-lg-10 offset-lg-1">
             <h3 class="mb-4">
                 {% if results %}
-                    {% trans "Намерени" %} {{ results.count }} {% trans "резултата за" %} "{{ query }}"
+                    {% trans "Found" %} {{ results.count }} {% trans "results for" %} "{{ query }}"
                 {% else %}
-                    {% trans "Няма резултати за" %} "{{ query }}"
+                    {% trans "No results for" %} "{{ query }}"
                 {% endif %}
             </h3>
 
@@ -55,14 +55,14 @@
                         {{ item.answer|truncatewords:40 }}
                     </p>
                     <a href="{% url 'faq:detail' item.pk %}" class="btn btn-sm btn-outline-primary">
-                        {% trans "Прочети повече" %} <i class="bi bi-arrow-right"></i>
+                        {% trans "Read more" %} <i class="bi bi-arrow-right"></i>
                     </a>
                 </div>
             </div>
             {% empty %}
             <div class="alert alert-warning">
                 <i class="bi bi-exclamation-triangle"></i>
-                {% trans "Не са намерени резултати. Опитайте с други ключови думи." %}
+                {% trans "No results found. Try with different keywords." %}
             </div>
             {% endfor %}
         </div>
@@ -72,7 +72,7 @@
     <!-- Back Button -->
     <div class="text-center mt-5">
         <a href="{% url 'faq:home' %}" class="btn btn-secondary">
-            <i class="bi bi-arrow-left"></i> {% trans "Обратно към FAQ" %}
+            <i class="bi bi-arrow-left"></i> {% trans "Back to FAQ" %}
         </a>
     </div>
 </div>

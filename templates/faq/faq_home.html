@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load i18n %}
 
-{% block title %}{% trans "Често задавани въпроси (FAQ)" %}{% endblock %}
+{% block title %}{% trans "Frequently Asked Questions (FAQ)" %}{% endblock %}
 
 {% block content %}
 <div class="container mt-4">
@@ -9,9 +9,9 @@
     <div class="text-center mb-5">
         <h1 class="display-4">
             <i class="bi bi-question-circle text-primary"></i>
-            {% trans "Често задавани въпроси" %}
+            {% trans "Frequently Asked Questions" %}
         </h1>
-        <p class="lead text-muted">{% trans "Намерете отговори на най-често задаваните въпроси" %}</p>
+        <p class="lead text-muted">{% trans "Find answers to the most frequently asked questions" %}</p>
     </div>
 
     <!-- Search Bar -->
@@ -20,10 +20,10 @@
             <form action="{% url 'faq:search' %}" method="get">
                 <div class="input-group input-group-lg">
                     <input type="text" name="q" class="form-control" 
-                           placeholder="{% trans 'Търсете въпроси...' %}" 
+                           placeholder="{% trans 'Search questions...' %}" 
                            value="{{ request.GET.q }}">
                     <button class="btn btn-primary" type="submit">
-                        <i class="bi bi-search"></i> {% trans "Търси" %}
+                        <i class="bi bi-search"></i> {% trans "Search" %}
                     </button>
                 </div>
             </form>
@@ -35,7 +35,7 @@
     <div class="mb-5">
         <h3 class="mb-4">
             <i class="bi bi-star-fill text-warning"></i>
-            {% trans "Препоръчани въпроси" %}
+            {% trans "Featured Questions" %}
         </h3>
         <div class="row">
             {% for item in featured_items %}
@@ -61,7 +61,7 @@
 
     <!-- Categories -->
     <div class="mb-5">
-        <h3 class="mb-4">{% trans "Категории" %}</h3>
+        <h3 class="mb-4">{% trans "Categories" %}</h3>
         <div class="row">
             {% for category in categories %}
             <div class="col-md-4 mb-4">
@@ -73,7 +73,7 @@
                             <p class="card-text text-muted">{{ category.description }}</p>
                             <p class="text-muted small">
                                 <i class="bi bi-question-circle"></i> 
-                                {{ category.obj.items.count }} {% trans "въпроса" %}
+                                {{ category.obj.items.count }} {% trans "questions" %}
                             </p>
                         </div>
                     </div>
@@ -107,7 +107,7 @@
                             {% if current_lang == 'en' and item.answer_en %}{{ item.answer_en|linebreaks }}{% else %}{{ item.answer|linebreaks }}{% endif %}
                         </div>
                         <a href="{% url 'faq:detail' item.pk %}" class="btn btn-sm btn-outline-primary">
-                            <i class="bi bi-book"></i> {% trans "Виж пълното ръководство" %}
+                            <i class="bi bi-book"></i> {% trans "View Full Guide" %}
                         </a>
                     </div>
                 </div>
@@ -121,10 +121,10 @@
     <!-- Contact Section -->
     <div class="card bg-light mt-5">
         <div class="card-body text-center py-5">
-            <h4>{% trans "Не намирате отговор на въпроса си?" %}</h4>
-            <p class="text-muted">{% trans "Свържете се с нас за допълнителна помощ" %}</p>
+            <h4>{% trans "Can't find an answer to your question?" %}</h4>
+            <p class="text-muted">{% trans "Contact us for additional help" %}</p>
             <a href="mailto:support@example.com" class="btn btn-primary">
-                <i class="bi bi-envelope"></i> {% trans "Свържете се с нас" %}
+                <i class="bi bi-envelope"></i> {% trans "Contact Us" %}
             </a>
         </div>
     </div>
